@@ -373,6 +373,41 @@
     .t-card.season .btn-ticket:hover { background: #fff; }
     .ticket-note { margin-top: 22px; text-align: center; font-size: 0.82rem; color: #999; display: flex; align-items: center; justify-content: center; gap: 8px; }
 
+    /* ─── MILITARY DISCOUNT BANNER ──────────────────────── */
+    .mil-discount-banner {
+      background: linear-gradient(135deg, #1A2F5E 0%, #C8102E 60%, #8B0A1E 100%);
+      padding: 0;
+    }
+    .mdb-inner {
+      max-width: 1220px; margin: 0 auto;
+      display: flex; align-items: center; gap: 36px;
+      padding: 36px 48px; flex-wrap: wrap;
+    }
+    .mdb-flag {
+      flex-shrink: 0; width: 72px; height: 72px; border-radius: 50%;
+      background: rgba(255,255,255,0.15); border: 3px solid rgba(255,255,255,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; color: #fff;
+    }
+    .mdb-content { flex: 1; min-width: 260px; }
+    .mdb-headline {
+      font-size: clamp(1.1rem, 2.5vw, 1.55rem); font-weight: 900;
+      color: #fff; letter-spacing: 0.3px; margin-bottom: 8px;
+    }
+    .mdb-sub { font-size: 0.84rem; color: rgba(255,255,255,0.85); line-height: 1.65; }
+    .mdb-branches {
+      display: flex; gap: 14px; align-items: center;
+      flex-shrink: 0;
+    }
+    .mdb-branches span {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.35);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.9); font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+    .mdb-branches span:hover { background: rgba(255,255,255,0.3); }
+
     /* ─── ATTRACTIONS ────────────────────────────────────── */
     .s-attract { padding: 96px 48px; background: var(--straw); }
     /* Featured maze card */
@@ -771,6 +806,10 @@
         <div class="hic-icon"><i class="fa-solid fa-tag"></i></div>
         <div><span class="hic-label">Admission</span><span class="hic-val">$12.50 · Kids 36" &amp; under FREE</span></div>
       </div>
+      <div class="hic-row" style="background:rgba(200,16,46,0.12);border-radius:8px;padding:6px 10px;margin-top:4px;">
+        <div class="hic-icon" style="background:var(--red);"><i class="fa-solid fa-shield-halved"></i></div>
+        <div><span class="hic-label" style="color:var(--red);">Military Discount</span><span class="hic-val" style="color:var(--red);font-weight:800;">10% Off — Active Duty &amp; Veterans</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -871,7 +910,7 @@
           </div>
         </div>
         <div class="hometown-strip">
-          <strong>Hometown Heroes Weekend</strong> — our annual tribute to veterans, active military &amp; first responders — carries extra meaning in 2026. Military discount available every day at the gate with valid ID.
+          <strong>Hometown Heroes Weekend</strong> — our annual tribute to veterans, active military &amp; first responders — carries extra meaning in 2026. <strong>10% military discount available every day</strong> at the gate for active duty &amp; veterans. Valid military ID required.
         </div>
 
         <!-- Pioneer partnership note -->
@@ -917,7 +956,7 @@
         <div class="t-corner-badge">Most Popular</div>
         <span class="t-type">Single Day Admission</span>
         <div class="t-price">$12.50</div>
-        <div class="t-desc">Per person. Kids 36" &amp; under are always FREE. Military discount available at the gate with valid ID.</div>
+        <div class="t-desc">Per person. Kids 36" &amp; under are always FREE. <strong style="color:var(--red);">10% military discount</strong> for active duty &amp; veterans — valid military ID required at gate.</div>
         <ul class="t-perks">
           <li><span class="perk-dot"><i class="fa-solid fa-check" style="font-size:0.55rem;"></i></span>Full 30-acre maze — all five levels</li>
           <li><span class="perk-dot"><i class="fa-solid fa-check" style="font-size:0.55rem;"></i></span>Bee-Line Zip Line, BIG Slide &amp; Rat Rollers</li>
@@ -951,10 +990,31 @@
     </div>
     <div class="ticket-note">
       <i class="fa-solid fa-medal"></i>
-      Active military &amp; veterans — discount available at the gate every day with valid ID. Thank you for your service.
+      Active duty &amp; veterans receive <strong>10% off admission</strong> every day at the gate — valid military ID required.
     </div>
   </div>
 </section>
+
+<!-- ── MILITARY DISCOUNT BANNER ───────────────────────────── -->
+<div class="mil-discount-banner">
+  <div class="mdb-inner">
+    <div class="mdb-flag">
+      <i class="fa-solid fa-shield-halved"></i>
+    </div>
+    <div class="mdb-content">
+      <div class="mdb-headline">10% Military Discount — Every Day, All Season</div>
+      <div class="mdb-sub">Active duty military &amp; veterans receive 10% off admission at the gate. Valid military ID required. No other corn maze in the region offers this — it's our way of saying thank you.</div>
+    </div>
+    <div class="mdb-branches">
+      <span title="Army"><i class="fa-solid fa-star"></i></span>
+      <span title="Navy"><i class="fa-solid fa-anchor"></i></span>
+      <span title="Air Force"><i class="fa-solid fa-jet-fighter"></i></span>
+      <span title="Marines"><i class="fa-solid fa-shield-halved"></i></span>
+      <span title="Coast Guard"><i class="fa-solid fa-water"></i></span>
+      <span title="Space Force"><i class="fa-solid fa-satellite"></i></span>
+    </div>
+  </div>
+</div>
 
 <!-- ── ATTRACTIONS ────────────────────────────────────────── -->
 <section class="s-attract" id="attractions">
@@ -1402,8 +1462,8 @@
           <div class="c-text">
             <strong>Admission</strong>
             $12.50 per person · Kids 36" &amp; under FREE<br>
-            Season Pass: $28<br>
-            Military discount at gate with valid ID
+            Season Pass: $28 · Tax included<br>
+            <strong style="color:var(--red);">10% military discount</strong> — active duty &amp; veterans, valid military ID required
           </div>
         </div>
       </div>
