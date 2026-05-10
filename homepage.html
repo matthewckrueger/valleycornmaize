@@ -566,19 +566,44 @@
       background: linear-gradient(135deg, #F0F7EE 0%, #FAFFF9 50%, #EDF5FF 100%);
       border-top: 4px solid #4B7A2A;
     }
-    .sponsor-inner {
-      max-width: 1220px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+    .s-sponsor .container { text-align: center; }
+    .premier-badge {
+      display: inline-block; background: #4B7A2A; color: #fff;
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;
+      padding: 6px 16px; border-radius: 50px; margin-bottom: 28px;
     }
-    .sponsor-text .s-tag { color: #aaa; }
-    .sponsor-text p { font-size: 0.9rem; color: var(--mid); max-width: 480px; line-height: 1.7; }
-    .pioneer-logo-box {
-      background: var(--straw); border: 2px solid var(--light-rule);
-      border-radius: 14px; padding: 28px 40px; text-align: center;
-      min-width: 220px;
+    .pioneer-hero-logo {
+      display: inline-block; text-decoration: none;
+      transition: transform 0.2s, opacity 0.2s;
     }
-    .pioneer-logo-box .pl-name { font-size: 2rem; font-weight: 900; color: var(--red); letter-spacing: 1px; }
-    .pioneer-logo-box .pl-sub { font-size: 0.65rem; color: #999; letter-spacing: 3px; text-transform: uppercase; margin-top: 2px; }
+    .pioneer-hero-logo:hover { transform: scale(1.04); opacity: 0.9; }
+    .pioneer-hero-logo img { height: 140px; width: auto; object-fit: contain; display: block; margin: 0 auto; }
+    .pioneer-tagline {
+      font-size: 1rem; color: #3A5A28; font-weight: 500;
+      margin-top: 20px; margin-bottom: 8px; line-height: 1.6; max-width: 560px; margin-left: auto; margin-right: auto;
+    }
+    .pioneer-sub {
+      font-size: 0.72rem; color: #888; letter-spacing: 3px; text-transform: uppercase; margin-top: 4px;
+    }
+    /* ─── ALL PARTNERS ───────────────────────────────────── */
+    .s-partners { padding: 64px 48px; background: #fff; border-top: 1px solid var(--light-rule); }
+    .s-partners .container { text-align: center; }
+    .s-partners h3 { font-size: 1.1rem; font-weight: 700; color: var(--mid); margin-bottom: 36px; letter-spacing: 0.5px; }
+    .partner-grid {
+      display: flex; flex-wrap: wrap; gap: 20px;
+      justify-content: center; align-items: center;
+    }
+    .partner-tile {
+      background: var(--straw); border: 1.5px solid var(--light-rule);
+      border-radius: 12px; padding: 16px 24px;
+      display: flex; align-items: center; justify-content: center;
+      min-width: 140px; height: 80px;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .partner-tile:hover { border-color: var(--green); box-shadow: 0 4px 18px rgba(74,140,63,0.15); transform: translateY(-2px); }
+    .partner-tile img { max-height: 48px; max-width: 130px; width: auto; height: auto; object-fit: contain; filter: grayscale(20%); transition: filter 0.2s; }
+    .partner-tile:hover img { filter: grayscale(0%); }
+    .partner-tile-text { font-size: 0.72rem; font-weight: 700; color: var(--mid); text-align: center; line-height: 1.3; }
 
     /* ─── SOCIAL ─────────────────────────────────────────── */
     .s-social { padding: 80px 48px; background: var(--dkgreen); text-align: center; }
@@ -774,7 +799,7 @@
       <div>
         <span class="qs-label">Admission</span>
         <span class="qs-val">$12.50 per person</span>
-        <span class="qs-sub">Kids 36" &amp; under always FREE</span>
+        <span class="qs-sub">Kids 36" &amp; under FREE · <strong>Tax included</strong></span>
       </div>
     </div>
     <div class="qs-cell">
@@ -1239,10 +1264,10 @@
           <label>Estimated Group Size</label>
           <select class="f-input">
             <option value="">Select group size</option>
-            <option>10–25 people</option>
-            <option>25–50 people</option>
-            <option>50–100 people</option>
-            <option>100+ people</option>
+            <option>15–25 people ($2 off/person)</option>
+            <option>26–50 people ($3 off/person)</option>
+            <option>51–100 people ($4 off/person)</option>
+            <option>101+ people ($4 off/person)</option>
           </select>
         </div>
         <div class="f-row">
@@ -1260,15 +1285,62 @@
 
 <!-- ── PIONEER SPONSOR ───────────────────────────────────── -->
 <section class="s-sponsor">
-  <div class="sponsor-inner">
-    <div class="sponsor-text">
-      <span class="s-tag">Our Partners</span>
-      <p>We're proud to partner with <strong>Pioneer Seed Corn</strong> — a name synonymous with the Red River Valley. Their support makes it possible to plant the field that tells America's story.</p>
+  <div class="container">
+    <div class="premier-badge">Premier Partner</div>
+    <a class="pioneer-hero-logo" href="https://www.pioneer.com" target="_blank" rel="noopener">
+      <img src="https://static.wixstatic.com/media/d1af8e_37cc92cb036f4ab2856912b3f14eb4c1~mv2.webp" alt="Pioneer® Seed Corn">
+    </a>
+    <p class="pioneer-tagline">Valley Corn Maize is proud to partner with <strong>Pioneer®</strong> — a name synonymous with agriculture in the Red River Valley for over a century. Their support makes it possible to grow the field that tells America's story.</p>
+    <div class="pioneer-sub">Proud Sponsor · Valley Corn Maize 2026</div>
+  </div>
+</section>
+
+<!-- ── 2025 PARTNERS ──────────────────────────────────────── -->
+<section class="s-partners">
+  <div class="container">
+    <h3>Thank you to our 2025 Partners</h3>
+    <div class="partner-grid">
+      <a class="partner-tile" href="https://www.heftyseed.com" target="_blank" rel="noopener" title="Hefty Seed Company">
+        <img src="https://static.wixstatic.com/media/d1af8e_8ce82ab4f60c46c0a97db176fe1ccabf~mv2.webp" alt="Hefty Seed Company">
+      </a>
+      <a class="partner-tile" href="https://www.mncorn.org" target="_blank" rel="noopener" title="Minnesota Corn Growers Association">
+        <img src="https://static.wixstatic.com/media/887d8b_4095b6fe01554ab4a4fa5d03047202e3~mv2.jpg" alt="Minnesota Corn Growers Association">
+      </a>
+      <a class="partner-tile" href="https://static.wixstatic.com/media/d1af8e_e9890719e8e1449da6e4c1f2e9fd70a4~mv2.webp" target="_blank" rel="noopener" title="Higher Ground — Paul Zavoral, Inc.">
+        <img src="https://static.wixstatic.com/media/d1af8e_e9890719e8e1449da6e4c1f2e9fd70a4~mv2.webp" alt="Higher Ground — Paul Zavoral, Inc.">
+      </a>
+      <a class="partner-tile" href="#" title="Valley Truck">
+        <img src="https://static.wixstatic.com/media/6f3675_ced47a55b53f427abe987998b976113b~mv2.jpg" alt="Valley Truck">
+      </a>
+      <a class="partner-tile" href="https://www.dairyqueen.com" target="_blank" rel="noopener" title="Dairy Queen — East Grand Forks, MN">
+        <img src="https://static.wixstatic.com/media/6f3675_8471890f8cdb40c8bfe832d46fc31d0f~mv2.png" alt="Dairy Queen East Grand Forks">
+      </a>
+      <a class="partner-tile" href="#" target="_blank" rel="noopener" title="Hope Church">
+        <img src="https://static.wixstatic.com/media/d1af8e_a25dce096e08456eb14744cdd601f6e8~mv2.webp" alt="Hope Church">
+      </a>
+      <a class="partner-tile" href="#" target="_blank" rel="noopener" title="Your Q FM">
+        <img src="https://static.wixstatic.com/media/d1af8e_f46792a5d6d04d42a707db15242e08e9~mv2.webp" alt="Your Q FM">
+      </a>
+      <a class="partner-tile" href="https://www.truenorthequipment.com" target="_blank" rel="noopener" title="TrueNorth Equipment">
+        <img src="https://static.wixstatic.com/media/d1af8e_933d258eed1842c1b7991e840eeab1b3~mv2.webp" alt="TrueNorth Equipment">
+      </a>
+      <a class="partner-tile" href="#" title="Evergreen Insurance Agency">
+        <span class="partner-tile-text">Evergreen<br>Insurance Agency</span>
+      </a>
+      <a class="partner-tile" href="#" title="Superior Fenders Inc.">
+        <span class="partner-tile-text">Superior<br>Fenders Inc.</span>
+      </a>
+      <a class="partner-tile" href="#" title="Heritage Insurance Services">
+        <span class="partner-tile-text">Heritage<br>Insurance Services</span>
+      </a>
+      <a class="partner-tile" href="https://www.pkm.coop" target="_blank" rel="noopener" title="PKM Electric Cooperative">
+        <span class="partner-tile-text">PKM Electric<br>Cooperative</span>
+      </a>
+      <a class="partner-tile" href="#" title="K&D Krueger Farms & Sons">
+        <span class="partner-tile-text">K&amp;D Krueger<br>Farms &amp; Sons</span>
+      </a>
     </div>
-    <div class="pioneer-logo-box">
-      <img src="https://static.wixstatic.com/media/d1af8e_37cc92cb036f4ab2856912b3f14eb4c1~mv2.webp" alt="Pioneer Seed Corn" style="height:60px;width:auto;object-fit:contain;border-radius:6px;">
-      <div class="pl-sub" style="margin-top:8px;">Proud Sponsor · Valley Corn Maize 2026</div>
-    </div>
+    <p style="font-size:0.74rem;color:#bbb;margin-top:28px;letter-spacing:1px;">2026 partnerships coming soon · <a href="mailto:info@valleycornmaize.com" style="color:var(--green);text-decoration:none;">Contact us to become a partner</a></p>
   </div>
 </section>
 
