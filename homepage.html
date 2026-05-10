@@ -465,24 +465,36 @@
     .seas-body p { font-size: 0.88rem; color: var(--mid); line-height: 1.75; }
 
     /* ─── CONCESSIONS ────────────────────────────────────── */
-    .s-food { padding: 96px 48px; background: var(--orange); }
-    .s-food .s-tag { color: rgba(255,255,255,0.68); }
+    .s-food { padding: 96px 48px; background: var(--dkgreen); }
+    .s-food .s-tag { color: var(--yellow); }
     .s-food h2 { color: #fff; }
-    .s-food .lead { color: rgba(255,255,255,0.82); }
-    .food-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; margin-top: 52px; }
-    .food-photo { border-radius: 16px; overflow: hidden; }
-    .food-photo .photo-slot { aspect-ratio: 4/3; width: 100%; border: none; background: rgba(0,0,0,0.15); color: rgba(255,255,255,0.6); }
-    .food-photo .photo-slot i { color: rgba(255,255,255,0.4); }
-    .food-items { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .food-item {
-      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.22);
-      border-radius: 12px; padding: 18px 16px;
-      transition: background 0.2s;
+    .s-food .lead { color: rgba(255,255,255,0.82); max-width: 700px; }
+    .food-menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 52px; }
+    .food-card {
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 6px 28px rgba(0,0,0,0.22);
+      transition: transform 0.22s, box-shadow 0.22s;
+      cursor: default;
     }
-    .food-item:hover { background: rgba(255,255,255,0.24); }
-    .food-icon { width: 38px; height: 38px; border-radius: 8px; background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1rem; margin-bottom: 10px; }
-    .food-name { font-size: 0.88rem; font-weight: 700; color: #fff; margin-bottom: 3px; }
-    .food-note { font-size: 0.74rem; color: rgba(255,255,255,0.7); line-height: 1.45; }
+    .food-card:hover { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(0,0,0,0.3); }
+    .food-card-img {
+      height: 180px; display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; position: relative; overflow: hidden;
+    }
+    .food-card-img::before {
+      content: ''; position: absolute; inset: 0;
+      background: inherit; filter: brightness(0.88);
+    }
+    .food-card-img i { position: relative; z-index: 1; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
+    .food-card-body { background: #fff; padding: 20px 22px 22px; }
+    .food-card-name { font-size: 1rem; font-weight: 800; color: var(--dkgreen); margin-bottom: 5px; }
+    .food-card-desc { font-size: 0.8rem; color: var(--mid); line-height: 1.55; }
+    .fc-taco   .food-card-img { background: linear-gradient(135deg, #B84A00, #E87A20); color: #FFD090; }
+    .fc-donut  .food-card-img { background: linear-gradient(135deg, #C86A00, #F5C518); color: #FFF3CC; }
+    .fc-dog    .food-card-img { background: linear-gradient(135deg, #8B3A00, #D45A00); color: #FFD0A0; }
+    .fc-blossom .food-card-img { background: linear-gradient(135deg, #8B1A00, #C84020); color: #FFB8A0; }
+    .fc-cone   .food-card-img { background: linear-gradient(135deg, #6B4A20, #C8955A); color: #FFE8C8; }
+    .fc-drinks .food-card-img { background: linear-gradient(135deg, #1A5E8B, #2D9EC8); color: #A8E0FF; }
 
     /* ─── GROUPS ─────────────────────────────────────────── */
     .s-groups { padding: 96px 48px; background: var(--straw); }
@@ -519,8 +531,41 @@
     }
     .btn-grp-submit:hover { background: var(--dkgreen); }
 
+    /* ─── GROUP PRICING ─────────────────────────────────── */
+    .grp-pricing-wrap { background: #fff; border-radius: 20px; padding: 36px 40px; margin: 36px 0 48px; box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+    .grp-pricing-title { font-size: 1.15rem; font-weight: 800; color: var(--dkgreen); margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
+    .grp-pricing-note { font-size: 0.84rem; color: var(--mid); margin-bottom: 28px; }
+    .grp-pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px; }
+    .grp-tier {
+      background: var(--warm); border-radius: 14px; padding: 24px 20px;
+      text-align: center; border: 2px solid var(--light-rule);
+      transition: all 0.2s;
+    }
+    .grp-tier:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+    .grp-tier-mid { background: linear-gradient(135deg, #FFF4D6, #FFE8A0); border-color: var(--yellow); }
+    .grp-tier-best { background: linear-gradient(135deg, var(--green), var(--dkgreen)); border-color: var(--green); }
+    .grp-tier-best .grp-tier-range,
+    .grp-tier-best .grp-tier-save { color: #fff; }
+    .grp-tier-best .grp-tier-label,
+    .grp-tier-best .grp-tier-price { color: rgba(255,255,255,0.8); }
+    .grp-tier-range { font-size: 2rem; font-weight: 900; color: var(--dkgreen); line-height: 1; }
+    .grp-tier-label { font-size: 0.7rem; font-weight: 600; color: var(--mid); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; }
+    .grp-tier-save { font-size: 1.5rem; font-weight: 900; color: var(--orange); }
+    .grp-tier-best .grp-tier-save { color: var(--yellow); }
+    .grp-tier-price { font-size: 0.72rem; font-weight: 600; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; }
+    .grp-nonprofit {
+      background: linear-gradient(135deg, #EAF4EA, #D5EDD5); border-left: 4px solid var(--green);
+      border-radius: 10px; padding: 14px 18px; font-size: 0.84rem; color: var(--dkgreen);
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .grp-nonprofit i { color: var(--green); margin-top: 2px; flex-shrink: 0; }
+
     /* ─── PIONEER SPONSOR ───────────────────────────────── */
-    .s-sponsor { padding: 60px 48px; background: #fff; border-top: 1px solid var(--light-rule); }
+    .s-sponsor {
+      padding: 72px 48px;
+      background: linear-gradient(135deg, #F0F7EE 0%, #FAFFF9 50%, #EDF5FF 100%);
+      border-top: 4px solid #4B7A2A;
+    }
     .sponsor-inner {
       max-width: 1220px; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;
@@ -1065,50 +1110,53 @@
   </div>
 </section>
 
-<!-- ── CONCESSIONS ────────────────────────────────────────── -->
+<!-- ── CONCESSIONS ────────────────────────────────────── -->
 <section class="s-food">
   <div class="container">
     <span class="s-tag">On-Site Concessions</span>
     <h2>Fuel the Adventure</h2>
-    <p class="lead">Everything made fresh on-site. The mini donuts have a legendary reputation around here — don't leave without trying them.</p>
-    <div class="food-layout">
-      <div class="food-photo">
-        <!--
-          PHOTO: Concession stand, food being made, or a great shot of mini donuts / taco in a bag.
-          <img src="photos/concessions.jpg" alt="Fresh Concessions" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;">
-        -->
-        <img src="https://static.wixstatic.com/media/d1af8e_801b50f462ea4ed9b5862cf8e4e754b6~mv2.webp" alt="Valley Corn Maize — fall fun" style="aspect-ratio:4/3;width:100%;object-fit:cover;border-radius:16px;">
+    <p class="lead">Everything made fresh on-site. The mini donuts have a legendary reputation around East Grand Forks — don't leave without trying them.</p>
+    <div class="food-menu-grid">
+      <div class="food-card fc-taco">
+        <div class="food-card-img"><i class="fa-solid fa-bowl-food"></i></div>
+        <div class="food-card-body">
+          <div class="food-card-name">Taco in a Bag</div>
+          <div class="food-card-desc">A fan favorite — seasoned taco goodness served right in the bag. Messy, filling, and worth every bite.</div>
+        </div>
       </div>
-      <div class="food-items">
-        <div class="food-item">
-          <div class="food-icon"><i class="fa-solid fa-bowl-food"></i></div>
-          <div class="food-name">Taco in a Bag</div>
-          <div class="food-note">A fan favorite — messy, filling, and worth every bite</div>
+      <div class="food-card fc-donut">
+        <div class="food-card-img"><i class="fa-solid fa-ring"></i></div>
+        <div class="food-card-body">
+          <div class="food-card-name">Mini Donuts</div>
+          <div class="food-card-desc">Hot, fresh, and the stuff of local legend. Dusted in cinnamon sugar — the smell alone will find you.</div>
         </div>
-        <div class="food-item">
-          <div class="food-icon"><i class="fa-solid fa-ring"></i></div>
-          <div class="food-name">Mini Donuts</div>
-          <div class="food-note">Hot, fresh, and the stuff of local legend</div>
+      </div>
+      <div class="food-card fc-dog">
+        <div class="food-card-img"><i class="fa-solid fa-hotdog"></i></div>
+        <div class="food-card-body">
+          <div class="food-card-name">Hotdogs</div>
+          <div class="food-card-desc">A fall classic. Simple, satisfying, and always a hit with the kids after a long run through the maze.</div>
         </div>
-        <div class="food-item">
-          <div class="food-icon"><i class="fa-solid fa-hotdog"></i></div>
-          <div class="food-name">Hotdogs</div>
-          <div class="food-note">Classic and always a crowd-pleaser</div>
+      </div>
+      <div class="food-card fc-blossom">
+        <div class="food-card-img"><i class="fa-solid fa-cookie"></i></div>
+        <div class="food-card-body">
+          <div class="food-card-name">Apple Blossoms</div>
+          <div class="food-card-desc">Warm, flaky pastry filled with spiced apple — the taste of fall in every bite. A Valley Corn Maize staple.</div>
         </div>
-        <div class="food-item">
-          <div class="food-icon"><i class="fa-solid fa-cookie"></i></div>
-          <div class="food-name">Apple Blossoms</div>
-          <div class="food-note">Warm, flaky pastry — the taste of fall in every bite</div>
+      </div>
+      <div class="food-card fc-cone">
+        <div class="food-card-img"><i class="fa-solid fa-ice-cream"></i></div>
+        <div class="food-card-body">
+          <div class="food-card-name">Pie in a Cone</div>
+          <div class="food-card-desc">A unique treat you won't find anywhere else. Creamy, sweet, and the perfect handheld fall dessert.</div>
         </div>
-        <div class="food-item">
-          <div class="food-icon"><i class="fa-solid fa-ice-cream"></i></div>
-          <div class="food-name">Pie in a Cone</div>
-          <div class="food-note">A unique treat you won't find anywhere else</div>
-        </div>
-        <div class="food-item">
-          <div class="food-icon"><i class="fa-solid fa-droplet"></i></div>
-          <div class="food-name">Cold Drinks</div>
-          <div class="food-note">Sodas, water &amp; more to keep you refreshed all day</div>
+      </div>
+      <div class="food-card fc-drinks">
+        <div class="food-card-img"><i class="fa-solid fa-cup-straw"></i></div>
+        <div class="food-card-body">
+          <div class="food-card-name">Cold Drinks</div>
+          <div class="food-card-desc">Sodas, water, lemonade &amp; more. Stay refreshed all day as you explore every acre of the valley.</div>
         </div>
       </div>
     </div>
@@ -1121,6 +1169,37 @@
     <span class="s-tag">Groups &amp; Special Visits</span>
     <h2>Planning a Group Adventure?</h2>
     <p class="lead">We love hosting schools, businesses, churches, birthday parties, and large family gatherings. Tell us about your group — we'll take care of the rest.</p>
+
+    <!-- Group Pricing Table -->
+    <div class="grp-pricing-wrap">
+      <h3 class="grp-pricing-title"><i class="fa-solid fa-tags"></i> Group Discount Pricing</h3>
+      <p class="grp-pricing-note">All prices are per person. <strong>Tax is included</strong> in all pricing.</p>
+      <div class="grp-pricing-grid">
+        <div class="grp-tier">
+          <div class="grp-tier-range">15 – 25</div>
+          <div class="grp-tier-label">people</div>
+          <div class="grp-tier-save">$2 off</div>
+          <div class="grp-tier-price">per person</div>
+        </div>
+        <div class="grp-tier grp-tier-mid">
+          <div class="grp-tier-range">26 – 50</div>
+          <div class="grp-tier-label">people</div>
+          <div class="grp-tier-save">$3 off</div>
+          <div class="grp-tier-price">per person</div>
+        </div>
+        <div class="grp-tier grp-tier-best">
+          <div class="grp-tier-range">51+</div>
+          <div class="grp-tier-label">people</div>
+          <div class="grp-tier-save">$4 off</div>
+          <div class="grp-tier-price">per person</div>
+        </div>
+      </div>
+      <div class="grp-nonprofit">
+        <i class="fa-solid fa-hand-holding-heart"></i>
+        <strong>Non-Profit Tax Savings Available</strong> — proof of non-profit status required at time of visit.
+      </div>
+    </div>
+
     <div class="groups-layout">
       <div>
         <div class="group-types">
