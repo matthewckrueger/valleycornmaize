@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valley Corn Maize | Concept 1: Stars & Stalks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --amber:    #C8621A;
+      --gold:     #E8A020;
+      --green:    #2D5E1E;
+      --navy:     #1A2F5E;
+      --red:      #B22234;
+      --cream:    #FAF0E6;
+      --tan:      #F0E4CC;
+      --dark:     #2C1A0E;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', sans-serif; background: var(--cream); color: var(--dark); }
+
+    /* ── DESIGN LABEL ── */
+    .design-label {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      background: var(--navy); color: var(--gold);
+      text-align: center; padding: 7px;
+      font-size: 0.68rem; font-weight: 900; letter-spacing: 4px; text-transform: uppercase;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 32px; left: 0; right: 0; z-index: 1000;
+      background: rgba(250,240,230,0.97); backdrop-filter: blur(10px);
+      border-bottom: 3px solid var(--gold);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 68px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 14px;
+      font-family: 'Playfair Display', serif;
+    }
+    .logo-icon { font-size: 2rem; }
+    .logo-text { line-height: 1.1; }
+    .logo-text strong { display: block; font-size: 1.1rem; color: var(--green); font-weight: 700; }
+    .logo-text span { font-size: 0.65rem; color: var(--amber); letter-spacing: 3px; text-transform: uppercase; font-family: 'Lato', sans-serif; font-weight: 400; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a {
+      text-decoration: none; color: var(--dark);
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--amber); }
+    .nav-cta {
+      background: var(--amber); color: #fff;
+      padding: 10px 22px; border-radius: 4px;
+      text-decoration: none; font-weight: 700;
+      font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--green); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      padding-top: 100px;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      position: relative; overflow: hidden;
+      background:
+        linear-gradient(180deg,
+          rgba(26,47,94,0.7)   0%,
+          rgba(45,94,30,0.55)  45%,
+          rgba(140,70,15,0.75) 80%,
+          rgba(44,26,14,0.9)   100%),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0px, transparent 22px,
+          rgba(0,0,0,0.07) 22px, rgba(0,0,0,0.07) 24px),
+        linear-gradient(180deg, #7BA3CC 0%, #9DC08B 40%, #6B8F3A 60%, #C8A040 80%, #8B5A15 100%);
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 90px;
+      background: var(--cream);
+      clip-path: ellipse(60% 100% at 50% 100%);
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 820px; padding: 0 24px; }
+    .hero-eyebrow {
+      display: inline-block;
+      border: 1px solid rgba(232,160,32,0.6);
+      background: rgba(232,160,32,0.12);
+      color: var(--gold); font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 4px; text-transform: uppercase;
+      padding: 7px 20px; border-radius: 2px; margin-bottom: 22px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: rgba(26,47,94,0.75); border: 2px solid var(--gold);
+      border-radius: 6px; padding: 12px 28px; margin-bottom: 28px;
+    }
+    .hero-badge-text { color: var(--gold); font-size: 0.82rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 6vw, 5.2rem);
+      color: #fff; line-height: 1.08; margin-bottom: 14px;
+      text-shadow: 0 4px 24px rgba(0,0,0,0.5);
+    }
+    .hero h1 em { color: var(--gold); font-style: italic; }
+    .hero-sub {
+      color: rgba(255,255,255,0.85); font-size: clamp(1rem, 2vw, 1.22rem);
+      font-weight: 300; margin-bottom: 10px; line-height: 1.6;
+    }
+    .hero-pill {
+      display: inline-block; background: var(--amber); color: #fff;
+      font-size: 0.72rem; font-weight: 900; letter-spacing: 3px; text-transform: uppercase;
+      padding: 8px 22px; border-radius: 2px; margin-bottom: 36px;
+    }
+    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-hero-primary {
+      background: var(--amber); color: #fff;
+      padding: 16px 38px; border-radius: 4px; text-decoration: none;
+      font-weight: 900; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase;
+      transition: all 0.2s; box-shadow: 0 4px 20px rgba(200,98,26,0.4);
+    }
+    .btn-hero-primary:hover { background: var(--gold); color: var(--dark); transform: translateY(-2px); }
+    .btn-hero-ghost {
+      background: transparent; color: #fff;
+      padding: 16px 38px; border-radius: 4px;
+      border: 2px solid rgba(255,255,255,0.6); text-decoration: none;
+      font-weight: 700; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .btn-hero-ghost:hover { background: #fff; color: var(--dark); }
+
+    /* ── INFO STRIP ── */
+    .info-strip {
+      background: var(--navy); padding: 22px 48px;
+      display: flex; justify-content: center; align-items: center;
+      gap: 0; flex-wrap: wrap;
+    }
+    .info-cell {
+      text-align: center; padding: 0 40px;
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+    .info-cell:last-child { border-right: none; }
+    .info-cell .lbl { font-size: 0.62rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+    .info-cell .val { font-size: 0.95rem; font-weight: 700; color: #fff; }
+
+    /* ── SHARED SECTION ── */
+    section { padding: 90px 48px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .s-tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--amber); margin-bottom: 10px; }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.9rem, 4vw, 3.1rem); line-height: 1.12; margin-bottom: 18px;
+    }
+    .lead { font-size: 1.05rem; line-height: 1.75; color: #5A4030; max-width: 700px; }
+
+    /* ── AMERICA 250 ── */
+    .s-america { background: var(--cream); border-top: 4px solid var(--gold); }
+    .a250-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-top: 48px; }
+    .a250-card {
+      background: linear-gradient(145deg, #1A2F5E 0%, #0E1D3E 100%);
+      border-radius: 14px; padding: 52px 40px; text-align: center;
+      position: relative; overflow: hidden;
+      border: 1px solid rgba(232,160,32,0.3);
+    }
+    .a250-card::before {
+      content: '★  ★  ★  ★  ★  ★  ★  ★  ★  ★  ★';
+      position: absolute; top: 14px; left: 0; right: 0; text-align: center;
+      color: rgba(232,160,32,0.25); font-size: 0.7rem; letter-spacing: 6px;
+    }
+    .a250-card::after {
+      content: '★  ★  ★  ★  ★  ★  ★  ★  ★  ★  ★';
+      position: absolute; bottom: 14px; left: 0; right: 0; text-align: center;
+      color: rgba(232,160,32,0.25); font-size: 0.7rem; letter-spacing: 6px;
+    }
+    .a250-sup { color: var(--gold); font-size: 0.8rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 6px; font-family: 'Lato', sans-serif; }
+    .a250-num { font-family: 'Playfair Display', serif; font-size: 7rem; font-weight: 900; color: #fff; line-height: 1; }
+    .a250-years { color: var(--gold); font-size: 0.85rem; letter-spacing: 4px; text-transform: uppercase; margin-top: 8px; }
+    .a250-sub-note {
+      margin-top: 20px; background: rgba(232,160,32,0.12);
+      border: 1px solid rgba(232,160,32,0.25); border-radius: 4px;
+      color: rgba(255,255,255,0.65); font-size: 0.78rem; letter-spacing: 1px; padding: 9px 16px;
+    }
+    .a250-text h2 { color: var(--green); }
+    .mil-row {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 32px;
+    }
+    .mil-card {
+      text-align: center; padding: 18px 6px; background: #fff;
+      border: 1px solid rgba(26,47,94,0.12); border-radius: 8px;
+      transition: all 0.22s;
+    }
+    .mil-card:hover { border-color: var(--amber); box-shadow: 0 4px 16px rgba(200,98,26,0.15); transform: translateY(-2px); }
+    .mil-icon { font-size: 1.7rem; margin-bottom: 8px; display: block; }
+    .mil-name { font-size: 0.6rem; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; color: var(--navy); }
+    .hometown-note {
+      margin-top: 24px; padding: 14px 18px;
+      background: linear-gradient(90deg, rgba(178,34,52,0.08), rgba(26,47,94,0.08));
+      border-left: 3px solid var(--red); border-radius: 0 6px 6px 0;
+      font-size: 0.88rem; color: var(--dark); line-height: 1.6;
+    }
+    .hometown-note strong { color: var(--red); }
+
+    /* ── TICKETS ── */
+    .s-tickets { background: #fff; }
+    .ticket-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 48px; }
+    .t-card {
+      border-radius: 12px; padding: 40px; position: relative; overflow: hidden;
+    }
+    .t-card.day { background: var(--cream); border: 2px solid var(--gold); }
+    .t-card.season { background: var(--green); }
+    .t-badge {
+      position: absolute; top: 18px; right: 18px;
+      font-size: 0.62rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase;
+      padding: 5px 13px; border-radius: 20px;
+    }
+    .t-card.day .t-badge { background: var(--gold); color: var(--dark); }
+    .t-card.season .t-badge { background: var(--gold); color: var(--dark); }
+    .t-type { font-size: 0.7rem; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
+    .t-card.day .t-type { color: var(--amber); }
+    .t-card.season .t-type { color: var(--gold); }
+    .t-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem; font-weight: 700; line-height: 1; margin-bottom: 6px;
+    }
+    .t-card.day .t-price { color: var(--green); }
+    .t-card.season .t-price { color: var(--gold); }
+    .t-sub { font-size: 0.82rem; line-height: 1.65; margin-bottom: 26px; opacity: 0.8; }
+    .t-list { list-style: none; margin-bottom: 30px; }
+    .t-list li {
+      padding: 8px 0; font-size: 0.88rem;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    .t-card.season .t-list li { border-color: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9); }
+    .t-list li::before { content: '✦  '; }
+    .t-card.day .t-list li::before { color: var(--amber); }
+    .t-card.season .t-list li::before { color: var(--gold); }
+    .btn-buy {
+      display: block; text-align: center; padding: 14px;
+      border-radius: 6px; text-decoration: none;
+      font-weight: 900; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;
+      transition: all 0.2s;
+    }
+    .t-card.day .btn-buy { background: var(--amber); color: #fff; }
+    .t-card.day .btn-buy:hover { background: var(--green); }
+    .t-card.season .btn-buy { background: var(--gold); color: var(--dark); }
+    .t-card.season .btn-buy:hover { background: #fff; }
+    .military-note { margin-top: 20px; text-align: center; font-size: 0.82rem; color: #888; }
+
+    /* ── ATTRACTIONS ── */
+    .s-attract { background: var(--cream); }
+    .attract-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 18px; margin-top: 44px;
+    }
+    .a-card {
+      background: #fff; border-radius: 10px; overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06); transition: all 0.22s;
+    }
+    .a-card:hover { transform: translateY(-5px); box-shadow: 0 10px 28px rgba(0,0,0,0.12); }
+    .a-img {
+      height: 110px; display: flex; align-items: center;
+      justify-content: center; font-size: 2.6rem;
+    }
+    .a-info { padding: 16px; }
+    .a-info h3 {
+      font-family: 'Playfair Display', serif; font-size: 1rem;
+      color: var(--green); margin-bottom: 5px;
+    }
+    .a-info p { font-size: 0.78rem; color: #666; line-height: 1.5; }
+    .a-featured {
+      grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr;
+      background: linear-gradient(135deg, var(--green), #1A3D0E);
+      border-radius: 10px; overflow: hidden; color: #fff;
+    }
+    .a-featured-text { padding: 32px; }
+    .a-featured-text .a-tag { font-size: 0.65rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .a-featured-text h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #fff; margin-bottom: 10px; }
+    .a-featured-text p { font-size: 0.88rem; opacity: 0.85; line-height: 1.65; }
+    .a-featured-stat {
+      background: rgba(0,0,0,0.2); display: flex; flex-direction: column;
+      align-items: center; justify-content: center; padding: 32px; text-align: center;
+    }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 900; color: var(--gold); line-height: 1; }
+    .stat-lbl { font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-top: 6px; }
+    .stat-note { font-size: 0.78rem; color: rgba(255,255,255,0.55); margin-top: 8px; }
+
+    /* ── EVENTS ── */
+    .s-events { background: #fff; }
+    .events-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 18px; margin-top: 44px;
+    }
+    .ev-card {
+      border: 1px solid rgba(200,98,26,0.14); border-radius: 10px;
+      overflow: hidden; transition: all 0.22s;
+    }
+    .ev-card:hover { box-shadow: 0 6px 22px rgba(200,98,26,0.15); transform: translateY(-3px); border-color: var(--amber); }
+    .ev-top {
+      height: 72px; display: flex; align-items: center;
+      justify-content: center; font-size: 2.2rem;
+    }
+    .ev-body { padding: 16px; }
+    .ev-when { font-size: 0.65rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 4px; }
+    .ev-name { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--green); margin-bottom: 7px; }
+    .ev-desc { font-size: 0.78rem; color: #666; line-height: 1.5; }
+    .dates-note {
+      margin-top: 32px; text-align: center;
+      padding: 16px; background: var(--tan); border-radius: 8px;
+      font-size: 0.85rem; color: var(--dark); border: 1px solid rgba(200,98,26,0.15);
+    }
+
+    /* ── CONCESSIONS ── */
+    .s-food { background: var(--amber); }
+    .s-food h2 { color: #fff; }
+    .s-food .s-tag { color: var(--gold); }
+    .s-food .lead { color: rgba(255,255,255,0.85); }
+    .food-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 14px; margin-top: 44px;
+    }
+    .food-card {
+      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 10px; padding: 22px 16px; text-align: center; color: #fff;
+      backdrop-filter: blur(4px); transition: background 0.2s;
+    }
+    .food-card:hover { background: rgba(255,255,255,0.25); }
+    .food-em { font-size: 2.2rem; display: block; margin-bottom: 10px; }
+    .food-name { font-weight: 700; font-size: 0.88rem; margin-bottom: 4px; }
+    .food-note { font-size: 0.75rem; opacity: 0.78; line-height: 1.4; }
+
+    /* ── GROUPS ── */
+    .s-groups { background: var(--navy); }
+    .s-groups h2 { color: var(--gold); }
+    .s-groups .s-tag { color: rgba(232,160,32,0.7); }
+    .groups-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-top: 48px; }
+    .groups-text .lead { color: rgba(255,255,255,0.78); }
+    .g-types { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
+    .g-type {
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(232,160,32,0.2);
+      border-radius: 8px; padding: 14px 16px;
+    }
+    .g-type strong { display: block; color: var(--gold); font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 4px; }
+    .g-type p { font-size: 0.82rem; color: rgba(255,255,255,0.7); line-height: 1.4; }
+    .g-form { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 36px; }
+    .g-form h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); margin-bottom: 22px; }
+    .f-row { margin-bottom: 16px; }
+    .f-row label { display: block; font-size: 0.68rem; color: rgba(255,255,255,0.5); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+    .f-row input, .f-row select, .f-row textarea {
+      width: 100%; padding: 11px 14px;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 6px; color: #fff; font-size: 0.88rem; font-family: 'Lato', sans-serif;
+    }
+    .f-row textarea { height: 80px; resize: none; }
+    .f-row input::placeholder, .f-row textarea::placeholder { color: rgba(255,255,255,0.35); }
+    .btn-submit {
+      background: var(--amber); color: #fff; border: none;
+      padding: 13px 30px; border-radius: 6px;
+      font-weight: 900; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .btn-submit:hover { background: var(--gold); color: var(--dark); }
+
+    /* ── FIND US ── */
+    .s-find { background: var(--cream); }
+    .find-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; margin-top: 48px; }
+    .map-box {
+      background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 50%, #81c784 100%);
+      border-radius: 12px; height: 320px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      border: 2px solid rgba(45,94,30,0.2); color: var(--green); text-align: center; gap: 10px;
+    }
+    .map-box .map-icon { font-size: 3rem; }
+    .map-box strong { font-size: 1rem; }
+    .map-box p { font-size: 0.82rem; opacity: 0.7; }
+    .c-item { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 20px; }
+    .c-icon { font-size: 1.3rem; width: 28px; flex-shrink: 0; margin-top: 2px; }
+    .c-text { font-size: 0.92rem; line-height: 1.65; }
+    .c-text strong { display: block; font-size: 0.65rem; color: var(--amber); letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 3px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--green); color: rgba(255,255,255,0.8); padding: 56px 48px 28px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+    .f-brand-name { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold); font-weight: 700; }
+    .f-brand-sub { font-size: 0.68rem; color: rgba(255,255,255,0.5); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 14px; }
+    .f-brand p { font-size: 0.84rem; line-height: 1.7; opacity: 0.7; }
+    .socials { display: flex; gap: 10px; margin-top: 18px; }
+    .soc-btn {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;
+      text-decoration: none; font-size: 0.8rem; color: rgba(255,255,255,0.8);
+      transition: background 0.2s; font-weight: 700;
+    }
+    .soc-btn:hover { background: var(--amber); color: #fff; }
+    .f-col h4 { font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .f-col a { display: block; font-size: 0.84rem; color: rgba(255,255,255,0.65); text-decoration: none; margin-bottom: 9px; transition: color 0.2s; }
+    .f-col a:hover { color: var(--gold); }
+    .footer-bot { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 22px; display: flex; justify-content: space-between; font-size: 0.78rem; opacity: 0.45; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      section { padding: 60px 20px; }
+      .a250-grid, .ticket-wrap, .groups-grid, .find-grid, .footer-grid { grid-template-columns: 1fr; }
+      .a-featured { grid-column: span 1; grid-template-columns: 1fr; }
+      .groups-grid { gap: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="design-label">⭐ Design Concept 1 — Stars &amp; Stalks · Warm Rustic Elegance ⭐</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="logo-icon">🌽</div>
+    <div class="logo-text">
+      <strong>Valley Corn Maize</strong>
+      <span>East Grand Forks, MN</span>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#">The Maze</a>
+    <a href="#">Attractions</a>
+    <a href="#">Events</a>
+    <a href="#">Plan Your Visit</a>
+    <a href="#">Groups</a>
+    <a href="#" class="nav-cta">Buy Tickets</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">★ &nbsp; Est. East Grand Forks, Minnesota &nbsp; ★</div>
+    <div style="display:flex;justify-content:center;margin-bottom:26px;">
+      <div class="hero-badge">
+        <span style="font-size:1.3rem;">🇺🇸</span>
+        <span class="hero-badge-text">America 250 · Official Celebration Maze</span>
+        <span style="color:var(--gold);font-size:1.1rem;">★</span>
+      </div>
+    </div>
+    <h1>
+      One of America's<br>
+      <em>Largest Corn Mazes</em><br>
+      Honors 250 Years
+    </h1>
+    <p class="hero-sub">30 acres carved in tribute to all five branches of the United States Military</p>
+    <div class="hero-pill">Open Fall 2026 · East Grand Forks, MN</div>
+    <div class="hero-btns">
+      <a href="#" class="btn-hero-primary">Get Tickets</a>
+      <a href="#" class="btn-hero-ghost">Explore the 2026 Maze →</a>
+    </div>
+  </div>
+</section>
+
+<!-- INFO STRIP -->
+<div class="info-strip">
+  <div class="info-cell">
+    <div class="lbl">Season Opens</div>
+    <div class="val">Fall 2026</div>
+  </div>
+  <div class="info-cell">
+    <div class="lbl">Saturday Hours</div>
+    <div class="val">10:00 AM – 7:00 PM</div>
+  </div>
+  <div class="info-cell">
+    <div class="lbl">Sunday Hours</div>
+    <div class="val">1:00 PM – 6:00 PM</div>
+  </div>
+  <div class="info-cell">
+    <div class="lbl">Admission</div>
+    <div class="val">$12.50 · Kids 36" &amp; Under Free</div>
+  </div>
+  <div class="info-cell">
+    <div class="lbl">Location</div>
+    <div class="val">5.5 mi East of East Grand Forks · Hwy 2</div>
+  </div>
+</div>
+
+<!-- AMERICA 250 -->
+<section class="s-america">
+  <div class="container">
+    <div class="a250-grid">
+      <div class="a250-text">
+        <div class="s-tag">2026 Maze Theme</div>
+        <h2 style="color:var(--green);">Honoring 250 Years<br>of American Freedom</h2>
+        <p class="lead">This season, our 30-acre maze takes on its most meaningful design in history — a sweeping tribute to America's 250th birthday featuring the official America 250 logo and all five branches of the United States Military, carved into the rich Red River Valley soil.</p>
+        <div class="mil-row">
+          <div class="mil-card"><span class="mil-icon">⭐</span><div class="mil-name">Army</div></div>
+          <div class="mil-card"><span class="mil-icon">⚓</span><div class="mil-name">Navy</div></div>
+          <div class="mil-card"><span class="mil-icon">✈️</span><div class="mil-name">Air Force</div></div>
+          <div class="mil-card"><span class="mil-icon">🦅</span><div class="mil-name">Marines</div></div>
+          <div class="mil-card"><span class="mil-icon">🌊</span><div class="mil-name">Coast Guard</div></div>
+        </div>
+        <div class="hometown-note">
+          <strong>Hometown Heroes Weekend</strong> — our annual tribute to veterans, active military &amp; first responders — takes on special meaning this year. Military discount available every day at the gate with valid ID.
+        </div>
+      </div>
+      <div class="a250-card">
+        <div class="a250-sup">America</div>
+        <div class="a250-num">250</div>
+        <div class="a250-years">1776 &nbsp;—&nbsp; 2026</div>
+        <div class="a250-sub-note">📸 Aerial maze image dropping soon — follow us on social media</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKETS -->
+<section class="s-tickets">
+  <div class="container">
+    <div class="s-tag">Plan Your Visit</div>
+    <h2 style="color:var(--green);">Choose Your Adventure</h2>
+    <p class="lead">Purchase securely right here — no redirects, no extra steps. Show up, get lost, have fun.</p>
+    <div class="ticket-wrap">
+      <div class="t-card day">
+        <div class="t-badge">Most Popular</div>
+        <div class="t-type">Single Day Admission</div>
+        <div class="t-price">$12.50</div>
+        <div class="t-sub">Per person. Kids 36" &amp; under are always FREE. Military discount available at the gate with valid ID.</div>
+        <ul class="t-list">
+          <li>Full access to all 30 acres of maze</li>
+          <li>All 5 levels included</li>
+          <li>Zip line, BIG Slide, Rat Rollers &amp; Spider Web</li>
+          <li>Giant Bubble Station &amp; Yard Games</li>
+          <li>Corn Bin Train Ride</li>
+          <li>Flower field access (when in season)</li>
+        </ul>
+        <a href="#" class="btn-buy">Buy Day Tickets</a>
+      </div>
+      <div class="t-card season">
+        <div class="t-badge">Best Value</div>
+        <div class="t-type" style="color:var(--gold);">Season Pass</div>
+        <div class="t-price">$28</div>
+        <div class="t-sub" style="color:rgba(255,255,255,0.8);">Unlimited visits all season long. The more weekends you come back, the more you save — great for local families.</div>
+        <ul class="t-list">
+          <li>Unlimited fall season visits</li>
+          <li>Every special themed weekend included</li>
+          <li>Grandparent Dayz, Canines in the Corn &amp; more</li>
+          <li>Flashlight Dash Night included</li>
+          <li>Best value for regular visitors</li>
+          <li>Share the magic all season</li>
+        </ul>
+        <a href="#" class="btn-buy">Get Season Pass</a>
+      </div>
+    </div>
+    <div class="military-note">🎖️ Active military &amp; veterans receive a discount at the gate — thank you for your service.</div>
+  </div>
+</section>
+
+<!-- ATTRACTIONS -->
+<section class="s-attract">
+  <div class="container">
+    <div class="s-tag">What's Here</div>
+    <h2 style="color:var(--green);">A Full Day of Family Fun</h2>
+    <p class="lead">The corn maze is just the beginning. Valley Corn Maize is packed with thrills, activities, and fresh-made treats for every age.</p>
+    <div class="attract-grid">
+      <div class="a-featured">
+        <div class="a-featured-text">
+          <div class="a-tag">The Main Event</div>
+          <h3>The Corn Maze</h3>
+          <p>Thirty acres of twists, turns, and surprises — five levels ranging from family-friendly to genuinely challenging. Carved into the flat Red River Valley landscape for a view like nowhere else in the country. This is one of the largest corn mazes in the entire United States, and the only one honoring America's 250th birthday.</p>
+        </div>
+        <div class="a-featured-stat">
+          <div class="stat-num">30</div>
+          <div class="stat-lbl">Acres of Maze</div>
+          <div class="stat-note">One of the largest in the U.S.</div>
+        </div>
+      </div>
+      <div class="a-card">
+        <div class="a-img" style="background:linear-gradient(135deg,#1A2F5E,#2D4A9E);">🪂</div>
+        <div class="a-info"><h3>Bee-Line Zip Line</h3><p>Soar through the fall air on our thrilling zip line ride over the farm.</p></div>
+      </div>
+      <div class="a-card">
+        <div class="a-img" style="background:linear-gradient(135deg,#2D5E1E,#4A9E30);">🛝</div>
+        <div class="a-info"><h3>BIG Slide</h3><p>Race down from the top of the hay bale mountain — the kids will want to go again and again.</p></div>
+      </div>
+      <div class="a-card">
+        <div class="a-img" style="background:linear-gradient(135deg,#8B4513,#C8784A);">🕸️</div>
+        <div class="a-info"><h3>Spider Web Climb</h3><p>Test your balance and nerves on this giant rope web climb.</p></div>
+      </div>
+      <div class="a-card">
+        <div class="a-img" style="background:linear-gradient(135deg,#C8621A,#F0A030);">🌀</div>
+        <div class="a-info"><h3>Rat Rollers</h3><p>Keep your balance on giant spinning logs — harder than it looks!</p></div>
+      </div>
+      <div class="a-card">
+        <div class="a-img" style="background:linear-gradient(135deg,#1A90B2,#30C0E8);">🫧</div>
+        <div class="a-info"><h3>Giant Bubble Station</h3><p>Kids go absolutely wild making enormous bubbles at this fan-favorite station.</p></div>
+      </div>
+      <div class="a-card">
+        <div class="a-img" style="background:linear-gradient(135deg,#8B6914,#C8A820);">🎮</div>
+        <div class="a-info"><h3>Giant Yard Games</h3><p>Jenga, Connect Four, Corn Hole &amp; Yardzee — oversized fun for the whole family.</p></div>
+      </div>
+      <div class="a-card">
+        <div class="a-img" style="background:linear-gradient(135deg,#F5B000,#FFDA00);">🌻</div>
+        <div class="a-info"><h3>Flower Field</h3><p>Sunflowers &amp; zinnias in full, gorgeous bloom. Peak season: September. Perfect for photos.</p></div>
+      </div>
+      <div class="a-card">
+        <div class="a-img" style="background:linear-gradient(135deg,#E85A00,#FF8C42);">🎃</div>
+        <div class="a-info"><h3>Pumpkins for Sale</h3><p>Take home the perfect fall pumpkin to display on your front porch.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="s-events">
+  <div class="container">
+    <div class="s-tag">2026 Special Weekends</div>
+    <h2 style="color:var(--green);">Every Weekend Has Its Own Story</h2>
+    <p class="lead">Each themed weekend adds something unique to your visit. Follow us on social media — 2026 dates will be posted as the season approaches.</p>
+    <div class="events-grid">
+      <div class="ev-card">
+        <div class="ev-top" style="background:linear-gradient(135deg,#F0A030,#C8621A);">🎉</div>
+        <div class="ev-body">
+          <div class="ev-when">Opening Weekend</div>
+          <div class="ev-name">Fall Season Opening</div>
+          <div class="ev-desc">Kick off the 2026 America 250 season — be among the first to walk the historic maze.</div>
+        </div>
+      </div>
+      <div class="ev-card">
+        <div class="ev-top" style="background:linear-gradient(135deg,#C8621A,#8B3A0A);">👴</div>
+        <div class="ev-body">
+          <div class="ev-when">September</div>
+          <div class="ev-name">Grandparent Dayz</div>
+          <div class="ev-desc">Bring the grandkids and make memories that last a lifetime in the fall air.</div>
+        </div>
+      </div>
+      <div class="ev-card">
+        <div class="ev-top" style="background:linear-gradient(135deg,#5A7A00,#2D5E1E);">🚜</div>
+        <div class="ev-body">
+          <div class="ev-when">September</div>
+          <div class="ev-name">Touch a Tractor</div>
+          <div class="ev-desc">Real farm equipment up close — a dream weekend for curious kids and farm lovers.</div>
+        </div>
+      </div>
+      <div class="ev-card">
+        <div class="ev-top" style="background:linear-gradient(135deg,#1A2F5E,#B22234);">🇺🇸</div>
+        <div class="ev-body">
+          <div class="ev-when">September</div>
+          <div class="ev-name">Hometown Heroes</div>
+          <div class="ev-desc">Honoring veterans, active military &amp; first responders — especially meaningful in our America 250 year.</div>
+        </div>
+      </div>
+      <div class="ev-card">
+        <div class="ev-top" style="background:linear-gradient(135deg,#F5C518,#C8A000);">🌻</div>
+        <div class="ev-body">
+          <div class="ev-when">September</div>
+          <div class="ev-name">Sunflower Dayz</div>
+          <div class="ev-desc">The flower field hits peak bloom. Bring your camera — the sunflower &amp; zinnia field is stunning.</div>
+        </div>
+      </div>
+      <div class="ev-card">
+        <div class="ev-top" style="background:linear-gradient(135deg,#8B5A00,#D4A820);">🐕</div>
+        <div class="ev-body">
+          <div class="ev-when">October</div>
+          <div class="ev-name">Canines in the Corn</div>
+          <div class="ev-desc">Bring your well-behaved pup along and get lost together in the maze.</div>
+        </div>
+      </div>
+      <div class="ev-card">
+        <div class="ev-top" style="background:linear-gradient(135deg,#C8621A,#F0A030);">📚</div>
+        <div class="ev-body">
+          <div class="ev-when">October</div>
+          <div class="ev-name">Extended MEA Weekend</div>
+          <div class="ev-desc">An extra day of fun for fall break — the perfect family outing during the school holiday.</div>
+        </div>
+      </div>
+      <div class="ev-card">
+        <div class="ev-top" style="background:linear-gradient(135deg,#1A1A3E,#2D2D6E);">🔦</div>
+        <div class="ev-body">
+          <div class="ev-when">October</div>
+          <div class="ev-name">Flashlight Dash</div>
+          <div class="ev-desc">Navigate 30 acres of maze in the dark with only a flashlight. Can you find your way out?</div>
+        </div>
+      </div>
+      <div class="ev-card">
+        <div class="ev-top" style="background:linear-gradient(135deg,#2D5E1E,#C8621A);">🎊</div>
+        <div class="ev-body">
+          <div class="ev-when">Late October</div>
+          <div class="ev-name">Bonus Weekend</div>
+          <div class="ev-desc">One final weekend to soak up every last moment of fall in the valley.</div>
+        </div>
+      </div>
+    </div>
+    <div class="dates-note">📅 &nbsp; <strong>2026 dates coming soon.</strong> Follow us on <strong>Facebook</strong>, <strong>Instagram</strong> &amp; <strong>TikTok</strong> for season announcements — <em>@valleycornmaize</em></div>
+  </div>
+</section>
+
+<!-- CONCESSIONS -->
+<section class="s-food">
+  <div class="container">
+    <div class="s-tag">Fuel the Fun</div>
+    <h2>Fresh &amp; Delicious<br>Farm-Side Eats</h2>
+    <p class="lead">From savory to sweet — everything made fresh on-site. Fair warning: the mini donuts are completely legendary.</p>
+    <div class="food-grid">
+      <div class="food-card"><span class="food-em">🌮</span><div class="food-name">Taco in a Bag</div><div class="food-note">A fan favorite — messy, filling, and absolutely worth it</div></div>
+      <div class="food-card"><span class="food-em">🍩</span><div class="food-name">Mini Donuts</div><div class="food-note">Hot, fresh, and the stuff of legends around here</div></div>
+      <div class="food-card"><span class="food-em">🌭</span><div class="food-name">Hotdogs</div><div class="food-note">Classic, satisfying, and always a crowd-pleaser</div></div>
+      <div class="food-card"><span class="food-em">🥧</span><div class="food-name">Apple Blossoms</div><div class="food-note">Warm, flaky pastry — the taste of fall in every bite</div></div>
+      <div class="food-card"><span class="food-em">🍦</span><div class="food-name">Pie in a Cone</div><div class="food-note">A one-of-a-kind treat you won't find anywhere else</div></div>
+      <div class="food-card"><span class="food-em">🥤</span><div class="food-name">Cold Drinks</div><div class="food-note">Sodas, water &amp; more to keep you refreshed all day</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GROUPS -->
+<section class="s-groups">
+  <div class="container">
+    <div class="s-tag">Group Visits</div>
+    <h2>Bring Your<br>Whole Crew</h2>
+    <div class="groups-grid">
+      <div class="groups-text">
+        <p class="lead">We love hosting schools, businesses, churches, birthday celebrations &amp; family reunions. Let us help plan an unforgettable day in the valley — especially meaningful in this historic America 250 year.</p>
+        <div class="g-types">
+          <div class="g-type"><strong>Schools &amp; Field Trips</strong><p>Educational, outdoors, and genuinely fun for all grades</p></div>
+          <div class="g-type"><strong>Birthday Celebrations</strong><p>Make it a party they'll still be talking about next year</p></div>
+          <div class="g-type"><strong>Churches &amp; Youth Groups</strong><p>Community outings that bring everyone together</p></div>
+          <div class="g-type"><strong>Businesses &amp; Teams</strong><p>Team-building outdoors in the fresh fall air</p></div>
+        </div>
+      </div>
+      <div class="g-form">
+        <h3>Inquire About Your Group</h3>
+        <div class="f-row">
+          <label>Your Name</label>
+          <input type="text" placeholder="Full name">
+        </div>
+        <div class="f-row">
+          <label>Organization / Group Name</label>
+          <input type="text" placeholder="School, business, church, etc.">
+        </div>
+        <div class="f-row">
+          <label>Estimated Group Size</label>
+          <select>
+            <option>Select group size</option>
+            <option>10–25 people</option>
+            <option>25–50 people</option>
+            <option>50–100 people</option>
+            <option>100+ people</option>
+          </select>
+        </div>
+        <div class="f-row">
+          <label>Message &amp; Preferred Dates</label>
+          <textarea placeholder="Tell us a bit about your group and when you'd like to visit"></textarea>
+        </div>
+        <button class="btn-submit">Send Inquiry →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIND US -->
+<section class="s-find">
+  <div class="container">
+    <div class="s-tag">Getting Here</div>
+    <h2 style="color:var(--green);">Find Valley Corn Maize</h2>
+    <div class="find-grid">
+      <div>
+        <div class="c-item">
+          <div class="c-icon">📍</div>
+          <div class="c-text">
+            <strong>Address</strong>
+            42969 160th Street SW, East Grand Forks, MN 56721<br>
+            <em style="color:var(--amber);font-size:0.85rem;">5.5 miles east of East Grand Forks off Highway 2</em>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">📞</div>
+          <div class="c-text"><strong>Phone</strong>(701) 215-6886</div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">🕐</div>
+          <div class="c-text">
+            <strong>Hours</strong>
+            Saturday: 10:00 AM – 7:00 PM<br>
+            Sunday: 1:00 PM – 6:00 PM<br>
+            <em style="font-size:0.82rem;color:#888;">Open weekends · September through late October</em>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">💵</div>
+          <div class="c-text">
+            <strong>Admission</strong>
+            $12.50 per person<br>
+            Kids 36" &amp; under: FREE<br>
+            Military discount available at gate with valid ID
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">💳</div>
+          <div class="c-text"><strong>Season Pass</strong>$28 — unlimited visits all season long</div>
+        </div>
+      </div>
+      <div>
+        <div class="map-box">
+          <div class="map-icon">🗺️</div>
+          <strong>Interactive Map</strong>
+          <p>East Grand Forks, MN<br>Off Highway 2 — 5.5 miles East</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="f-brand">
+        <div class="f-brand-name">Valley Corn Maize</div>
+        <div class="f-brand-sub">East Grand Forks, Minnesota</div>
+        <p>One of the largest corn mazes in the entire United States, right in the heart of the Red River Valley. Open fall weekends — come get lost with us.</p>
+        <div class="socials">
+          <a href="#" class="soc-btn">f</a>
+          <a href="#" class="soc-btn">📷</a>
+          <a href="#" class="soc-btn">♪</a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>Plan Your Visit</h4>
+        <a href="#">Tickets &amp; Pricing</a>
+        <a href="#">Hours &amp; Location</a>
+        <a href="#">Season Pass</a>
+        <a href="#">FAQ</a>
+        <a href="#">Directions</a>
+      </div>
+      <div class="f-col">
+        <h4>Experience</h4>
+        <a href="#">The 2026 Maze</a>
+        <a href="#">All Attractions</a>
+        <a href="#">Special Events</a>
+        <a href="#">Concessions</a>
+        <a href="#">Flower Field</a>
+      </div>
+      <div class="f-col">
+        <h4>Connect</h4>
+        <a href="#">Group Bookings</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span>© 2026 Valley Corn Maize · East Grand Forks, MN · (701) 215-6886</span>
+      <span>Celebrating America's 250th 🇺🇸</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
