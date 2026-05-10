@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Past Maze Designs | Valley Corn Maize</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* ─── DESIGN TOKENS ─────────────────────────────────── */
+    :root {
+      --green:   #4A8C3F;
+      --dkgreen: #2D5E1E;
+      --orange:  #E8621A;
+      --yellow:  #F5C518;
+      --red:     #C8102E;
+      --navy:    #1A2F5E;
+      --straw:   #FFFBEF;
+      --warm:    #FFF4D6;
+      --dark:    #2A2A2A;
+      --mid:     #5A5A5A;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--straw);
+      color: var(--dark);
+      font-size: 16px;
+    }
+
+    .container { max-width: 1220px; margin: 0 auto; }
+    .s-tag {
+      font-size: 0.67rem; font-weight: 700;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 10px; display: block;
+    }
+    h2 {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 800; line-height: 1.15; margin-bottom: 16px;
+      color: var(--dkgreen);
+    }
+    .lead {
+      font-size: 1rem; line-height: 1.85; color: var(--mid);
+      max-width: 680px; font-weight: 400;
+    }
+    .btn {
+      display: inline-block; text-decoration: none;
+      font-weight: 700; font-size: 0.9rem; letter-spacing: 0.5px;
+      padding: 14px 32px; border-radius: 50px;
+      transition: all 0.22s; cursor: pointer; border: none;
+    }
+    .btn-primary { background: var(--green); color: #fff; box-shadow: 0 4px 18px rgba(74,140,63,0.3); }
+    .btn-primary:hover { background: var(--dkgreen); transform: translateY(-2px); }
+    .btn-orange { background: var(--orange); color: #fff; box-shadow: 0 4px 18px rgba(232,98,26,0.3); }
+    .btn-orange:hover { background: #C04E0E; transform: translateY(-2px); }
+
+    /* ─── NAV ────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,251,239,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 3px solid var(--yellow);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 72px;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; font-weight: 600; font-size: 0.82rem;
+      letter-spacing: 0.5px; color: var(--dark); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--green); }
+    .nav-cta { display: flex; gap: 10px; }
+    .nav-btn {
+      font-size: 0.78rem; font-weight: 700; padding: 9px 20px;
+      border-radius: 50px; text-decoration: none; transition: all 0.2s;
+    }
+    .nav-btn-outline {
+      border: 2px solid var(--green); color: var(--green);
+      background: transparent;
+    }
+    .nav-btn-outline:hover { background: var(--green); color: #fff; }
+    .nav-btn-fill { background: var(--orange); color: #fff; }
+    .nav-btn-fill:hover { background: #C04E0E; }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    .pd-hero {
+      padding-top: 72px;
+      background: linear-gradient(180deg, var(--dkgreen) 0%, #1a3d10 100%);
+      color: #fff;
+      text-align: center;
+      padding-bottom: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pd-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .pd-hero-inner {
+      position: relative; z-index: 1;
+      max-width: 1220px; margin: 0 auto;
+      padding: 80px 48px 0;
+    }
+    .pd-hero .s-tag { color: var(--yellow); }
+    .pd-hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 900; line-height: 1.1; margin-bottom: 20px;
+      color: #fff;
+    }
+    .pd-hero p {
+      font-size: 1.05rem; color: rgba(255,255,255,0.78);
+      max-width: 600px; margin: 0 auto 40px; line-height: 1.8;
+    }
+    .pd-hero-stats {
+      display: flex; gap: 48px; justify-content: center;
+      flex-wrap: wrap; margin-top: 48px;
+    }
+    .phs-item {
+      text-align: center;
+    }
+    .phs-num {
+      font-size: 2.6rem; font-weight: 900; color: var(--yellow);
+      line-height: 1;
+    }
+    .phs-label {
+      font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.6);
+      letter-spacing: 2px; text-transform: uppercase; margin-top: 4px;
+    }
+
+    /* ─── WAVE DIVIDER ───────────────────────────────────── */
+    .wave-divider {
+      display: block; width: 100%; line-height: 0;
+      background: var(--dkgreen);
+    }
+    .wave-divider svg { display: block; width: 100%; }
+
+    /* ─── GALLERY SECTION ────────────────────────────────── */
+    .s-gallery {
+      padding: 80px 48px 100px;
+      background: var(--straw);
+    }
+    .gallery-intro {
+      max-width: 1220px; margin: 0 auto 60px;
+    }
+    .gallery-intro h2 { margin-bottom: 12px; }
+
+    /* ─── YEAR CARDS ─────────────────────────────────────── */
+    .designs-grid {
+      max-width: 1220px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .design-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 6px 32px rgba(0,0,0,0.10);
+      transition: transform 0.22s, box-shadow 0.22s;
+      position: relative;
+    }
+    .design-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.16);
+    }
+    .design-card.card-featured {
+      grid-column: span 2;
+    }
+    .design-card-img {
+      width: 100%; aspect-ratio: 4/3; overflow: hidden;
+      position: relative;
+    }
+    .design-card.card-featured .design-card-img {
+      aspect-ratio: 16/9;
+    }
+    .design-card-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .design-card:hover .design-card-img img {
+      transform: scale(1.04);
+    }
+    .year-badge {
+      position: absolute; top: 16px; left: 16px;
+      background: var(--dkgreen); color: #fff;
+      font-size: 0.78rem; font-weight: 800;
+      letter-spacing: 2px; padding: 6px 14px;
+      border-radius: 50px;
+    }
+    .design-card.card-current .year-badge {
+      background: var(--orange);
+    }
+    .design-card-body {
+      padding: 24px 26px 28px;
+    }
+    .design-year {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 4px; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 6px; display: block;
+    }
+    .design-theme {
+      font-size: 1.25rem; font-weight: 800;
+      color: var(--dkgreen); margin-bottom: 8px; line-height: 1.25;
+    }
+    .design-card.card-featured .design-theme {
+      font-size: 1.6rem;
+    }
+    .design-desc {
+      font-size: 0.84rem; color: var(--mid);
+      line-height: 1.7; margin-bottom: 14px;
+    }
+    .design-meta {
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+    .dm-pill {
+      font-size: 0.7rem; font-weight: 600; color: var(--dkgreen);
+      background: #EAF4EA; padding: 4px 12px; border-radius: 50px;
+      display: flex; align-items: center; gap: 5px;
+    }
+
+    /* Placeholder card */
+    .design-card-img.ph-img {
+      background: linear-gradient(135deg, #c8d8c5, #a8c4a0);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 10px;
+    }
+    .ph-img .ph-icon { font-size: 3rem; color: rgba(255,255,255,0.5); }
+    .ph-img .ph-text {
+      font-size: 0.78rem; font-weight: 600;
+      color: rgba(255,255,255,0.7); letter-spacing: 1px;
+    }
+
+    /* Coming soon card */
+    .design-card.card-coming .design-card-img {
+      background: linear-gradient(135deg, var(--dkgreen) 0%, #1a3d10 100%);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 16px;
+    }
+    .cs-icon { font-size: 4rem; color: var(--yellow); }
+    .cs-label {
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 3px;
+      color: rgba(255,255,255,0.7); text-transform: uppercase;
+    }
+
+    /* ─── ARCHIVE STRIP ──────────────────────────────────── */
+    .s-archive {
+      background: var(--warm);
+      padding: 64px 48px;
+      border-top: 2px solid rgba(0,0,0,0.06);
+    }
+    .archive-inner {
+      max-width: 1220px; margin: 0 auto;
+    }
+    .archive-inner h3 {
+      font-size: 1.4rem; font-weight: 800; color: var(--dkgreen);
+      margin-bottom: 8px;
+    }
+    .archive-inner p {
+      font-size: 0.9rem; color: var(--mid); margin-bottom: 32px;
+    }
+    .archive-timeline {
+      display: flex; flex-wrap: wrap; gap: 12px;
+    }
+    .at-year {
+      display: flex; align-items: center; gap: 8px;
+      background: #fff; border-radius: 50px;
+      padding: 8px 18px; font-weight: 700;
+      font-size: 0.82rem; color: var(--dkgreen);
+      border: 2px solid rgba(74,140,63,0.18);
+      transition: all 0.2s;
+    }
+    .at-year:hover { border-color: var(--green); background: #EAF4EA; }
+    .at-year.at-current {
+      background: var(--orange); color: #fff; border-color: var(--orange);
+    }
+    .at-year i { font-size: 0.75rem; }
+
+    /* ─── CTA SECTION ────────────────────────────────────── */
+    .s-pd-cta {
+      background: linear-gradient(135deg, var(--dkgreen), #1a3d10);
+      padding: 80px 48px;
+      text-align: center;
+    }
+    .s-pd-cta h2 { color: #fff; }
+    .s-pd-cta p { color: rgba(255,255,255,0.75); margin: 0 auto 36px; }
+    .s-pd-cta .btn-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-white { background: #fff; color: var(--dkgreen); }
+    .btn-white:hover { background: var(--warm); }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer {
+      background: #1A1A1A; color: rgba(255,255,255,0.5);
+      font-size: 0.78rem; text-align: center;
+      padding: 28px 48px;
+    }
+    footer a { color: var(--green); text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .designs-grid { grid-template-columns: repeat(2, 1fr); }
+      .design-card.card-featured { grid-column: span 2; }
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 640px) {
+      .designs-grid { grid-template-columns: 1fr; }
+      .design-card.card-featured { grid-column: span 1; }
+      .s-gallery, .s-archive, .s-pd-cta { padding: 60px 20px; }
+      .pd-hero-inner { padding: 60px 20px 0; }
+      .pd-hero-stats { gap: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────── -->
+<nav>
+  <a class="nav-brand" href="index.html">
+    <img src="https://static.wixstatic.com/media/887d8b_e6fa16405eb54e7d896bc88f5d706a93~mv2_d_3000_1350_s_2.png"
+         alt="Valley Corn Maize" style="height:44px;width:auto;object-fit:contain;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#maze">2026 Maze</a></li>
+    <li><a href="index.html#tickets">Tickets</a></li>
+    <li><a href="index.html#attractions">Attractions</a></li>
+    <li><a href="index.html#food">Food</a></li>
+    <li><a href="index.html#groups">Groups</a></li>
+    <li><a href="index.html#find">Find Us</a></li>
+    <li><a href="past-designs.html" style="color:var(--green);">Past Designs</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a class="nav-btn nav-btn-outline" href="index.html">← Back to Home</a>
+    <a class="nav-btn nav-btn-fill" href="index.html#tickets">Buy Tickets</a>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<div class="pd-hero">
+  <div class="pd-hero-inner">
+    <span class="s-tag">Valley Corn Maize · East Grand Forks, MN</span>
+    <h1>Past Maze Designs</h1>
+    <p>Every fall, 30 acres of Red River Valley farmland become a work of art. Browse every design we've carved from the earth since we opened our gates.</p>
+    <div class="pd-hero-stats">
+      <div class="phs-item">
+        <div class="phs-num">30</div>
+        <div class="phs-label">Acres Carved</div>
+      </div>
+      <div class="phs-item">
+        <div class="phs-num">8+</div>
+        <div class="phs-label">Seasons</div>
+      </div>
+      <div class="phs-item">
+        <div class="phs-num">5</div>
+        <div class="phs-label">Difficulty Levels</div>
+      </div>
+      <div class="phs-item">
+        <div class="phs-num">1</div>
+        <div class="phs-label">Family Farm</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Wave divider -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z"
+          fill="#FFFBEF"/>
+  </svg>
+</div>
+
+<!-- ── DESIGNS GALLERY ────────────────────────────────────── -->
+<section class="s-gallery">
+  <div class="gallery-intro">
+    <span class="s-tag">All Seasons</span>
+    <h2>The Designs That Made History</h2>
+    <p class="lead">From our debut season to the America 250 tribute coming in 2026 — each maze design tells a story. Click any year to see the full design.</p>
+  </div>
+
+  <div class="designs-grid">
+
+    <!-- 2026 — Coming Soon (Featured) -->
+    <div class="design-card card-featured card-current">
+      <div class="design-card-img card-coming">
+        <div class="cs-icon"><i class="fa-solid fa-star-and-crescent"></i></div>
+        <div class="cs-label">Aerial Photo Coming Fall 2026</div>
+        <div class="year-badge">2026 · Current</div>
+      </div>
+      <div class="design-card-body">
+        <span class="design-year">2026 Season</span>
+        <div class="design-theme">America 250 — All Six Military Branches</div>
+        <p class="design-desc">Our most ambitious design yet. The official America 250 logo paired with tributes to all six branches of the United States Military — Army, Navy, Air Force, Marines, Coast Guard, and Space Force — carved into 30 acres of Red River Valley farmland. Visible from the sky. Honoring those who made 250 years of freedom possible.</p>
+        <div class="design-meta">
+          <span class="dm-pill"><i class="fa-solid fa-ruler-combined"></i> 30 Acres</span>
+          <span class="dm-pill"><i class="fa-solid fa-flag-usa"></i> America 250</span>
+          <span class="dm-pill"><i class="fa-solid fa-shield-halved"></i> Military Tribute</span>
+          <span class="dm-pill"><i class="fa-solid fa-seedling"></i> Pioneer® Partner</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2025 -->
+    <div class="design-card">
+      <div class="design-card-img">
+        <img src="https://static.wixstatic.com/media/887d8b_194777e8068b4df084da5881138d4406~mv2.jpg"
+             alt="2025 Valley Corn Maize aerial maze design">
+        <span class="year-badge">2025</span>
+      </div>
+      <div class="design-card-body">
+        <span class="design-year">2025 Season</span>
+        <div class="design-theme">2025 Maze Design</div>
+        <p class="design-desc">Another season, another intricate layout carved across 30 acres. Five difficulty levels, countless turns, and memories made with every family that walked it.</p>
+        <div class="design-meta">
+          <span class="dm-pill"><i class="fa-solid fa-ruler-combined"></i> 30 Acres</span>
+          <span class="dm-pill"><i class="fa-solid fa-seedling"></i> Pioneer® Partner</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2022 -->
+    <div class="design-card">
+      <div class="design-card-img">
+        <img src="https://static.wixstatic.com/media/887d8b_37b4766079a6451cae6406a203b0ee7c~mv2.png"
+             alt="2022 Valley Corn Maize maze map design"
+             style="object-fit: contain; background: #f5f5f0; padding: 12px;">
+        <span class="year-badge">2022</span>
+      </div>
+      <div class="design-card-body">
+        <span class="design-year">2022 Season</span>
+        <div class="design-theme">2022 Maze Design</div>
+        <p class="design-desc">The 2022 layout challenged visitors with a complex new route through the stalks — 30 acres of twists designed to keep even returning visitors guessing.</p>
+        <div class="design-meta">
+          <span class="dm-pill"><i class="fa-solid fa-ruler-combined"></i> 30 Acres</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2021 -->
+    <div class="design-card">
+      <div class="design-card-img">
+        <img src="https://static.wixstatic.com/media/887d8b_0e16f024dc6c4d9898af9265823e2067~mv2.jpg"
+             alt="2021 Valley Corn Maize aerial maze design">
+        <span class="year-badge">2021</span>
+      </div>
+      <div class="design-card-body">
+        <span class="design-year">2021 Season</span>
+        <div class="design-theme">2021 Maze Design</div>
+        <p class="design-desc">Seen from above, the 2021 design revealed a stunning pattern only visible from the sky — one of our most striking aerial layouts to date.</p>
+        <div class="design-meta">
+          <span class="dm-pill"><i class="fa-solid fa-ruler-combined"></i> 30 Acres</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2020 -->
+    <div class="design-card">
+      <div class="design-card-img">
+        <img src="https://static.wixstatic.com/media/887d8b_272beff868a04ab884eb89af06d35e32~mv2.jpg"
+             alt="2020 Valley Corn Maize aerial shot">
+        <span class="year-badge">2020</span>
+      </div>
+      <div class="design-card-body">
+        <span class="design-year">2020 Season</span>
+        <div class="design-theme">2020 Maze Design</div>
+        <p class="design-desc">The 2020 aerial shows the full scope of the farm and maze — a bird's-eye view of the Red River Valley farmland that became the canvas for our fall tradition.</p>
+        <div class="design-meta">
+          <span class="dm-pill"><i class="fa-solid fa-ruler-combined"></i> 30 Acres</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2024 — Placeholder -->
+    <div class="design-card">
+      <div class="design-card-img ph-img">
+        <div class="ph-icon"><i class="fa-solid fa-image"></i></div>
+        <div class="ph-text">Photo Coming Soon</div>
+        <span class="year-badge">2024</span>
+      </div>
+      <div class="design-card-body">
+        <span class="design-year">2024 Season</span>
+        <div class="design-theme">2024 Maze Design</div>
+        <p class="design-desc">We're adding the 2024 aerial design photo here soon. Check back or follow us on social media for updates.</p>
+        <div class="design-meta">
+          <span class="dm-pill"><i class="fa-solid fa-ruler-combined"></i> 30 Acres</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2023 — Placeholder -->
+    <div class="design-card">
+      <div class="design-card-img ph-img">
+        <div class="ph-icon"><i class="fa-solid fa-image"></i></div>
+        <div class="ph-text">Photo Coming Soon</div>
+        <span class="year-badge">2023</span>
+      </div>
+      <div class="design-card-body">
+        <span class="design-year">2023 Season</span>
+        <div class="design-theme">2023 Maze Design</div>
+        <p class="design-desc">We're adding the 2023 aerial design photo here soon. Check back or follow us on social media for updates.</p>
+        <div class="design-meta">
+          <span class="dm-pill"><i class="fa-solid fa-ruler-combined"></i> 30 Acres</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ARCHIVE TIMELINE ───────────────────────────────────── -->
+<section class="s-archive">
+  <div class="archive-inner">
+    <h3><i class="fa-solid fa-clock-rotate-left" style="color:var(--green);margin-right:10px;"></i>Full Season Archive</h3>
+    <p>Every season Valley Corn Maize has been open — each one with a unique design carved fresh into the field.</p>
+    <div class="archive-timeline">
+      <div class="at-year at-current"><i class="fa-solid fa-star"></i> 2026</div>
+      <div class="at-year"><i class="fa-solid fa-check"></i> 2025</div>
+      <div class="at-year"><i class="fa-solid fa-check"></i> 2024</div>
+      <div class="at-year"><i class="fa-solid fa-check"></i> 2023</div>
+      <div class="at-year"><i class="fa-solid fa-check"></i> 2022</div>
+      <div class="at-year"><i class="fa-solid fa-check"></i> 2021</div>
+      <div class="at-year"><i class="fa-solid fa-check"></i> 2020</div>
+      <div class="at-year"><i class="fa-solid fa-check"></i> 2019</div>
+      <div class="at-year"><i class="fa-solid fa-check"></i> 2018</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────── -->
+<section class="s-pd-cta">
+  <div class="container">
+    <span class="s-tag" style="color:var(--yellow);">Walk It Yourself</span>
+    <h2>Ready to Make Your Own Memory?</h2>
+    <p class="lead" style="color:rgba(255,255,255,0.75);">The 2026 America 250 maze is shaping up to be our most spectacular yet. Come walk the design that honors 250 years of American freedom — and all six military branches — carved into 30 Red River Valley acres.</p>
+    <div class="btn-row">
+      <a href="index.html#tickets" class="btn btn-orange">Get Tickets for 2026</a>
+      <a href="index.html" class="btn btn-white">Back to Homepage</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer>
+  <p>
+    <strong style="color:rgba(255,255,255,0.8);">Valley Corn Maize</strong>
+    &nbsp;·&nbsp; East Grand Forks, MN
+    &nbsp;·&nbsp; <a href="tel:+17012156886">(701) 215-6886</a>
+    &nbsp;·&nbsp; <a href="mailto:info@valleycornmaize.com">info@valleycornmaize.com</a>
+  </p>
+  <p style="margin-top:8px;">
+    <a href="https://www.facebook.com/valleycornmaize" target="_blank" rel="noopener" style="margin:0 8px;">
+      <i class="fa-brands fa-facebook"></i> Facebook
+    </a>
+    <a href="https://www.instagram.com/valleycornmaize" target="_blank" rel="noopener" style="margin:0 8px;">
+      <i class="fa-brands fa-instagram"></i> Instagram
+    </a>
+    <a href="https://www.tiktok.com/@valleycornmaize" target="_blank" rel="noopener" style="margin:0 8px;">
+      <i class="fa-brands fa-tiktok"></i> TikTok
+    </a>
+  </p>
+  <p style="margin-top:12px;">© 2026 Valley Corn Maize · East Grand Forks, MN</p>
+</footer>
+
+</body>
+</html>

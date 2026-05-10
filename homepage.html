@@ -236,6 +236,54 @@
     .s-america { padding: 96px 48px; background: var(--warm); border-top: 4px solid var(--yellow); }
     .a250-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; margin-top: 52px; }
 
+    /* ─── PAST DESIGNS TEASER ──────────────────────────── */
+    .past-designs-teaser {
+      background: linear-gradient(135deg, #1a3d10 0%, var(--dkgreen) 60%, #2a5020 100%);
+      border-top: 3px solid var(--yellow);
+      border-bottom: 3px solid rgba(245,197,24,0.3);
+    }
+    .pdt-inner {
+      max-width: 1220px; margin: 0 auto;
+      display: flex; align-items: center; gap: 36px;
+      padding: 36px 48px; flex-wrap: wrap;
+    }
+    .pdt-thumbs { display: flex; gap: 8px; flex-shrink: 0; }
+    .pdt-thumb {
+      width: 72px; height: 72px; object-fit: cover;
+      border-radius: 10px; border: 2px solid rgba(255,255,255,0.25);
+      transition: transform 0.2s;
+    }
+    .pdt-thumb:hover { transform: scale(1.08); }
+    .pdt-text { flex: 1; min-width: 220px; }
+    .pdt-label {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--yellow); margin-bottom: 6px;
+    }
+    .pdt-headline {
+      font-size: clamp(0.95rem, 1.8vw, 1.2rem); font-weight: 800;
+      color: #fff; line-height: 1.3; margin-bottom: 4px;
+    }
+    .pdt-sub {
+      font-size: 0.82rem; color: rgba(255,255,255,0.65); line-height: 1.6;
+    }
+    .pdt-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      white-space: nowrap; text-decoration: none;
+      background: var(--yellow); color: var(--dkgreen);
+      font-size: 0.85rem; font-weight: 800;
+      padding: 14px 28px; border-radius: 50px;
+      transition: all 0.22s; flex-shrink: 0;
+      box-shadow: 0 4px 18px rgba(245,197,24,0.35);
+    }
+    .pdt-btn:hover {
+      background: #fff; transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(255,255,255,0.25);
+    }
+    @media (max-width: 720px) {
+      .pdt-inner { padding: 28px 20px; }
+      .pdt-thumb-hide { display: none; }
+    }
+
     /* Maze design visual */
     .maze-design-card {
       border-radius: 18px; overflow: hidden;
@@ -742,6 +790,7 @@
     <a href="#events">Events</a>
     <a href="#visit">Plan Your Visit</a>
     <a href="#groups">Groups</a>
+    <a href="past-designs.html">Past Designs</a>
     <a href="#tickets" class="nav-cta">Buy Tickets</a>
   </div>
 </nav>
@@ -923,6 +972,25 @@
     </div>
   </div>
 </section>
+
+<!-- ── PAST DESIGNS TEASER ───────────────────────────────── -->
+<div class="past-designs-teaser">
+  <div class="pdt-inner">
+    <div class="pdt-thumbs">
+      <img src="https://static.wixstatic.com/media/887d8b_0e16f024dc6c4d9898af9265823e2067~mv2.jpg" alt="2021 maze design" class="pdt-thumb">
+      <img src="https://static.wixstatic.com/media/887d8b_272beff868a04ab884eb89af06d35e32~mv2.jpg" alt="2020 maze aerial" class="pdt-thumb">
+      <img src="https://static.wixstatic.com/media/887d8b_37b4766079a6451cae6406a203b0ee7c~mv2.png" alt="2022 maze map" class="pdt-thumb pdt-thumb-hide">
+    </div>
+    <div class="pdt-text">
+      <div class="pdt-label"><i class="fa-solid fa-clock-rotate-left"></i>&nbsp; Maze Design Archive</div>
+      <div class="pdt-headline">Curious how past seasons looked from above?</div>
+      <div class="pdt-sub">Every year we carve a completely new design — 30 acres of fresh art. Browse aerial photos of every maze we've built since we opened.</div>
+    </div>
+    <a href="past-designs.html" class="pdt-btn">
+      See All Past Designs &nbsp;<i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+</div>
 
 <!-- ── SEASON PASS BANNER ────────────────────────────────── -->
 <div class="pass-banner">
