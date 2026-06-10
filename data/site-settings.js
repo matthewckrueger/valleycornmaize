@@ -1,7 +1,7 @@
 const siteSettings = {
   season: {
     label: "Season Opens",
-    value: "Fall 2026",
+    value: "September 2026",
     subtext: "September through late October"
   },
 
