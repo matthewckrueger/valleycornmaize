@@ -86,4 +86,32 @@ if (Array.isArray(eventsData)) {
     });
   }
 }
+  // Attractions
+if (typeof attractionsData !== "undefined" && Array.isArray(attractionsData)) {
+  const attractionsGrid = document.getElementById("attractionsGrid");
+
+  if (attractionsGrid) {
+    attractionsGrid.innerHTML = "";
+
+    attractionsData.forEach(function (attraction) {
+      const card = document.createElement("div");
+      card.className = "a-card";
+
+      card.innerHTML = `
+        <div class="a-photo">
+          <div class="photo-slot">
+            <i class="${attraction.icon || "fa-solid fa-seedling"}"></i>
+            <span class="slot-label">PHOTO COMING SOON</span>
+          </div>
+        </div>
+        <div class="a-info">
+          <h3>${attraction.title}</h3>
+          <p>${attraction.description}</p>
+        </div>
+      `;
+
+      attractionsGrid.appendChild(card);
+    });
+  }
+}
 });
