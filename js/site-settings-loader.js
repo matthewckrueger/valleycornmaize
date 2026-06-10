@@ -61,13 +61,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
   // Events
-if (Array.isArray(siteSettings.events)) {
+if (Array.isArray(eventsData)) {
   const eventsGrid = document.getElementById("eventsGrid");
 
   if (eventsGrid) {
     eventsGrid.innerHTML = "";
 
-    siteSettings.events.forEach(function (event) {
+    eventsData.forEach(function (event) {
       const card = document.createElement("div");
       card.className = "ev-card";
 
