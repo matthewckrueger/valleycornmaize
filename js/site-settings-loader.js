@@ -4,6 +4,13 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
+  function setText(id, value) {
+    const el = document.getElementById(id);
+    if (el && value !== undefined && value !== null) {
+      el.textContent = value;
+    }
+  }
+
   // Site-wide alert banner
   if (siteSettings.alert && siteSettings.alert.enabled) {
     const alertBar = document.createElement("div");
@@ -20,5 +27,37 @@ document.addEventListener("DOMContentLoaded", function () {
       nav.insertAdjacentElement("afterend", alertBar);
       document.body.classList.add("has-site-alert");
     }
+  }
+
+  // Quick info strip
+  if (siteSettings.season) {
+    setText("seasonLabel", siteSettings.season.label);
+    setText("seasonValue", siteSettings.season.value);
+    setText("seasonSubtext", siteSettings.season.subtext);
+  }
+
+  if (siteSettings.hours) {
+    setText("hoursLabel", siteSettings.hours.label);
+    setText("hoursSaturday", siteSettings.hours.saturday);
+    setText("hoursSunday", siteSettings.hours.sunday);
+  }
+
+  if (siteSettings.admission) {
+    setText("admissionLabel", siteSettings.admission.label);
+    setText("admissionValue", siteSettings.admission.value);
+    setText("admissionSubtext", siteSettings.admission.subtext);
+  }
+
+  if (siteSettings.location) {
+    setText("locationLabel", siteSettings.location.label);
+    setText("locationValue", siteSettings.location.value);
+    setText("locationSubtext", siteSettings.location.subtext);
+  }
+
+  // Ticket links
+  if (siteSettings.ticketLink) {
+    document.querySelectorAll('a[href="#tickets"]').forEach(function (link) {
+      link.setAttribute("href", siteSettings.ticketLink);
+    });
   }
 });
