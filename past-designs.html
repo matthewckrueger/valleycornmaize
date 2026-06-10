@@ -301,12 +301,40 @@
     footer a { color: var(--green); text-decoration: none; }
     footer a:hover { color: #fff; }
 
+    /* ─── HAMBURGER ─────────────────────────────────────── */
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer;
+      padding: 8px; border-radius: 8px; flex-shrink: 0;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--dkgreen); border-radius: 2px;
+      transition: all 0.2s;
+    }
+
     /* ─── RESPONSIVE ─────────────────────────────────────── */
     @media (max-width: 960px) {
+      nav { padding: 0 20px; height: 64px; position: relative; }
+      .nav-hamburger { display: flex; }
+      .nav-cta { display: none; }
+      .nav-links {
+        display: none; flex-direction: column; gap: 0;
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: rgba(255,251,239,0.98); backdrop-filter: blur(12px);
+        border-bottom: 3px solid var(--yellow); list-style: none;
+        padding: 12px 20px 16px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1); z-index: 999;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li a {
+        display: block; padding: 12px 4px;
+        border-bottom: 1px solid rgba(0,0,0,0.07);
+        font-size: 0.9rem;
+      }
+      .nav-links li:last-child a { border-bottom: none; }
       .designs-grid { grid-template-columns: repeat(2, 1fr); }
       .design-card.card-featured { grid-column: span 2; }
-      nav { padding: 0 20px; }
-      .nav-links { display: none; }
     }
     @media (max-width: 640px) {
       .designs-grid { grid-template-columns: 1fr; }
@@ -321,22 +349,25 @@
 
 <!-- ── NAV ──────────────────────────────────────────────── -->
 <nav>
-  <a class="nav-brand" href="index.html">
+  <a class="nav-brand" href="homepage.html" target="_top">
     <img src="https://static.wixstatic.com/media/887d8b_e6fa16405eb54e7d896bc88f5d706a93~mv2_d_3000_1350_s_2.png"
          alt="Valley Corn Maize" style="height:44px;width:auto;object-fit:contain;">
   </a>
-  <ul class="nav-links">
-    <li><a href="index.html#maze">2026 Maze</a></li>
-    <li><a href="index.html#tickets">Tickets</a></li>
-    <li><a href="index.html#attractions">Attractions</a></li>
-    <li><a href="index.html#food">Food</a></li>
-    <li><a href="index.html#groups">Groups</a></li>
-    <li><a href="index.html#find">Find Us</a></li>
+  <button class="nav-hamburger" id="navToggle" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="homepage.html#maze" target="_top">2026 Maze</a></li>
+    <li><a href="homepage.html#tickets" target="_top">Tickets</a></li>
+    <li><a href="homepage.html#attractions" target="_top">Attractions</a></li>
+    <li><a href="homepage.html#food" target="_top">Food</a></li>
+    <li><a href="homepage.html#groups" target="_top">Groups</a></li>
+    <li><a href="homepage.html#find" target="_top">Find Us</a></li>
     <li><a href="past-designs.html" style="color:var(--green);">Past Designs</a></li>
   </ul>
   <div class="nav-cta">
-    <a class="nav-btn nav-btn-outline" href="index.html">← Back to Home</a>
-    <a class="nav-btn nav-btn-fill" href="index.html#tickets">Buy Tickets</a>
+    <a class="nav-btn nav-btn-outline" href="homepage.html" target="_top">← Back to Home</a>
+    <a class="nav-btn nav-btn-fill" href="homepage.html#tickets" target="_top">Buy Tickets</a>
   </div>
 </nav>
 
@@ -566,5 +597,24 @@
   <p style="margin-top:12px;">© 2026 Valley Corn Maize · East Grand Forks, MN</p>
 </footer>
 
+<script>
+  // Hamburger nav toggle
+  var toggle = document.getElementById('navToggle');
+  var links  = document.getElementById('navLinks');
+  toggle.addEventListener('click', function() {
+    links.classList.toggle('open');
+  });
+  links.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() { links.classList.remove('open'); });
+  });
+
+  // Iframe auto-resize (notifies Wix parent of real document height)
+  function notifyHeight() {
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    window.parent.postMessage(JSON.stringify({ type: 'resize', height: h }), '*');
+  }
+  window.addEventListener('load', notifyHeight);
+  window.addEventListener('resize', notifyHeight);
+</script>
 </body>
 </html>

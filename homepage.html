@@ -759,10 +759,41 @@
     .footer-bot-left { opacity: 0.4; }
     .footer-bot-right { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.4); }
 
+    /* ─── HAMBURGER ─────────────────────────────────────── */
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer;
+      padding: 8px; border-radius: 8px; flex-shrink: 0;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--dkgreen); border-radius: 2px;
+      transition: all 0.2s;
+    }
+
     /* ─── RESPONSIVE ─────────────────────────────────────── */
     @media (max-width: 900px) {
-      nav { padding: 0 20px; height: 64px; }
-      .nav-links { display: none; }
+      nav { padding: 0 20px; height: 64px; position: relative; }
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none; flex-direction: column; gap: 0;
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: rgba(255,251,239,0.98); backdrop-filter: blur(12px);
+        border-bottom: 3px solid var(--yellow);
+        padding: 12px 20px 16px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1); z-index: 999;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a {
+        padding: 12px 4px; border-bottom: 1px solid var(--light-rule);
+        font-size: 0.9rem; white-space: normal;
+      }
+      .nav-links a:last-child { border-bottom: none; }
+      .nav-cta {
+        margin-top: 8px; text-align: center;
+        display: block; border-bottom: none !important;
+        padding: 12px 22px !important;
+      }
       .hero { grid-template-columns: 1fr; }
       .hero-right { display: none; }
       .hero-left { padding: 80px 28px 60px; min-height: 100vh; }
@@ -771,9 +802,28 @@
       .s-social, .s-sponsor { padding: 56px 20px; }
       footer { padding: 48px 20px 24px; }
       .qs-inner { grid-template-columns: 1fr 1fr; }
-      .a250-layout, .ticket-grid, .maze-feature, .food-layout, .groups-layout, .find-layout, .footer-grid, .pass-inner, .seasonal-grid { grid-template-columns: 1fr; }
-      .mil-grid { grid-template-columns: repeat(3, 1fr); }
+      .a250-layout, .ticket-grid, .maze-feature, .food-layout, .groups-layout, .find-layout, .pass-inner, .seasonal-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .attract-grid { grid-template-columns: repeat(2, 1fr); }
+      .ev-grid { grid-template-columns: repeat(2, 1fr); }
+      .food-menu-grid { grid-template-columns: repeat(2, 1fr); }
+      .grp-pricing-grid { grid-template-columns: 1fr; gap: 12px; }
+      .mil-grid { grid-template-columns: repeat(2, 1fr); }
       .sponsor-inner { flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      .qs-inner { grid-template-columns: 1fr; }
+      .attract-grid { grid-template-columns: 1fr; }
+      .ev-grid { grid-template-columns: 1fr; }
+      .food-menu-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .group-types { grid-template-columns: 1fr; }
+      .hero-left { padding: 80px 20px 48px; }
+      .pdt-inner { padding: 24px 20px; gap: 16px; }
+      .pdt-thumbs { display: none; }
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { text-align: center; }
     }
   </style>
 </head>
@@ -784,13 +834,16 @@
   <a class="nav-brand" href="#">
     <img src="https://static.wixstatic.com/media/887d8b_e6fa16405eb54e7d896bc88f5d706a93~mv2_d_3000_1350_s_2.png" alt="Valley Corn Maize" style="height:44px;width:auto;object-fit:contain;">
   </a>
-  <div class="nav-links">
+  <button class="nav-hamburger" id="navToggle" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
     <a href="#maze">The Maze</a>
     <a href="#attractions">Attractions</a>
     <a href="#events">Events</a>
     <a href="#visit">Plan Your Visit</a>
     <a href="#groups">Groups</a>
-    <a href="past-designs.html">Past Designs</a>
+    <a href="past-designs.html" target="_top">Past Designs</a>
     <a href="#tickets" class="nav-cta">Buy Tickets</a>
   </div>
 </nav>
@@ -1606,5 +1659,24 @@
   </div>
 </footer>
 
+<script>
+  // Hamburger nav toggle
+  var toggle = document.getElementById('navToggle');
+  var links  = document.getElementById('navLinks');
+  toggle.addEventListener('click', function() {
+    links.classList.toggle('open');
+  });
+  links.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() { links.classList.remove('open'); });
+  });
+
+  // Iframe auto-resize (notifies Wix parent of real document height)
+  function notifyHeight() {
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    window.parent.postMessage(JSON.stringify({ type: 'resize', height: h }), '*');
+  }
+  window.addEventListener('load', notifyHeight);
+  window.addEventListener('resize', notifyHeight);
+</script>
 </body>
 </html>
