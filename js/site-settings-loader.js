@@ -167,4 +167,40 @@ if (typeof ticketsData !== "undefined" && ticketsData) {
     setTicketLink("[data-ticket='season-button']", ticketsData.seasonPass.buttonLink);
   }
 }
+  // Sponsors
+if (typeof sponsorsData !== "undefined" && Array.isArray(sponsorsData)) {
+  const featuredSponsor = sponsorsData.find(function (sponsor) {
+    return sponsor.featured;
+  });
+
+  const featuredLogo = document.getElementById("featuredSponsorLogo");
+
+  if (featuredSponsor && featuredLogo) {
+    featuredLogo.setAttribute("href", featuredSponsor.website || "#");
+    featuredLogo.setAttribute("target", "_blank");
+    featuredLogo.setAttribute("rel", "noopener noreferrer");
+  }
+
+  const partnerGrid = document.getElementById("partnerGrid");
+
+  if (partnerGrid) {
+    partnerGrid.innerHTML = "";
+
+    sponsorsData.forEach(function (sponsor) {
+      const link = document.createElement("a");
+      link.className = "partner-tile";
+      link.href = sponsor.website || "#";
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+
+      if (sponsor.logo) {
+        link.innerHTML = `<img src="${sponsor.logo}" alt="${sponsor.name}">`;
+      } else {
+        link.innerHTML = `<span class="partner-tile-text">${sponsor.name}</span>`;
+      }
+
+      partnerGrid.appendChild(link);
+    });
+  }
+}
 });
