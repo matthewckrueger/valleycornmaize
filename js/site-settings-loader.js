@@ -127,6 +127,8 @@ if (typeof ticketsData !== "undefined" && ticketsData) {
     const el = document.querySelector(selector);
     if (el && value) {
       el.setAttribute("href", value);
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener noreferrer");;
     }
   }
 
