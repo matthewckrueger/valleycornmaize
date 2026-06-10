@@ -29,7 +29,7 @@ const siteSettings = {
     enabled: false,
     message: "We are closed today due to weather."
   }
-  events: [
+  'events: [
   {
     date: "Opening Weekend",
     name: "2026 Season Kickoff",
