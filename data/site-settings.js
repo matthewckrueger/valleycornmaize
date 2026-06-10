@@ -7,7 +7,7 @@ const siteSettings = {
   admission: "$12.50 per person",
   ticketLink: "#tickets",
   alert: {
-    enabled: false,
+    enabled: true,
     message: "We are closed today due to weather."
   }
 };
