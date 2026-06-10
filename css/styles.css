@@ -114,6 +114,62 @@
     }
     .nav-cta:hover { background: var(--dkgreen); }
 
+/* ─── SITE ALERT BAR ───────────────────────────────────── */
+.site-alert {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: var(--red);
+  color: #fff;
+  border-bottom: 3px solid var(--yellow);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+}
+
+.site-alert-inner {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 12px 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.site-alert-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--red);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+body.has-site-alert .hero {
+  padding-top: 124px;
+}
+
+@media (max-width: 900px) {
+  .site-alert {
+    top: 64px;
+  }
+
+  .site-alert-inner {
+    padding: 11px 20px;
+    font-size: 0.82rem;
+  }
+
+  body.has-site-alert .hero {
+    padding-top: 116px;
+  }
+}
+
     /* ─── HERO ───────────────────────────────────────────── */
     .hero {
       min-height: 100vh;
