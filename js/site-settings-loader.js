@@ -148,4 +148,23 @@ if (typeof ticketsData !== "undefined" && ticketsData) {
     setTicketLink("[data-ticket='season-button']", ticketsData.seasonPass.buttonLink);
   }
 }
+  // Ticket links only
+if (typeof ticketsData !== "undefined" && ticketsData) {
+  function setTicketLink(selector, value) {
+    const el = document.querySelector(selector);
+    if (el && value) {
+      el.setAttribute("href", value);
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener noreferrer");
+    }
+  }
+
+  if (ticketsData.dayPass) {
+    setTicketLink("[data-ticket='day-button']", ticketsData.dayPass.buttonLink);
+  }
+
+  if (ticketsData.seasonPass) {
+    setTicketLink("[data-ticket='season-button']", ticketsData.seasonPass.buttonLink);
+  }
+}
 });
