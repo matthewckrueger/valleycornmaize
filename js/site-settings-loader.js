@@ -114,4 +114,36 @@ if (typeof attractionsData !== "undefined" && Array.isArray(attractionsData)) {
     });
   }
 }
+  // Tickets
+if (typeof ticketsData !== "undefined" && ticketsData) {
+  function setTicketText(selector, value) {
+    const el = document.querySelector(selector);
+    if (el && value !== undefined && value !== null) {
+      el.textContent = value;
+    }
+  }
+
+  function setTicketLink(selector, value) {
+    const el = document.querySelector(selector);
+    if (el && value) {
+      el.setAttribute("href", value);
+    }
+  }
+
+  if (ticketsData.dayPass) {
+    setTicketText("[data-ticket='day-type']", ticketsData.dayPass.type);
+    setTicketText("[data-ticket='day-price']", ticketsData.dayPass.price);
+    setTicketText("[data-ticket='day-desc']", ticketsData.dayPass.description);
+    setTicketText("[data-ticket='day-button']", ticketsData.dayPass.buttonText);
+    setTicketLink("[data-ticket='day-button']", ticketsData.dayPass.buttonLink);
+  }
+
+  if (ticketsData.seasonPass) {
+    setTicketText("[data-ticket='season-type']", ticketsData.seasonPass.type);
+    setTicketText("[data-ticket='season-price']", ticketsData.seasonPass.price);
+    setTicketText("[data-ticket='season-desc']", ticketsData.seasonPass.description);
+    setTicketText("[data-ticket='season-button']", ticketsData.seasonPass.buttonText);
+    setTicketLink("[data-ticket='season-button']", ticketsData.seasonPass.buttonLink);
+  }
+}
 });
