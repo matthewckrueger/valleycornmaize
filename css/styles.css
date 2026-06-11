@@ -426,8 +426,9 @@ body.has-site-alert .hero {
     .maze-design-img {
       width: 100%;
       display: block;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
+      height: 650px;
+      object-fit: contain;
+      background: #f5f1df;
     }
     /* Use actual uploaded maze design image — uncomment img tag below */
     <img class="maze-design-img" src="photos/maze-design-2026.jpg" alt="2026 America 250 Maze Design">
