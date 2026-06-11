@@ -77,14 +77,6 @@ const sun = document.getElementById("hoursSunday");
 if (sun) {
   sun.innerHTML = `<strong>${settings.sundayHours || ""}</strong> | Sunday`;
 }
-    setText("admissionValue", settings.admission);
-    setText("heroSeasonValue", settings.seasonValue);
-
-if (settings.saturdayHours || settings.sundayHours) {
-  setText(
-  "heroHoursValue",
-  `Sat ${settings.saturdayHours || ""} · Sun ${settings.sundayHours || ""}`
-);
 }
 
 setText("heroAdmissionValue", settings.admission);
