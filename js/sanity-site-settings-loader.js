@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       alertMessage,
       alertLink,
       seasonValue,
-      saturdayHours,
+      saturdayHours, 
       sundayHours,
       admission,
       ticketLink
@@ -68,14 +68,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     // Quick info strip from Sanity
     setText("seasonValue", settings.seasonValue);
     setText(
-  const sat = document.getElementById("hoursSaturday");
+const sat = document.getElementById("hoursSaturday");
 if (sat) {
-  sat.innerHTML = `Saturday | <strong>${settings.saturdayHours || ""}</strong>`;
+  sat.innerHTML = `<strong>${settings.saturdayHours || ""}</strong> | Saturday`;
 }
 
 const sun = document.getElementById("hoursSunday");
 if (sun) {
-  sun.innerHTML = `Sunday | <strong>${settings.sundayHours || ""}</strong>`;
+  sun.innerHTML = `<strong>${settings.sundayHours || ""}</strong> | Sunday`;
 }
     setText("admissionValue", settings.admission);
     setText("heroSeasonValue", settings.seasonValue);
