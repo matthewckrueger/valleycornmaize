@@ -30,11 +30,11 @@ document.addEventListener("DOMContentLoaded", async function () {
       card.className = "ev-card";
 
       const imageHtml = event.imageUrl
-        ? `<img src="${event.imageUrl}" alt="${event.title || "Event"}" class="ev-card-img">`
-        : `<i class="fa-solid fa-calendar-days"></i>`;
+  ? `<img src="${event.imageUrl}" alt="${event.title || "Event"}" class="ev-card-img">`
+  : `<div class="ev-fallback"><i class="fa-solid fa-calendar-days"></i></div>`;
 
       card.innerHTML = `
-        <div class="ev-top" style="background: linear-gradient(135deg, var(--green), var(--dkgreen));">
+       <div class="ev-top ${event.imageUrl ? "ev-top-image" : "ev-top-fallback"}">
           ${imageHtml}
         </div>
         <div class="ev-body">
