@@ -68,14 +68,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     // Quick info strip from Sanity
     setText("seasonValue", settings.seasonValue);
     setText(
-  "hoursSaturday",
-  `Saturday | ${settings.saturdayHours || ""}`
-);
+  const sat = document.getElementById("hoursSaturday");
+if (sat) {
+  sat.innerHTML = `Saturday | <strong>${settings.saturdayHours || ""}</strong>`;
+}
 
-setText(
-  "hoursSunday",
-  `Sunday | ${settings.sundayHours || ""}`
-);
+const sun = document.getElementById("hoursSunday");
+if (sun) {
+  sun.innerHTML = `Sunday | <strong>${settings.sundayHours || ""}</strong>`;
+}
     setText("admissionValue", settings.admission);
     setText("heroSeasonValue", settings.seasonValue);
 
