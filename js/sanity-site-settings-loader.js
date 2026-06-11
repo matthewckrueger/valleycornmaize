@@ -70,6 +70,16 @@ document.addEventListener("DOMContentLoaded", async function () {
     setText("hoursSaturday", settings.saturdayHours);
     setText("hoursSunday", settings.sundayHours);
     setText("admissionValue", settings.admission);
+    setText("heroSeasonValue", settings.seasonValue);
+
+if (settings.saturdayHours || settings.sundayHours) {
+  setText(
+    "heroHoursValue",
+    `${settings.saturdayHours || ""} · ${settings.sundayHours || ""}`
+  );
+}
+
+setText("heroAdmissionValue", settings.admission);
 
     // Ticket links from Sanity
     if (settings.ticketLink) {
