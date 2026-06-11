@@ -137,7 +137,7 @@
   padding: 12px 48px;
   font-size: 0.9rem;
   font-weight: 700;
-  animation: alertMarquee 18s linear infinite;
+  animation: alertMarquee 25s linear infinite;
   min-width: 100%;
 }
 
@@ -152,6 +152,17 @@
   justify-content: center;
   font-weight: 900;
   flex-shrink: 0;
+}
+.site-alert-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-alert-link:hover {
+  text-decoration: underline;
+}
+.site-alert-link {
+  cursor: pointer;
 }
 /* Alert Types */
 
