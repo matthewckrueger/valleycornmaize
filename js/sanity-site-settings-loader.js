@@ -25,13 +25,14 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     if (!settings) return;
 
-    if (settings.alertEnabled) {
+    // Alert banner from Sanity
+    if (settings.alertEnabled && settings.alertMessage?.trim()) {
       const alertBar = document.createElement("div");
       alertBar.className = `site-alert site-alert-${settings.alertType || "notice"}`;
 
       const alertContent = `
         <span class="site-alert-icon">!</span>
-        <span>${settings.alertMessage || "Important update from Valley Corn Maize."}</span>
+        <span>${settings.alertMessage}</span>
       `;
 
       alertBar.innerHTML = settings.alertLink
@@ -55,6 +56,30 @@ document.addEventListener("DOMContentLoaded", async function () {
         nav.insertAdjacentElement("afterend", alertBar);
         document.body.classList.add("has-site-alert");
       }
+    }
+
+    function setText(id, value) {
+      const el = document.getElementById(id);
+      if (el && value && value.trim() !== "") {
+        el.textContent = value;
+      }
+    }
+
+    // Quick info strip from Sanity
+    setText("seasonValue", settings.seasonValue);
+    setText("hoursSaturday", settings.saturdayHours);
+    setText("hoursSunday", settings.sundayHours);
+    setText("admissionValue", settings.admission);
+
+    // Ticket links from Sanity
+    if (settings.ticketLink) {
+      document
+        .querySelectorAll('a[href="#tickets"], [data-ticket="day-button"], [data-ticket="season-button"]')
+        .forEach(function (link) {
+          link.setAttribute("href", settings.ticketLink);
+          link.setAttribute("target", "_blank");
+          link.setAttribute("rel", "noopener noreferrer");
+        });
     }
   } catch (error) {
     console.error("Could not load Sanity site settings:", error);
