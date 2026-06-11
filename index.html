@@ -485,35 +485,58 @@
         </div>
       </div>
       <div class="g-form-card">
-        <h3>Get in Touch About Your Group</h3>
-        <div class="f-row">
-          <label>Your Name</label>
-          <input class="f-input" type="text" placeholder="Full name">
-        </div>
-        <div class="f-row">
-          <label>Organization / Group Name</label>
-          <input class="f-input" type="text" placeholder="School, business, church, family, etc.">
-        </div>
-        <div class="f-row">
-          <label>Estimated Group Size</label>
-          <select class="f-input">
-            <option value="">Select group size</option>
-            <option>15–25 people ($2 off/person)</option>
-            <option>26–50 people ($3 off/person)</option>
-            <option>51–100 people ($4 off/person)</option>
-            <option>101+ people ($4 off/person)</option>
-          </select>
-        </div>
-        <div class="f-row">
-          <label>Tell us about your visit</label>
-          <textarea class="f-input" placeholder="Preferred dates, any special requests, or questions"></textarea>
-        </div>
-        <button class="btn-grp-submit">
-          <i class="fa-solid fa-paper-plane"></i>
-          Send Inquiry
-        </button>
-      </div>
+  <h3>Get in Touch About Your Group</h3>
+
+  <form action="https://formspree.io/f/mwvjrpjv">
+    <div class="f-row">
+      <label>Your Name</label>
+      <input class="f-input" type="text" name="name" placeholder="Full name" required>
     </div>
+
+    <div class="f-row">
+      <label>Email</label>
+      <input class="f-input" type="email" name="email" placeholder="you@example.com" required>
+    </div>
+
+    <div class="f-row">
+      <label>Phone</label>
+      <input class="f-input" type="tel" name="phone" placeholder="Best phone number">
+    </div>
+
+    <div class="f-row">
+      <label>Organization / Group Name</label>
+      <input class="f-input" type="text" name="organization" placeholder="School, business, church, family, etc.">
+    </div>
+
+    <div class="f-row">
+      <label>Estimated Group Size</label>
+      <select class="f-input" name="group_size" required>
+        <option value="">Select group size</option>
+        <option>15–25 people ($2 off/person)</option>
+        <option>26–50 people ($3 off/person)</option>
+        <option>51–100 people ($4 off/person)</option>
+        <option>101+ people ($4 off/person)</option>
+      </select>
+    </div>
+
+    <div class="f-row">
+      <label>Preferred Visit Date</label>
+      <input class="f-input" type="date" name="preferred_date">
+    </div>
+
+    <div class="f-row">
+      <label>Tell us about your visit</label>
+      <textarea class="f-input" name="message" placeholder="Preferred dates, any special requests, or questions"></textarea>
+    </div>
+
+    <input type="hidden" name="_subject" value="New Valley Corn Maize Group Inquiry">
+
+    <button class="btn-grp-submit" type="submit">
+      <i class="fa-solid fa-paper-plane"></i>
+      Send Inquiry
+    </button>
+  </form>
+</div>
   </div>
 </section>
 
