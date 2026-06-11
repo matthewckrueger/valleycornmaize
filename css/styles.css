@@ -349,7 +349,21 @@ body.has-site-alert .hero {
 
     /* ─── AMERICA 250 ────────────────────────────────────── */
     .s-america { padding: 96px 48px; background: var(--warm); border-top: 4px solid var(--yellow); }
-    .a250-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; margin-top: 52px; }
+   .a250-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 72px;
+  align-items: start;
+  margin-top: 52px;
+}
+
+.maze-design-card {
+  width: 100%;
+}
+
+.maze-branch-info {
+  width: 100%;
+}
 
     /* ─── PAST DESIGNS TEASER ──────────────────────────── */
     .past-designs-teaser {
