@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     *[_type == "attraction"] | order(_createdAt asc) {
       title,
       description,
-      icon
+      icon,
+      "imageUrl": image.asset->url
     }
   `);
 
@@ -28,12 +29,18 @@ document.addEventListener("DOMContentLoaded", async function () {
       const card = document.createElement("div");
       card.className = "a-card";
 
-      card.innerHTML = `
-        <div class="a-photo">
+      const imageHtml = attraction.imageUrl
+        ? `<img src="${attraction.imageUrl}" alt="${attraction.title || "Attraction"}" class="a-card-img">`
+        : `
           <div class="photo-slot">
             <i class="${attraction.icon || "fa-solid fa-seedling"}"></i>
             <span class="slot-label">PHOTO COMING SOON</span>
           </div>
+        `;
+
+      card.innerHTML = `
+        <div class="a-photo">
+          ${imageHtml}
         </div>
         <div class="a-info">
           <h3>${attraction.title || ""}</h3>
