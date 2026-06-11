@@ -6,14 +6,16 @@ document.addEventListener("DOMContentLoaded", async function () {
   const projectId = "f8kcv61e";
   const dataset = "production";
 
-  const query = encodeURIComponent(`
-    *[_type == "foodItem" && active == true] | order(sortOrder asc) {
-      name,
-      description,
-      icon,
-      "imageUrl": image.asset->url
-    }
-  `);
+const query = encodeURIComponent(`
+  *[_type == "foodItem" && active == true] | order(sortOrder asc) {
+    name,
+    description,
+    price,
+    featured,
+    icon,
+    "imageUrl": image.asset->url
+  }
+`);
 
   const url = `https://${projectId}.api.sanity.io/v2024-01-01/data/query/${dataset}?query=${query}`;
 
