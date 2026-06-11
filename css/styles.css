@@ -415,12 +415,19 @@ body.has-site-alert .hero {
 
     /* Maze design visual */
     .maze-design-card {
-      border-radius: 18px; overflow: hidden;
+      width: 100%;
+      border-radius: 18px;
+      overflow: hidden;
       box-shadow: 0 12px 48px rgba(0,0,0,0.12);
       position: relative;
+      background: #fff;
     }
+    
     .maze-design-img {
-      width: 100%; aspect-ratio: 4/3; object-fit: cover;
+      width: 100%;
+      display: block;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
     }
     /* Use actual uploaded maze design image — uncomment img tag below */
     <img class="maze-design-img" src="photos/maze-design-2026.jpg" alt="2026 America 250 Maze Design">
