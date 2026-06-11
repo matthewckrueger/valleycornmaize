@@ -772,90 +772,132 @@ body.has-site-alert .hero {
     .seas-body p { font-size: 0.88rem; color: var(--mid); line-height: 1.75; }
 
     /* ─── CONCESSIONS ────────────────────────────────────── */
-    .s-food { padding: 96px 48px; background: var(--dkgreen); }
-    .s-food .s-tag { color: var(--yellow); }
-    .s-food h2 { color: #fff; }
-    .s-food .lead { color: rgba(255,255,255,0.82); max-width: 700px; }
-    .food-menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 52px; }
-    .food-card {
-      border-radius: 20px; overflow: hidden;
-      box-shadow: 0 6px 28px rgba(0,0,0,0.22);
-      transition: transform 0.22s, box-shadow 0.22s;
-      cursor: default;
-    }
-    .food-card:hover { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(0,0,0,0.3); }
-    .food-card-img {
-      height: 180px; display: flex; align-items: center; justify-content: center;
-      font-size: 4rem; position: relative; overflow: hidden;
-    }
-    .food-card-img::before {
-      content: ''; position: absolute; inset: 0;
-      background: inherit; filter: brightness(0.88);
-    }
-    .food-card-img i { position: relative; z-index: 1; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
-    .food-card-body { background: #fff; padding: 20px 22px 22px; }
-    .food-card-name { font-size: 1rem; font-weight: 800; color: var(--dkgreen); margin-bottom: 5px; }
-    .food-card-desc { font-size: 0.8rem; color: var(--mid); line-height: 1.55; }
-    .fc-taco   .food-card-img { background: linear-gradient(135deg, #B84A00, #E87A20); color: #FFD090; }
-    .fc-donut  .food-card-img { background: linear-gradient(135deg, #C86A00, #F5C518); color: #FFF3CC; }
-    .fc-dog    .food-card-img { background: linear-gradient(135deg, #8B3A00, #D45A00); color: #FFD0A0; }
-    .fc-blossom .food-card-img { background: linear-gradient(135deg, #8B1A00, #C84020); color: #FFB8A0; }
-    .fc-cone   .food-card-img { background: linear-gradient(135deg, #6B4A20, #C8955A); color: #FFE8C8; }
-    .fc-drinks .food-card-img { background: linear-gradient(135deg, #1A5E8B, #2D9EC8); color: #A8E0FF; }
-.food-card-photo {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.food-card-img.has-food-photo::before {
-  display: none;
-}
-
-.food-card {
-  position: relative;
-}
-
-.food-card-img {
-  position: relative;
-}
-
-.food-featured-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 5;
-  background: var(--yellow);
-  color: var(--dkgreen);
-  font-size: 0.62rem;
-  font-weight: 900;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 6px 12px;
-  border-radius: 999px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
-}
-
-.food-card-body {
-  position: relative;
-  padding-bottom: 46px;
-}
-
-.food-card-price {
-  position: absolute;
-  right: 18px;
-  bottom: 16px;
-  background: var(--orange);
-  color: #fff;
-  font-size: 0.86rem;
-  font-weight: 900;
-  padding: 7px 13px;
-  border-radius: 999px;
-  box-shadow: 0 4px 14px rgba(232,98,26,0.28);
-}
+      .s-food {
+        padding: 96px 48px;
+        background: var(--dkgreen);
+      }
+      
+      .s-food .s-tag {
+        color: var(--yellow);
+      }
+      
+      .s-food h2 {
+        color: #fff;
+      }
+      
+      .s-food .lead {
+        color: rgba(255,255,255,0.82);
+        max-width: 700px;
+      }
+      
+      .food-menu-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 52px;
+      }
+      
+      .food-card {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 6px 28px rgba(0,0,0,0.22);
+        transition: transform 0.22s, box-shadow 0.22s;
+        cursor: default;
+      }
+      
+      .food-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 14px 40px rgba(0,0,0,0.3);
+      }
+      
+      .food-card-img {
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #B84A00, #E87A20);
+        color: #FFD090;
+      }
+      
+      .food-card-img::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: inherit;
+        filter: brightness(0.88);
+      }
+      
+      .food-card-img i {
+        position: relative;
+        z-index: 1;
+        filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+      }
+      
+      .food-card-img.has-food-photo::before {
+        display: none;
+      }
+      
+      .food-card-photo {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      
+      .food-featured-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        z-index: 5;
+        background: var(--yellow);
+        color: var(--dkgreen);
+        font-size: 0.62rem;
+        font-weight: 900;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        padding: 6px 12px;
+        border-radius: 999px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+      }
+      
+      .food-card-body {
+        position: relative;
+        background: #fff;
+        padding: 20px 22px 54px;
+        min-height: 155px;
+      }
+      
+      .food-card-name {
+        font-size: 1rem;
+        font-weight: 800;
+        color: var(--dkgreen);
+        margin-bottom: 5px;
+      }
+      
+      .food-card-desc {
+        font-size: 0.8rem;
+        color: var(--mid);
+        line-height: 1.55;
+      }
+      
+      .food-card-price {
+        position: absolute;
+        right: 18px;
+        bottom: 16px;
+        background: var(--orange);
+        color: #fff;
+        font-size: 0.86rem;
+        font-weight: 900;
+        padding: 7px 13px;
+        border-radius: 999px;
+        box-shadow: 0 4px 14px rgba(232,98,26,0.28);
+      }
     /* ─── GROUPS ─────────────────────────────────────────── */
     .s-groups { padding: 96px 48px; background: var(--straw); }
     .groups-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; margin-top: 48px; }
