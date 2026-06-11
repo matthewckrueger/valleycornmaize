@@ -1160,3 +1160,24 @@ body.has-site-alert .hero {
       .hero-btns { flex-direction: column; }
       .hero-btns .btn { text-align: center; }
     }
+
+    .group-success-box {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    
+    .group-success-box i {
+      font-size: 3rem;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+    
+    .group-success-box h4 {
+      font-size: 1.4rem;
+      color: var(--dkgreen);
+      margin-bottom: 8px;
+    }
+    
+    .group-success-box p {
+      color: var(--mid);
+    }
