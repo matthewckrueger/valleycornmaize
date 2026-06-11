@@ -35,15 +35,23 @@ const query = encodeURIComponent(`
         ? `<img src="${item.imageUrl}" alt="${item.name || "Food item"}" class="food-card-photo">`
         : `<i class="${item.icon || "fa-solid fa-utensils"}"></i>`;
 
-      card.innerHTML = `
-        <div class="food-card-img ${item.imageUrl ? "has-food-photo" : ""}">
-          ${imageHtml}
-        </div>
-        <div class="food-card-body">
-          <div class="food-card-name">${item.name || ""}</div>
-          <div class="food-card-desc">${item.description || ""}</div>
-        </div>
-      `;
+card.innerHTML = `
+  <div class="food-card-img ${item.imageUrl ? "has-food-photo" : ""}">
+    ${item.featured ? `<div class="food-featured-badge">FEATURED</div>` : ""}
+    ${imageHtml}
+  </div>
+
+  <div class="food-card-body">
+    <div class="food-card-name">${item.name || ""}</div>
+    <div class="food-card-desc">${item.description || ""}</div>
+
+    ${
+      item.price
+        ? `<div class="food-card-price">${item.price}</div>`
+        : ""
+    }
+  </div>
+`;
 
       foodGrid.appendChild(card);
     });
