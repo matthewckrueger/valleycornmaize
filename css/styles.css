@@ -621,10 +621,7 @@ body.has-site-alert .hero {
       transition: all 0.22s;
     }
     .ev-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
-    .ev-top {
-      height: 80px; position: relative;
-      display: flex; align-items: center; justify-content: center;
-    }
+
 .ev-top {
   height: 120px;
   position: relative;
