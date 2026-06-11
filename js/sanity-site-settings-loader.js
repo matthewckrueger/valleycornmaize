@@ -74,9 +74,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 if (settings.saturdayHours || settings.sundayHours) {
   setText(
-    "heroHoursValue",
-    `${settings.saturdayHours || ""} · ${settings.sundayHours || ""}`
-  );
+  "heroHoursValue",
+  `Sat ${settings.saturdayHours || ""} · Sun ${settings.sundayHours || ""}`
+);
 }
 
 setText("heroAdmissionValue", settings.admission);
