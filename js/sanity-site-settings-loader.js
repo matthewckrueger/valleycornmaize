@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       alertMessage,
       alertLink,
       seasonValue,
-      saturdayHours, 
+      saturdayHours,
       sundayHours,
       admission,
       ticketLink
@@ -65,21 +65,39 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
     }
 
+    function formatHours(value) {
+      return (value || "")
+        .replaceAll(":00", "")
+        .replaceAll(" AM", "am")
+        .replaceAll(" PM", "pm");
+    }
+
+    const saturdayHours = formatHours(settings.saturdayHours);
+    const sundayHours = formatHours(settings.sundayHours);
+
     // Quick info strip from Sanity
     setText("seasonValue", settings.seasonValue);
-    setText(
-const sat = document.getElementById("hoursSaturday");
-if (sat) {
-  sat.innerHTML = `<strong>${settings.saturdayHours || ""}</strong> | Saturday`;
-}
 
-const sun = document.getElementById("hoursSunday");
-if (sun) {
-  sun.innerHTML = `<strong>${settings.sundayHours || ""}</strong> | Sunday`;
-}
-}
+    const sat = document.getElementById("hoursSaturday");
+    if (sat) {
+      sat.innerHTML = `<strong>${saturdayHours}</strong> | Saturday`;
+    }
 
-setText("heroAdmissionValue", settings.admission);
+    const sun = document.getElementById("hoursSunday");
+    if (sun) {
+      sun.innerHTML = `<strong>${sundayHours}</strong> | Sunday`;
+    }
+
+    setText("admissionValue", settings.admission);
+
+    // Hero floating card from Sanity
+    setText("heroSeasonValue", settings.seasonValue);
+
+    if (saturdayHours || sundayHours) {
+      setText("heroHoursValue", `Sat ${saturdayHours} · Sun ${sundayHours}`);
+    }
+
+    setText("heroAdmissionValue", settings.admission);
 
     // Ticket links from Sanity
     if (settings.ticketLink) {
