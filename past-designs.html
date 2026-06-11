@@ -343,6 +343,42 @@
       .pd-hero-inner { padding: 60px 20px 0; }
       .pd-hero-stats { gap: 28px; }
     }
+        .design-card-img {
+      cursor: zoom-in;
+    }
+    
+    .image-lightbox {
+      display: none;
+      position: fixed;
+      z-index: 5000;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
+    
+    .image-lightbox.open {
+      display: flex;
+    }
+    
+    .image-lightbox img {
+      max-width: 95vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+    }
+    
+    .lightbox-close {
+      position: fixed;
+      top: 22px;
+      right: 28px;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 5001;
+    }
   </style>
 </head>
 <body>
@@ -439,21 +475,55 @@
     <!-- 2025 -->
     <div class="design-card">
       <div class="design-card-img">
-        <img src="https://static.wixstatic.com/media/887d8b_194777e8068b4df084da5881138d4406~mv2.jpg"
+        <img src="images/maze-2025.jpg"
              alt="2025 Valley Corn Maize aerial maze design">
         <span class="year-badge">2025</span>
       </div>
       <div class="design-card-body">
         <span class="design-year">2025 Season</span>
         <div class="design-theme">2025 Maze Design</div>
-        <p class="design-desc">Another season, another intricate layout carved across 30 acres. Five difficulty levels, countless turns, and memories made with every family that walked it.</p>
+        <p class="design-desc">The featured WORLD'S LARGEST corn maze at a staggering 121 acres in total!</p>
         <div class="design-meta">
-          <span class="dm-pill"><i class="fa-solid fa-ruler-combined"></i> 30 Acres</span>
+          <span class="dm-pill"><i class="fa-solid fa-ruler-combined"></i> 121 Acres</span>
           <span class="dm-pill"><i class="fa-solid fa-seedling"></i> Pioneer® Partner</span>
         </div>
       </div>
     </div>
 
+    <!-- 2024 — Placeholder -->
+    <div class="design-card">
+      <div class="design-card-img ph-img">
+        <div class="ph-icon"><i class="fa-solid fa-image"></i></div>
+        <div class="ph-text">Photo Coming Soon</div>
+        <span class="year-badge">2024</span>
+      </div>
+      <div class="design-card-body">
+        <span class="design-year">2024 Season</span>
+        <div class="design-theme">2024 Maze Design</div>
+        <p class="design-desc">We're adding the 2024 aerial design photo here soon. Check back or follow us on social media for updates.</p>
+        <div class="design-meta">
+          <span class="dm-pill"><i class="fa-solid fa-ruler-combined"></i> 30 Acres</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2023 — Placeholder -->
+    <div class="design-card">
+      <div class="design-card-img ph-img">
+        <div class="ph-icon"><i class="fa-solid fa-image"></i></div>
+        <div class="ph-text">Photo Coming Soon</div>
+        <span class="year-badge">2023</span>
+      </div>
+      <div class="design-card-body">
+        <span class="design-year">2023 Season</span>
+        <div class="design-theme">2023 Maze Design</div>
+        <p class="design-desc">We're adding the 2023 aerial design photo here soon. Check back or follow us on social media for updates.</p>
+        <div class="design-meta">
+          <span class="dm-pill"><i class="fa-solid fa-ruler-combined"></i> 30 Acres</span>
+        </div>
+      </div>
+    </div>
+    
     <!-- 2022 -->
     <div class="design-card">
       <div class="design-card-img">
@@ -506,40 +576,92 @@
       </div>
     </div>
 
-    <!-- 2024 — Placeholder -->
+        <!-- 2019 -->
     <div class="design-card">
-      <div class="design-card-img ph-img">
-        <div class="ph-icon"><i class="fa-solid fa-image"></i></div>
-        <div class="ph-text">Photo Coming Soon</div>
-        <span class="year-badge">2024</span>
+      <div class="design-card-img">
+        <img src="https://static.wixstatic.com/media/887d8b_272beff868a04ab884eb89af06d35e32~mv2.jpg"
+             alt="2020 Valley Corn Maize aerial shot">
+        <span class="year-badge">2020</span>
       </div>
       <div class="design-card-body">
-        <span class="design-year">2024 Season</span>
-        <div class="design-theme">2024 Maze Design</div>
-        <p class="design-desc">We're adding the 2024 aerial design photo here soon. Check back or follow us on social media for updates.</p>
+        <span class="design-year">2020 Season</span>
+        <div class="design-theme">2020 Maze Design</div>
+        <p class="design-desc">The 2020 aerial shows the full scope of the farm and maze — a bird's-eye view of the Red River Valley farmland that became the canvas for our fall tradition.</p>
         <div class="design-meta">
           <span class="dm-pill"><i class="fa-solid fa-ruler-combined"></i> 30 Acres</span>
         </div>
       </div>
     </div>
 
-    <!-- 2023 — Placeholder -->
+    <!-- 2018 -->
     <div class="design-card">
-      <div class="design-card-img ph-img">
-        <div class="ph-icon"><i class="fa-solid fa-image"></i></div>
-        <div class="ph-text">Photo Coming Soon</div>
-        <span class="year-badge">2023</span>
+      <div class="design-card-img">
+        <img src="https://static.wixstatic.com/media/887d8b_272beff868a04ab884eb89af06d35e32~mv2.jpg"
+             alt="2020 Valley Corn Maize aerial shot">
+        <span class="year-badge">2020</span>
       </div>
       <div class="design-card-body">
-        <span class="design-year">2023 Season</span>
-        <div class="design-theme">2023 Maze Design</div>
-        <p class="design-desc">We're adding the 2023 aerial design photo here soon. Check back or follow us on social media for updates.</p>
+        <span class="design-year">2020 Season</span>
+        <div class="design-theme">2020 Maze Design</div>
+        <p class="design-desc">The 2020 aerial shows the full scope of the farm and maze — a bird's-eye view of the Red River Valley farmland that became the canvas for our fall tradition.</p>
         <div class="design-meta">
           <span class="dm-pill"><i class="fa-solid fa-ruler-combined"></i> 30 Acres</span>
         </div>
       </div>
     </div>
 
+    <!-- 2017 -->
+    <div class="design-card">
+      <div class="design-card-img">
+        <img src="https://static.wixstatic.com/media/887d8b_272beff868a04ab884eb89af06d35e32~mv2.jpg"
+             alt="2020 Valley Corn Maize aerial shot">
+        <span class="year-badge">2020</span>
+      </div>
+      <div class="design-card-body">
+        <span class="design-year">2020 Season</span>
+        <div class="design-theme">2020 Maze Design</div>
+        <p class="design-desc">The 2020 aerial shows the full scope of the farm and maze — a bird's-eye view of the Red River Valley farmland that became the canvas for our fall tradition.</p>
+        <div class="design-meta">
+          <span class="dm-pill"><i class="fa-solid fa-ruler-combined"></i> 30 Acres</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2016 -->
+    <div class="design-card">
+      <div class="design-card-img">
+        <img src="https://static.wixstatic.com/media/887d8b_272beff868a04ab884eb89af06d35e32~mv2.jpg"
+             alt="2020 Valley Corn Maize aerial shot">
+        <span class="year-badge">2020</span>
+      </div>
+      <div class="design-card-body">
+        <span class="design-year">2020 Season</span>
+        <div class="design-theme">2020 Maze Design</div>
+        <p class="design-desc">The 2020 aerial shows the full scope of the farm and maze — a bird's-eye view of the Red River Valley farmland that became the canvas for our fall tradition.</p>
+        <div class="design-meta">
+          <span class="dm-pill"><i class="fa-solid fa-ruler-combined"></i> 30 Acres</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2015 -->
+    <div class="design-card">
+      <div class="design-card-img">
+        <img src="maze-2015.jpg"
+             alt="2015 Valley Corn Maize aerial shot">
+        <span class="year-badge">2015</span>
+      </div>
+      <div class="design-card-body">
+        <span class="design-year">2015 Season</span>
+        <div class="design-theme">American Farmer</div>
+        <p class="design-desc">Our opening year with a meager 8 acre corn maze and a dream, to bring something special to the Red River Valley.</p>
+        <div class="design-meta">
+          <span class="dm-pill"><i class="fa-solid fa-ruler-combined"></i> 30 Acres</span>
+        </div>
+      </div>
+    </div>
+
+    
   </div>
 </section>
 
