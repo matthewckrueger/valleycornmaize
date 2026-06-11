@@ -153,7 +153,27 @@
   font-weight: 900;
   flex-shrink: 0;
 }
+/* Alert Types */
 
+.site-alert-emergency {
+  background: #c62828;
+  border-bottom: 3px solid #ffeb3b;
+}
+
+.site-alert-notice {
+  background: #ef6c00;
+  border-bottom: 3px solid #ffe082;
+}
+
+.site-alert-open {
+  background: #2e7d32;
+  border-bottom: 3px solid #81c784;
+}
+
+.site-alert-promotion {
+  background: #1565c0;
+  border-bottom: 3px solid #90caf9;
+}
 body.has-site-alert .hero {
   padding-top: 124px;
 }
