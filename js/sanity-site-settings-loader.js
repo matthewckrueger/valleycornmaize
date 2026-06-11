@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       alertEnabled,
       alertType,
       alertMessage,
-      alertLink
+      alertLink,
       seasonValue,
       saturdayHours,
       sundayHours,
