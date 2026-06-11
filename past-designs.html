@@ -648,15 +648,18 @@
     <div class="design-card">
       <div class="design-card-img">
         <img src="maze-2015.jpg"
-             alt="2015 Valley Corn Maize aerial shot">
+             alt="2015 Valley Corn Maize aerial shot"
+             data-full="images/maze-2015.jpg">
         <span class="year-badge">2015</span>
+         
       </div>
       <div class="design-card-body">
         <span class="design-year">2015 Season</span>
         <div class="design-theme">American Farmer</div>
         <p class="design-desc">Our opening year with a meager 8 acre corn maze and a dream, to bring something special to the Red River Valley.</p>
         <div class="design-meta">
-          <span class="dm-pill"><i class="fa-solid fa-ruler-combined"></i> 30 Acres</span>
+          <span class="dm-pill"><i class="fa-solid fa-ruler-combined"></i> 8 Acres</span>
+          <span class="dm-pill"><i class="fa-solid fa-seedling"></i>True North Equipment Partner</span>
         </div>
       </div>
     </div>
@@ -680,6 +683,9 @@
       <div class="at-year"><i class="fa-solid fa-check"></i> 2020</div>
       <div class="at-year"><i class="fa-solid fa-check"></i> 2019</div>
       <div class="at-year"><i class="fa-solid fa-check"></i> 2018</div>
+      <div class="at-year"><i class="fa-solid fa-check"></i> 2017</div>
+      <div class="at-year"><i class="fa-solid fa-check"></i> 2016</div>
+      <div class="at-year"><i class="fa-solid fa-check"></i> 2015</div>
     </div>
   </div>
 </section>
@@ -737,6 +743,39 @@
   }
   window.addEventListener('load', notifyHeight);
   window.addEventListener('resize', notifyHeight);
+</script>
+  <div class="image-lightbox" id="imageLightbox">
+  <span class="lightbox-close" id="lightboxClose">&times;</span>
+  <img id="lightboxImage" src="" alt="">
+</div>
+
+<script>
+  document.querySelectorAll(".design-card-img img").forEach(function (img) {
+    img.addEventListener("click", function () {
+      const lightbox = document.getElementById("imageLightbox");
+      const lightboxImage = document.getElementById("lightboxImage");
+
+      lightboxImage.src = img.dataset.full || img.src;
+      lightboxImage.alt = img.alt || "Maze design";
+      lightbox.classList.add("open");
+    });
+  });
+
+  document.getElementById("lightboxClose").addEventListener("click", function () {
+    document.getElementById("imageLightbox").classList.remove("open");
+  });
+
+  document.getElementById("imageLightbox").addEventListener("click", function (e) {
+    if (e.target.id === "imageLightbox") {
+      this.classList.remove("open");
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      document.getElementById("imageLightbox").classList.remove("open");
+    }
+  });
 </script>
 </body>
 </html>
