@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const query = encodeURIComponent(`
     *[_type == "siteSettings"][0] {
       alertEnabled,
+      alertType,
       alertMessage,
       seasonValue,
       saturdayHours,
@@ -25,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     if (settings.alertEnabled) {
       const alertBar = document.createElement("div");
-      alertBar.className = "site-alert";
+      alertBar.className = `site-alert site-alert-${settings.alertType || "notice"}`;
       alertBar.innerHTML = `
         <div class="site-alert-inner">
           <span class="site-alert-icon">!</span>
