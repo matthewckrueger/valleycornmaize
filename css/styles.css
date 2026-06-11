@@ -115,7 +115,17 @@
     .nav-cta:hover { background: var(--dkgreen); }
 
 /* ─── SITE ALERT BAR ───────────────────────────────────── */
+
 .site-alert {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: var(--red);
+  color: #fff;
+  border-bottom: 3px solid var(--yellow);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
   overflow: hidden;
   white-space: nowrap;
 }
@@ -129,6 +139,53 @@
   font-weight: 700;
   animation: alertMarquee 18s linear infinite;
   min-width: 100%;
+}
+
+.site-alert-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--red);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+body.has-site-alert .hero {
+  padding-top: 124px;
+}
+
+@keyframes alertMarquee {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.site-alert:hover .site-alert-inner {
+  animation-play-state: paused;
+}
+
+@media (max-width: 900px) {
+  .site-alert {
+    top: 64px;
+  }
+
+  .site-alert-inner {
+    padding: 11px 20px;
+    font-size: 0.82rem;
+    animation-duration: 14s;
+  }
+
+  body.has-site-alert .hero {
+    padding-top: 116px;
+  }
 }
 
     /* ─── HERO ───────────────────────────────────────────── */
