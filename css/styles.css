@@ -807,6 +807,48 @@ body.has-site-alert .hero {
 .food-card-img.has-food-photo::before {
   display: none;
 }
+
+.food-card {
+  position: relative;
+}
+
+.food-card-img {
+  position: relative;
+}
+
+.food-featured-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 5;
+  background: var(--yellow);
+  color: var(--dkgreen);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+}
+
+.food-card-body {
+  position: relative;
+  padding-bottom: 46px;
+}
+
+.food-card-price {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  background: var(--orange);
+  color: #fff;
+  font-size: 0.86rem;
+  font-weight: 900;
+  padding: 7px 13px;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(232,98,26,0.28);
+}
     /* ─── GROUPS ─────────────────────────────────────────── */
     .s-groups { padding: 96px 48px; background: var(--straw); }
     .groups-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; margin-top: 48px; }
