@@ -8,22 +8,23 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   const today = new Date().toISOString().split("T")[0];
 
-  const query = encodeURIComponent(`
-    *[
-      _type == "event" &&
-      (
-        !defined(hideAfterEvent) ||
-        hideAfterEvent != true ||
-        eventDate >= "${today}"
-      )
-    ] | order(eventDate asc) {
-      title,
-      date,
-      eventDate,
-      description,
-      "imageUrl": image.asset->url
-    }
-  `);
+const query = encodeURIComponent(`
+  *[
+    _type == "event" &&
+    (
+      !defined(hideAfterEvent) ||
+      hideAfterEvent != true ||
+      !defined(eventDate) ||
+      eventDate >= "${today}"
+    )
+  ] | order(eventDate asc) {
+    title,
+    date,
+    eventDate,
+    description,
+    "imageUrl": image.asset->url
+  }
+`);
 
   const url = `https://${projectId}.api.sanity.io/v2024-01-01/data/query/${dataset}?query=${query}`;
 
