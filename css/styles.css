@@ -585,7 +585,7 @@ body.has-site-alert .hero {
       transition: all 0.22s;
     }
     .a-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
-    .a-photo { height: 130px; position: relative; overflow: hidden;}
+    .a-photo { height: 160px; position: relative; overflow: hidden;}
     .a-photo .photo-slot { position: absolute; inset: 0; border: none; border-radius: 0; font-size: 0.68rem; }
     /* Colored fallback while no photo present */
     .a-photo.zip    .photo-slot { background: linear-gradient(135deg, #1A2F5E, #2D4A9E); color: #aac; }
