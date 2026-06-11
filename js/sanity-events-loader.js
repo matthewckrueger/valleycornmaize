@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     *[_type == "event"] | order(_createdAt asc) {
       title,
       date,
-      description
+      description,
+      "imageUrl": image.asset->url
     }
   `);
 
@@ -28,9 +29,13 @@ document.addEventListener("DOMContentLoaded", async function () {
       const card = document.createElement("div");
       card.className = "ev-card";
 
+      const imageHtml = event.imageUrl
+        ? `<img src="${event.imageUrl}" alt="${event.title || "Event"}" class="ev-card-img">`
+        : `<i class="fa-solid fa-calendar-days"></i>`;
+
       card.innerHTML = `
         <div class="ev-top" style="background: linear-gradient(135deg, var(--green), var(--dkgreen));">
-          <i class="fa-solid fa-calendar-days"></i>
+          ${imageHtml}
         </div>
         <div class="ev-body">
           <span class="ev-when">${event.date || ""}</span>
