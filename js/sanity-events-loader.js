@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   const dataset = "production";
 
   const query = encodeURIComponent(`
-    *[_type == "event"] | order(_createdAt asc) {
+    *[_type == "event" && (!defined(hideAfterEvent) || hideAfterEvent != true || eventDate >= $today)] | order(eventDate asc)
       title,
       date,
       description,
