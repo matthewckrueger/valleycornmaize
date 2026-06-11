@@ -176,10 +176,14 @@
       position: relative;
     }
     .design-card.card-featured .design-card-img {
-      aspect-ratio: 16/9;
-    }
+      aspect-ratio: 4/3;
+      
     .design-card-img img {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #f5f5f0;
+      padding: 10px;
       transition: transform 0.4s ease;
     }
     .design-card:hover .design-card-img img {
@@ -454,11 +458,14 @@
 
     <!-- 2026 — Coming Soon (Featured) -->
     <div class="design-card card-featured card-current">
-      <div class="design-card-img card-coming">
-        <div class="cs-icon"><i class="fa-solid fa-star-and-crescent"></i></div>
-        <div class="cs-label">Aerial Photo Coming Fall 2026</div>
-        <div class="year-badge">2026 · Current</div>
-      </div>
+<div class="design-card-img">
+  <img
+    src="images/2026-generated-image3.png"
+    alt="2026 America 250 corn maze design"
+    data-full="images/2026-generated-image3.png"
+  >
+  <span class="year-badge">2026 · Current</span>
+</div>
       <div class="design-card-body">
                 <img src="images/2026-generated-image3.png"
              alt="2025 Valley Corn Maize aerial maze design">
