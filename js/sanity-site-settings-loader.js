@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       alertEnabled,
       alertType,
       alertMessage,
+      alertLink
       seasonValue,
       saturdayHours,
       sundayHours,
@@ -27,11 +28,25 @@ document.addEventListener("DOMContentLoaded", async function () {
     if (settings.alertEnabled) {
       const alertBar = document.createElement("div");
       alertBar.className = `site-alert site-alert-${settings.alertType || "notice"}`;
-      alertBar.innerHTML = `
-        <div class="site-alert-inner">
-          <span class="site-alert-icon">!</span>
-          <span>${settings.alertMessage || "Important update from Valley Corn Maize."}</span>
-        </div>
+const alertContent = `
+  <span class="site-alert-icon">!</span>
+  <span>${settings.alertMessage || "Important update from Valley Corn Maize."}</span>
+`;
+
+alertBar.innerHTML = settings.alertLink
+  ? `
+    <a class="site-alert-inner site-alert-link"
+       href="${settings.alertLink}"
+       target="_blank"
+       rel="noopener noreferrer">
+      ${alertContent}
+    </a>
+  `
+  : `
+    <div class="site-alert-inner">
+      ${alertContent}
+    </div>
+  `;
       `;
 
       const nav = document.querySelector("nav");
