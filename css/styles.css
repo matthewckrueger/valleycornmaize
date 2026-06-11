@@ -623,7 +623,7 @@ body.has-site-alert .hero {
     .ev-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
 
 .ev-top {
-  height: 120px;
+  height: 180px;
   position: relative;
   overflow: hidden;
   display: flex;
