@@ -6,10 +6,20 @@ document.addEventListener("DOMContentLoaded", async function () {
   const projectId = "f8kcv61e";
   const dataset = "production";
 
+  const today = new Date().toISOString().split("T")[0];
+
   const query = encodeURIComponent(`
-    *[_type == "event" && (!defined(hideAfterEvent) || hideAfterEvent != true || eventDate >= $today)] | order(eventDate asc)
+    *[
+      _type == "event" &&
+      (
+        !defined(hideAfterEvent) ||
+        hideAfterEvent != true ||
+        eventDate >= "${today}"
+      )
+    ] | order(eventDate asc) {
       title,
       date,
+      eventDate,
       description,
       "imageUrl": image.asset->url
     }
@@ -29,12 +39,12 @@ document.addEventListener("DOMContentLoaded", async function () {
       const card = document.createElement("div");
       card.className = "ev-card";
 
-  const imageHtml = event.imageUrl
-  ? `<img src="${event.imageUrl}" alt="${event.title || "Event"}" class="ev-card-img">`
-  : `<div class="ev-fallback"><i class="fa-solid fa-calendar-days"></i></div>`;
+      const imageHtml = event.imageUrl
+        ? `<img src="${event.imageUrl}" alt="${event.title || "Event"}" class="ev-card-img">`
+        : `<div class="ev-fallback"><i class="fa-solid fa-calendar-days"></i></div>`;
 
       card.innerHTML = `
-       <div class="ev-top ${event.imageUrl ? "ev-top-image" : "ev-top-fallback"}">
+        <div class="ev-top ${event.imageUrl ? "ev-top-image" : "ev-top-fallback"}">
           ${imageHtml}
         </div>
         <div class="ev-body">
