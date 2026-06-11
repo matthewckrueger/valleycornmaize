@@ -51,9 +51,9 @@ section,
     /* ─── UTILITY ────────────────────────────────────────── */
     .container { max-width: 1220px; margin: 0 auto; }
     .s-tag {
-      font-size: 0.67rem; font-weight: 700;
-      letter-spacing: 4px; text-transform: uppercase;
-      color: var(--orange); margin-bottom: 10px; display: block;
+      font-size: 0.78rem; font-weight: 800;
+      letter-spacing: 3.5px; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 12px; display: block;
     }
     h2 {
       font-size: clamp(1.9rem, 4vw, 3rem);
