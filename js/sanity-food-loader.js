@@ -37,7 +37,7 @@ const query = encodeURIComponent(`
 
 card.innerHTML = `
   <div class="food-card-img ${item.imageUrl ? "has-food-photo" : ""}">
-    ${item.featured ? `<div class="food-featured-badge">FEATURED</div>` : ""}
+    ${item.featured ? `<div class="food-featured-badge">GUEST FAVORITE</div>` : ""}
     ${imageHtml}
   </div>
 
