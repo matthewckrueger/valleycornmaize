@@ -69,12 +69,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     setText("seasonValue", settings.seasonValue);
     setText(
   "hoursSaturday",
-  `Saturday ${settings.saturdayHours || ""}`
+  `Saturday | ${settings.saturdayHours || ""}`
 );
 
 setText(
   "hoursSunday",
-  `Sunday ${settings.sundayHours || ""}`
+  `Sunday | ${settings.sundayHours || ""}`
 );
     setText("admissionValue", settings.admission);
     setText("heroSeasonValue", settings.seasonValue);
