@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       const card = document.createElement("div");
       card.className = "ev-card";
 
-      const imageHtml = event.imageUrl
+  const imageHtml = event.imageUrl
   ? `<img src="${event.imageUrl}" alt="${event.title || "Event"}" class="ev-card-img">`
   : `<div class="ev-fallback"><i class="fa-solid fa-calendar-days"></i></div>`;
 
