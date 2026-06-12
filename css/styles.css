@@ -319,7 +319,7 @@ body.has-site-alert .hero {
 #hoursSaturday strong,
 #hoursSunday strong {
   font-weight: 800;
-  color: var(--dkgreen);
+  /*color: var(--dkgreen);*/
 }
     /* ─── QUICK INFO STRIP ───────────────────────────────── */
     .quick-strip {
