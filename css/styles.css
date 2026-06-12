@@ -337,7 +337,7 @@ body.has-site-alert .hero {
       transition: background 0.2s;
     }
     .qs-cell:last-child { border-right: none; }
-    .qs-cell:hover { background: var(--warm); }
+    /*.qs-cell:hover { background: var(--warm); }
     .qs-icon {
       width: 44px; height: 44px; border-radius: 10px;
       background: var(--warm); display: flex; align-items: center; justify-content: center;
