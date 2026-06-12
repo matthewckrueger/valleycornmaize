@@ -1267,3 +1267,16 @@ body.has-site-alert .hero {
   font-size: 2.5rem;
   cursor: pointer;
 }
+
+.maze-click-note {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #888;
+  padding: 8px 0 12px;
+  font-weight: 600;
+}
+
+.maze-click-note i {
+  color: var(--orange);
+  margin-right: 6px;
+}
