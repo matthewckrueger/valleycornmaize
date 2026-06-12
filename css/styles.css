@@ -1150,7 +1150,24 @@ body.has-site-alert .hero {
       .mil-grid { grid-template-columns: repeat(2, 1fr); }
       .sponsor-inner { flex-direction: column; }
     }
+@media (max-width: 900px) {
+  .maze-branch-info > div[style*="Proud Partner"],
+  .maze-branch-info > div[style*="box-shadow"] {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 10px !important;
+  }
 
+  .maze-branch-info > div[style*="box-shadow"] img {
+    max-width: 220px !important;
+    height: auto !important;
+  }
+
+  .maze-branch-info > div[style*="box-shadow"] div {
+    width: 100%;
+  }
+}
     @media (max-width: 480px) {
       .qs-inner { grid-template-columns: 1fr; }
       .attract-grid { grid-template-columns: 1fr; }
