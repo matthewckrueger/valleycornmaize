@@ -1087,7 +1087,19 @@ body.has-site-alert .hero {
     .footer-inner { max-width: 1220px; margin: 0 auto; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
     .fb-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-    .fb-brand-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--dkgreen); display: flex; align-items: center; justify-content: center; color: var(--yellow); font-size: 1.3rem; }
+    .fb-brand-icon {
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .fb-brand-icon img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+    }
     .fb-brand-name { font-size: 1.1rem; font-weight: 800; color: var(--yellow); }
     .fb-brand-sub { font-size: 0.62rem; color: rgba(255,255,255,0.35); letter-spacing: 2.5px; text-transform: uppercase; }
     .fb-desc { font-size: 0.82rem; line-height: 1.75; opacity: 0.55; max-width: 280px; margin-bottom: 18px; }
