@@ -1088,16 +1088,16 @@ body.has-site-alert .hero {
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
     .fb-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
     .fb-brand-icon {
-      width: 25px;
-      height: 25px;
+      width: 30px;
+      height: 30px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
     
     .fb-brand-icon img {
-      width: 25px;
-      height: 25px;
+      width: 30px;
+      height: 30px;
       object-fit: contain;
     }
     .fb-brand-name { font-size: 1.1rem; font-weight: 800; color: var(--yellow); }
