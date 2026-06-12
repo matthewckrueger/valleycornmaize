@@ -764,6 +764,26 @@ body.has-site-alert .hero {
   flex-shrink: 0;
 }
 
+.ev-calendar-links {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.ev-calendar-links a {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--dkgreen);
+  background: var(--warm);
+  padding: 7px 10px;
+  border-radius: 999px;
+}
+
+.ev-calendar-links a:hover {
+  background: var(--yellow);
+}
 
     /* ─── SEASONAL ───────────────────────────────────────── */
     .s-seasonal { padding: 96px 48px; background: var(--warm); }
