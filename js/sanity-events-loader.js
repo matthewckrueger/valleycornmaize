@@ -8,6 +8,50 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   const today = new Date().toISOString().split("T")[0];
 
+  function formatCalendarDate(dateStr) {
+  return dateStr.replaceAll("-", "");
+}
+
+function buildGoogleCalendarLink(event) {
+  const title = encodeURIComponent(event.title || "Valley Corn Maize Event");
+  const details = encodeURIComponent(event.description || "");
+  const location = encodeURIComponent("Valley Corn Maize, 42969 160th Street SW, East Grand Forks, MN 56721");
+
+  const start = formatCalendarDate(event.eventDate);
+  const endDate = new Date(event.eventDate);
+  endDate.setDate(endDate.getDate() + 1);
+  const end = endDate.toISOString().split("T")[0].replaceAll("-", "");
+
+  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${start}/${end}&details=${details}&location=${location}`;
+}
+
+function buildIcsLink(event) {
+  const start = formatCalendarDate(event.eventDate);
+
+  const endDate = new Date(event.eventDate);
+  endDate.setDate(endDate.getDate() + 1);
+  const end = endDate.toISOString().split("T")[0].replaceAll("-", "");
+
+  const title = event.title || "Valley Corn Maize Event";
+  const description = event.description || "";
+  const location = "Valley Corn Maize, 42969 160th Street SW, East Grand Forks, MN 56721";
+
+  const ics = [
+    "BEGIN:VCALENDAR",
+    "VERSION:2.0",
+    "BEGIN:VEVENT",
+    `SUMMARY:${title}`,
+    `DTSTART;VALUE=DATE:${start}`,
+    `DTEND;VALUE=DATE:${end}`,
+    `DESCRIPTION:${description}`,
+    `LOCATION:${location}`,
+    "END:VEVENT",
+    "END:VCALENDAR"
+  ].join("\n");
+
+  return `data:text/calendar;charset=utf8,${encodeURIComponent(ics)}`;
+}
+
 const query = encodeURIComponent(`
   *[
     _type == "event" &&
