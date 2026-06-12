@@ -770,6 +770,35 @@
     <script src="js/smooth-scroll.js"></script>
     <script src="js/sanity-faq-loader.js"></script>
 <script>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const mazeImage = document.querySelector(".clickable-maze");
+  const lightbox = document.getElementById("mazeLightbox");
+  const closeBtn = document.querySelector(".lightbox-close");
+
+  if (!mazeImage || !lightbox) return;
+
+  mazeImage.addEventListener("click", function () {
+    lightbox.classList.add("open");
+  });
+
+  closeBtn.addEventListener("click", function () {
+    lightbox.classList.remove("open");
+  });
+
+  lightbox.addEventListener("click", function (e) {
+    if (e.target === lightbox) {
+      lightbox.classList.remove("open");
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      lightbox.classList.remove("open");
+    }
+  });
+});
+</script>
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("groupInquiryForm");
   const success = document.getElementById("groupSuccessMessage");
