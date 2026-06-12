@@ -307,7 +307,7 @@ body.has-site-alert .hero {
       position: absolute; bottom: 36px; left: -30px;
       background: #fff; border-radius: 14px;
       padding: 20px 24px; z-index: 10;
-      /*box-shadow: 0 8px 36px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 36px rgba(0,0,0,0.15);
       min-width: 220px;
     }
     .hic-row { display: flex; align-items: center; gap: 12px; padding: 6px 0; border-bottom: 1px solid var(--light-rule); }
