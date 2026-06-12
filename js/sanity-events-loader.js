@@ -96,6 +96,18 @@ const query = encodeURIComponent(`
           <span class="ev-when">${event.date || ""}</span>
           <div class="ev-name">${event.title || ""}</div>
           <p class="ev-desc">${event.description || ""}</p>
+
+${event.eventDate ? `
+  <div class="ev-calendar-links">
+    <a href="${buildGoogleCalendarLink(event)}" target="_blank" rel="noopener noreferrer">
+      <i class="fa-brands fa-google"></i> Google
+    </a>
+
+    <a href="${buildIcsLink(event)}" download="${event.title || "event"}.ics">
+      <i class="fa-solid fa-calendar-plus"></i> Apple/Outlook
+    </a>
+  </div>
+` : ""}
         </div>
       `;
 
