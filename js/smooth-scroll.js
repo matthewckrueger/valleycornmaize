@@ -19,7 +19,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       alertHeight -
       20;
 
-    smoothScrollTo(targetPosition, 1500); // milliseconds
+    smoothScrollTo(targetPosition, 500); // milliseconds
   });
 });
 
