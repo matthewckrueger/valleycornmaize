@@ -1108,7 +1108,7 @@ body.has-site-alert .hero {
 
     /* ─── RESPONSIVE ─────────────────────────────────────── */
     @media (max-width: 900px) {
-      nav { padding: 0 20px; height: 64px; position: relative; }
+      nav { padding: 0 20px; height: 64px; position: fixed; top: 0; left: 0; right: 0;}
       .nav-hamburger { display: flex; }
       .nav-links {
         display: none; flex-direction: column; gap: 0;
