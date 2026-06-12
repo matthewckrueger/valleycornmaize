@@ -414,7 +414,11 @@ body.has-site-alert .hero {
       .pdt-inner { padding: 28px 20px; }
       .pdt-thumb-hide { display: none; }
     }
-
+@media (max-width: 900px) {
+  .hero {
+    padding-top: 64px;
+  }
+}
     /* Maze design visual */
     .maze-design-card {
       width: 100%;
@@ -1112,7 +1116,7 @@ body.has-site-alert .hero {
       .nav-hamburger { display: flex; }
       .nav-links {
         display: none; flex-direction: column; gap: 0;
-        position: absolute; top: 64px; left: 0; right: 0;
+        position: fixed; top: 64px; left: 0; right: 0;
         background: rgba(255,251,239,0.98); backdrop-filter: blur(12px);
         border-bottom: 3px solid var(--yellow);
         padding: 12px 20px 16px;
