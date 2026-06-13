@@ -1357,3 +1357,74 @@ body.has-site-alert .hero {
     height: auto !important;
   }
 }
+
+/* ─── COMMUNITY IMPACT ───────────────────────────────── */
+.s-impact {
+  padding: 96px 48px;
+  background: var(--warm);
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 46px;
+}
+
+.impact-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 30px 28px;
+  box-shadow: 0 6px 28px rgba(0,0,0,0.08);
+}
+
+.impact-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: rgba(232,98,26,0.12);
+  color: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 18px;
+}
+
+.impact-card h3 {
+  font-size: 1.05rem;
+  color: var(--dkgreen);
+  margin-bottom: 8px;
+  font-weight: 800;
+}
+
+.impact-card p {
+  font-size: 0.84rem;
+  color: var(--mid);
+  line-height: 1.7;
+}
+
+.impact-note {
+  margin-top: 34px;
+  padding: 22px 26px;
+  background: #fff;
+  border-left: 5px solid var(--orange);
+  border-radius: 14px;
+  color: var(--mid);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.impact-note strong {
+  color: var(--dkgreen);
+}
+
+@media (max-width: 900px) {
+  .s-impact {
+    padding: 72px 24px;
+  }
+
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+}
