@@ -4,7 +4,7 @@
     :root {
       /* Brand */
       --green:      #4A8C3F;
-      --dkgreen:    #2D5E1E;
+      --dkgreen:    #267800;
       --orange:     #E8621A;
       --dkorange:   #C04E0E;
       --yellow:     #F5C518;
@@ -640,7 +640,7 @@ body.has-site-alert .hero {
     .a-photo .photo-slot { position: absolute; inset: 0; border: none; border-radius: 0; font-size: 0.68rem; }
     /* Colored fallback while no photo present */
     .a-photo.zip    .photo-slot { background: linear-gradient(135deg, #1A2F5E, #2D4A9E); color: #aac; }
-    .a-photo.slide  .photo-slot { background: linear-gradient(135deg, #2D5E1E, #4A9E30); color: #aca; }
+    .a-photo.slide  .photo-slot { background: linear-gradient(135deg, #267800, #4A9E30); color: #aca; }
     .a-photo.web    .photo-slot { background: linear-gradient(135deg, #6B3A1F, #C8784A); color: #ca9; }
     .a-photo.rollers .photo-slot { background: linear-gradient(135deg, #8B3A00, #D46A20); color: #ca8; }
     .a-photo.bubble .photo-slot { background: linear-gradient(135deg, #1A7AB2, #30C0E8); color: #8cc; }
