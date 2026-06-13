@@ -5,7 +5,7 @@
       /* Brand */
       --green:      #4A8C3F;
       --dkgreen:    #267800;
-      --orange:     #E8621A;
+      --orange:     #FF6C07;
       --dkorange:   #C04E0E;
       --yellow:     #F5C518;
       --red:        #C8102E;
@@ -792,7 +792,7 @@ body.has-site-alert .hero {
     .seas-photo { height: 220px; position: relative; }
     .seas-photo .photo-slot { position: absolute; inset: 0; border: none; border-radius: 0; }
     .seas-photo.flowers .photo-slot { background: linear-gradient(135deg, #DEB800, #FFD700, #E8A800); }
-    .seas-photo.pumpkins .photo-slot { background: linear-gradient(135deg, #B84000, #E86020, #E8621A); }
+    .seas-photo.pumpkins .photo-slot { background: linear-gradient(135deg, #B84000, #E86020, #FF6C07); }
     .seas-body { padding: 28px 30px; background: #fff; }
     .seas-body h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
     .seas-body p { font-size: 0.88rem; color: var(--mid); line-height: 1.75; }
