@@ -1,9 +1,13 @@
 {
-  "redirects": [
+  "headers": [
     {
       "source": "/(.*)",
-      "destination": "https://valleycornmaize.com/$1",
-      "permanent": true
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
     }
   ]
 }
