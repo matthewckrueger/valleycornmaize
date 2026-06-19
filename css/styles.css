@@ -28,7 +28,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 110px;
+  scroll-padding-top: 90px;
 }
 
 section,
@@ -39,7 +39,16 @@ section,
 #events,
 #groups,
 #find {
-  scroll-margin-top: 110px;
+  scroll-margin-top: 90px;
+}
+
+@media (max-width: 900px) {
+  html { scroll-padding-top: 76px; }
+  section,
+  #visit, #tickets, #maze, #attractions,
+  #events, #groups, #find {
+    scroll-margin-top: 76px;
+  }
 }
     body {
       font-family: 'Poppins', sans-serif;
@@ -115,7 +124,7 @@ section,
     .nav-links { display: flex; align-items: center; gap: clamp(10px, 1.4vw, 28px); }
     .nav-links a {
       text-decoration: none; color: var(--dark);
-      font-size: clamp(0.68rem, 0.85vw, 0.8rem); font-weight: 600;
+      font-size: 0.8rem; font-weight: 600;
       transition: color 0.2s; white-space: nowrap;
     }
     .nav-links a:hover { color: var(--orange); }
