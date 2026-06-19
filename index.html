@@ -874,14 +874,6 @@
   links.querySelectorAll('a').forEach(function(a) {
     a.addEventListener('click', function() { links.classList.remove('open'); });
   });
-
-  // Iframe auto-resize (notifies Wix parent of real document height)
-  function notifyHeight() {
-    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-    window.parent.postMessage(JSON.stringify({ type: 'resize', height: h }), '*');
-  }
-  window.addEventListener('load', notifyHeight);
-  window.addEventListener('resize', notifyHeight);
 </script>
     <script src="js/sanity-site-settings-loader.js"></script>
     <script src="js/sanity-events-loader.js"></script>
