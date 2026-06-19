@@ -2,6 +2,12 @@
   "headers": [
     {
       "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "valleycornmaize.vercel.app"
+        }
+      ],
       "headers": [
         {
           "key": "X-Robots-Tag",
