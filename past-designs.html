@@ -3,16 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="https://valleycornmaize.com/past-designs.html">
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HFQX3YK67Y"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HFQX3YK67Y');
-</script>
   <title>Past Maze Designs | Valley Corn Maize</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -77,24 +67,69 @@
       padding: 0 48px; height: 72px;
     }
     .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links {
+      display: flex; align-items: center;
+      gap: clamp(10px, 1.4vw, 24px); list-style: none;
+    }
     .nav-links a {
-      text-decoration: none; font-weight: 600; font-size: 0.82rem;
-      letter-spacing: 0.5px; color: var(--dark); transition: color 0.2s;
+      text-decoration: none; font-weight: 600;
+      font-size: clamp(0.68rem, 0.85vw, 0.8rem);
+      color: var(--dark); transition: color 0.2s; white-space: nowrap;
     }
-    .nav-links a:hover { color: var(--green); }
-    .nav-cta { display: flex; gap: 10px; }
-    .nav-btn {
-      font-size: 0.78rem; font-weight: 700; padding: 9px 20px;
-      border-radius: 50px; text-decoration: none; transition: all 0.2s;
+    .nav-links a:hover { color: var(--orange); }
+    .nav-cta-link {
+      background: var(--green); color: #fff !important;
+      padding: 10px 20px; border-radius: 50px;
+      font-weight: 700 !important; font-size: 0.82rem !important;
+      transition: all 0.2s; box-shadow: 0 3px 14px rgba(74,140,63,0.3);
+      white-space: nowrap;
     }
-    .nav-btn-outline {
-      border: 2px solid var(--green); color: var(--green);
-      background: transparent;
+    .nav-cta-link:hover { background: var(--dkgreen) !important; color: #fff !important; }
+
+    /* ─── HAMBURGER ─────────────────────────────────────── */
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer;
+      padding: 8px; border-radius: 8px; flex-shrink: 0;
     }
-    .nav-btn-outline:hover { background: var(--green); color: #fff; }
-    .nav-btn-fill { background: var(--orange); color: #fff; }
-    .nav-btn-fill:hover { background: #C04E0E; }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--dkgreen); border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    /* ─── NAV MID-RANGE: compact before hamburger ────────── */
+    @media (max-width: 1350px) { nav { padding: 0 28px; } }
+
+    @media (max-width: 1100px) {
+      nav { padding: 0 20px; }
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none; flex-direction: column; gap: 0;
+        position: fixed; top: 72px; left: 0; right: 0;
+        background: rgba(255,251,239,0.98); backdrop-filter: blur(12px);
+        border-bottom: 3px solid var(--yellow); list-style: none;
+        padding: 12px 20px 16px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1); z-index: 999;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a {
+        display: block; padding: 12px 4px;
+        border-bottom: 1px solid rgba(0,0,0,0.07);
+        font-size: 0.9rem !important; white-space: normal;
+      }
+      .nav-links li:last-child a { border-bottom: none; }
+      .nav-cta-link {
+        display: block; text-align: center; margin-top: 8px;
+        padding: 12px 22px !important; border-bottom: none !important;
+      }
+    }
+
+    @media (max-width: 900px) {
+      nav { height: 64px; }
+      .nav-links { top: 64px; }
+    }
 
     /* ─── HERO ───────────────────────────────────────────── */
     .pd-hero {
@@ -341,38 +376,8 @@
     footer a { color: var(--green); text-decoration: none; }
     footer a:hover { color: #fff; }
 
-    /* ─── HAMBURGER ─────────────────────────────────────── */
-    .nav-hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      background: none; border: none; cursor: pointer;
-      padding: 8px; border-radius: 8px; flex-shrink: 0;
-    }
-    .nav-hamburger span {
-      display: block; width: 22px; height: 2px;
-      background: var(--dkgreen); border-radius: 2px;
-      transition: all 0.2s;
-    }
-
-    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    /* ─── RESPONSIVE (non-nav) ───────────────────────────── */
     @media (max-width: 960px) {
-      nav { padding: 0 20px; height: 64px; position: relative; }
-      .nav-hamburger { display: flex; }
-      .nav-cta { display: none; }
-      .nav-links {
-        display: none; flex-direction: column; gap: 0;
-        position: absolute; top: 64px; left: 0; right: 0;
-        background: rgba(255,251,239,0.98); backdrop-filter: blur(12px);
-        border-bottom: 3px solid var(--yellow); list-style: none;
-        padding: 12px 20px 16px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.1); z-index: 999;
-      }
-      .nav-links.open { display: flex; }
-      .nav-links li a {
-        display: block; padding: 12px 4px;
-        border-bottom: 1px solid rgba(0,0,0,0.07);
-        font-size: 0.9rem;
-      }
-      .nav-links li:last-child a { border-bottom: none; }
       .designs-grid { grid-template-columns: repeat(2, 1fr); }
       .design-card.card-featured { grid-column: span 2; }
     }
@@ -440,11 +445,9 @@
     <li><a href="index.html#groups" target="_top">Groups</a></li>
     <li><a href="index.html#find" target="_top">Find Us</a></li>
     <li><a href="past-designs.html" style="color:var(--green);">Past Designs</a></li>
+    <li><a href="index.html" target="_top">← Back to Home</a></li>
+    <li><a href="index.html#tickets" target="_top" class="nav-cta-link">Buy Tickets</a></li>
   </ul>
-  <div class="nav-cta">
-    <a class="nav-btn nav-btn-outline" href="index.html" target="_top">← Back to Home</a>
-    <a class="nav-btn nav-btn-fill" href="https://valleycornmaize.square.site/" target="_top">Buy Tickets</a>
-  </div>
 </nav>
 
 <!-- ── HERO ─────────────────────────────────────────────── -->
@@ -727,7 +730,7 @@
     <h2>Ready to Make Your Own Memory?</h2>
     <p class="lead" style="color:rgba(255,255,255,0.75);">The 2026 America 250 maze is shaping up to be our most spectacular yet. Come walk the design that honors 250 years of American freedom — and all six military branches — carved into 30 Red River Valley acres.</p>
     <div class="btn-row">
-      <a href="https://square.link/u/l4YFqOb4" class="btn btn-orange">Get Tickets for 2026</a>
+      <a href="https://valleycornmaize.square.site/" class="btn btn-orange">Get Tickets for 2026</a>
       <a href="index.html" class="btn btn-white">Back to Homepage</a>
     </div>
   </div>
@@ -765,6 +768,14 @@
   links.querySelectorAll('a').forEach(function(a) {
     a.addEventListener('click', function() { links.classList.remove('open'); });
   });
+
+  // Iframe auto-resize (notifies Wix parent of real document height)
+  function notifyHeight() {
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    window.parent.postMessage(JSON.stringify({ type: 'resize', height: h }), '*');
+  }
+  window.addEventListener('load', notifyHeight);
+  window.addEventListener('resize', notifyHeight);
 </script>
   <div class="image-lightbox" id="imageLightbox">
   <span class="lightbox-close" id="lightboxClose">&times;</span>
