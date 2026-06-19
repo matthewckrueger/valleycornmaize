@@ -1,11 +1,11 @@
-   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     /* ─── DESIGN TOKENS ─────────────────────────────────── */
     :root {
       /* Brand */
       --green:      #4A8C3F;
-      --dkgreen:    #267800;
-      --orange:     #FF6C07;
+      --dkgreen:    #2D5E1E;
+      --orange:     #E8621A;
       --dkorange:   #C04E0E;
       --yellow:     #F5C518;
       --red:        #C8102E;
@@ -112,10 +112,10 @@ section,
     }
     .nav-brand-text strong { display: block; font-size: 1.05rem; font-weight: 800; color: var(--dkgreen); line-height: 1.2; }
     .nav-brand-text span { font-size: 0.6rem; color: var(--orange); font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; }
-    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links { display: flex; align-items: center; gap: clamp(10px, 1.4vw, 28px); }
     .nav-links a {
       text-decoration: none; color: var(--dark);
-      font-size: 0.8rem; font-weight: 600;
+      font-size: clamp(0.68rem, 0.85vw, 0.8rem); font-weight: 600;
       transition: color 0.2s; white-space: nowrap;
     }
     .nav-links a:hover { color: var(--orange); }
@@ -640,7 +640,7 @@ body.has-site-alert .hero {
     .a-photo .photo-slot { position: absolute; inset: 0; border: none; border-radius: 0; font-size: 0.68rem; }
     /* Colored fallback while no photo present */
     .a-photo.zip    .photo-slot { background: linear-gradient(135deg, #1A2F5E, #2D4A9E); color: #aac; }
-    .a-photo.slide  .photo-slot { background: linear-gradient(135deg, #267800, #4A9E30); color: #aca; }
+    .a-photo.slide  .photo-slot { background: linear-gradient(135deg, #2D5E1E, #4A9E30); color: #aca; }
     .a-photo.web    .photo-slot { background: linear-gradient(135deg, #6B3A1F, #C8784A); color: #ca9; }
     .a-photo.rollers .photo-slot { background: linear-gradient(135deg, #8B3A00, #D46A20); color: #ca8; }
     .a-photo.bubble .photo-slot { background: linear-gradient(135deg, #1A7AB2, #30C0E8); color: #8cc; }
@@ -792,7 +792,7 @@ body.has-site-alert .hero {
     .seas-photo { height: 220px; position: relative; }
     .seas-photo .photo-slot { position: absolute; inset: 0; border: none; border-radius: 0; }
     .seas-photo.flowers .photo-slot { background: linear-gradient(135deg, #DEB800, #FFD700, #E8A800); }
-    .seas-photo.pumpkins .photo-slot { background: linear-gradient(135deg, #B84000, #E86020, #FF6C07); }
+    .seas-photo.pumpkins .photo-slot { background: linear-gradient(135deg, #B84000, #E86020, #E8621A); }
     .seas-body { padding: 28px 30px; background: #fff; }
     .seas-body h3 { font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
     .seas-body p { font-size: 0.88rem; color: var(--mid); line-height: 1.75; }
@@ -1142,13 +1142,16 @@ body.has-site-alert .hero {
       transition: all 0.2s;
     }
 
-    /* ─── RESPONSIVE ─────────────────────────────────────── */
-    @media (max-width: 900px) {
-      nav { padding: 0 20px; height: 64px; position: fixed; top: 0; left: 0; right: 0;}
+    /* ─── NAV MID-RANGE (1100–1350px) — compact before hamburger ─── */
+    @media (max-width: 1350px) {
+      nav { padding: 0 28px; }
+    }
+    @media (max-width: 1100px) {
+      nav { padding: 0 20px; }
       .nav-hamburger { display: flex; }
       .nav-links {
         display: none; flex-direction: column; gap: 0;
-        position: fixed; top: 64px; left: 0; right: 0;
+        position: fixed; top: 72px; left: 0; right: 0;
         background: rgba(255,251,239,0.98); backdrop-filter: blur(12px);
         border-bottom: 3px solid var(--yellow);
         padding: 12px 20px 16px;
@@ -1165,6 +1168,14 @@ body.has-site-alert .hero {
         display: block; border-bottom: none !important;
         padding: 12px 22px !important;
       }
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { height: 64px; }
+      .site-alert { top: 64px; }
+      /* Dropdown repositions for shorter 64px nav */
+      .nav-links { top: 64px; }
       .hero { grid-template-columns: 1fr; }
       .hero-right { display: none; }
       .hero-left { padding: 80px 28px 60px; min-height: 100vh; }
