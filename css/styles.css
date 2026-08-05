@@ -441,9 +441,9 @@ body.has-site-alert .hero {
     .maze-design-img {
       width: 100%;
       display: block;
-      height: 650px;
-      object-fit: contain;
-      background: #f5f1df;
+      aspect-ratio: 6500 / 5440;
+      height: auto;
+      object-fit: cover;
     }
    
     .maze-img-placeholder {
