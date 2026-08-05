@@ -357,6 +357,24 @@
     <h2>Choose Your Tickets</h2>
     <p class="lead">Purchase securely right here — no extra steps, no redirects. Show up and enjoy the best fall day in the Red River Valley.</p>
     <div class="ticket-grid">
+      <!-- Sunflower Dayz -->
+      <div class="t-card sunflower" id="sunflower-dayz-card" data-expires="2026-08-31T00:00:00-05:00">
+        <div class="t-corner-badge">2 Weekends Only</div>
+        <span class="t-type">Sunflower Dayz</span>
+        <div class="t-price">$9.00</div>
+        <div class="t-desc">Per person. A separate, limited event centered on our blooming zinnia flower field — <strong>not full park admission.</strong> The corn maze, Bee-Line Zip Line, BIG Slide &amp; Wagon Train Ride are not available during Sunflower Dayz. Kids 36" &amp; under are always FREE. <strong style="color:var(--red);">10% military discount</strong> for active duty &amp; veterans — valid military ID required at gate. Included free for season pass holders.</div>
+        <ul class="t-perks">
+          <li><span class="perk-dot"><i class="fa-solid fa-check" style="font-size:0.55rem;"></i></span>Sat, Aug 22 — 10:00 AM–6:00 PM</li>
+          <li><span class="perk-dot"><i class="fa-solid fa-check" style="font-size:0.55rem;"></i></span>Sun, Aug 23 — 1:00 PM–6:00 PM</li>
+          <li><span class="perk-dot"><i class="fa-solid fa-check" style="font-size:0.55rem;"></i></span>Sat, Aug 29 — 10:00 AM–6:00 PM</li>
+          <li><span class="perk-dot"><i class="fa-solid fa-check" style="font-size:0.55rem;"></i></span>Sun, Aug 30 — 1:00 PM–6:00 PM</li>
+          <li><span class="perk-dot"><i class="fa-solid fa-check" style="font-size:0.55rem;"></i></span>Zinnia flower field &amp; photo ops</li>
+          <li><span class="perk-dot"><i class="fa-solid fa-check" style="font-size:0.55rem;"></i></span>Limited yard games available</li>
+        </ul>
+        <a href="https://square.link/u/MjrNsFTh" class="btn-ticket" data-sunflower-ticket="true" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-ticket"></i>&nbsp; Buy Sunflower Dayz Tickets
+        </a>
+      </div>
       <!-- Day ticket -->
       <div class="t-card day">
         <span class="t-type" data-ticket="day-type">Day Admission</span>
@@ -398,24 +416,6 @@
         </ul>
         <a href="https://square.link/u/CDlE4jci" class="btn-ticket" data-season-pass-ticket="true" target="blank" rel="noopener noreferrer">
           <i class="fa-solid fa-ticket"></i>&nbsp; Get Season Pass
-        </a>
-      </div>
-      <!-- Sunflower Dayz -->
-      <div class="t-card sunflower">
-        <div class="t-corner-badge">2 Weekends Only</div>
-        <span class="t-type">Sunflower Dayz</span>
-        <div class="t-price">$9.00</div>
-        <div class="t-desc">Per person. A separate, limited event centered on our blooming zinnia and sunflower field — <strong>corn maze is not open.</strong> The corn boxes, BIG Slide &amp; Wagon Train Ride are not available during Sunflower Dayz. Kids 36" &amp; under are always FREE. <strong style="color:var(--red);">10% military discount</strong> for active duty &amp; veterans — valid military ID required at gate. Included free for season pass holders.</div>
-        <ul class="t-perks">
-          <li><span class="perk-dot"><i class="fa-solid fa-check" style="font-size:0.55rem;"></i></span>Sat, Aug 22 — 10:00 AM–6:00 PM</li>
-          <li><span class="perk-dot"><i class="fa-solid fa-check" style="font-size:0.55rem;"></i></span>Sun, Aug 23 — 1:00 PM–6:00 PM</li>
-          <li><span class="perk-dot"><i class="fa-solid fa-check" style="font-size:0.55rem;"></i></span>Sat, Aug 29 — 10:00 AM–6:00 PM</li>
-          <li><span class="perk-dot"><i class="fa-solid fa-check" style="font-size:0.55rem;"></i></span>Sun, Aug 30 — 1:00 PM–6:00 PM</li>
-          <li><span class="perk-dot"><i class="fa-solid fa-check" style="font-size:0.55rem;"></i></span>Zinnia flower field &amp; photo ops</li>
-          <li><span class="perk-dot"><i class="fa-solid fa-check" style="font-size:0.55rem;"></i></span>Limited yard games available</li>
-        </ul>
-        <a href="https://square.link/u/MjrNsFTh" class="btn-ticket" data-sunflower-ticket="true" target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-ticket"></i>&nbsp; Buy Sunflower Dayz Tickets
         </a>
       </div>
     </div>
@@ -946,6 +946,7 @@
     <script src="js/sanity-partners-loader.js"></script>
     <script src="js/sanity-food-loader.js"></script>
     <script src="js/smooth-scroll.js"></script>
+    <script src="js/sunflower-dayz-expiry.js"></script>
     <script src="js/sanity-faq-loader.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
