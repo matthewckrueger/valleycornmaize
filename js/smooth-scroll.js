@@ -40,10 +40,11 @@ function smoothScrollTo(targetY, duration) {
     const elapsed = currentTime - startTime;
     const progress = Math.min(elapsed / duration, 1);
 
-    window.scrollTo(
-      0,
-      startY + distance * easeInOutCubic(progress)
-    );
+    window.scrollTo({
+      top: startY + distance * easeInOutCubic(progress),
+      left: 0,
+      behavior: "auto"
+    });
 
     if (progress < 1) {
       requestAnimationFrame(animation);
