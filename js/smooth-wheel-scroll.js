@@ -38,12 +38,12 @@
     var diff = targetY - current;
 
     if (Math.abs(diff) < 0.5) {
-      window.scrollTo(0, targetY);
+      window.scrollTo({ top: targetY, left: 0, behavior: "auto" });
       animating = false;
       return;
     }
 
-    window.scrollTo(0, current + diff * EASE);
+    window.scrollTo({ top: current + diff * EASE, left: 0, behavior: "auto" });
     requestAnimationFrame(step);
   }
 
