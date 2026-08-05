@@ -534,7 +534,7 @@ body.has-site-alert .hero {
 
     /* ─── TICKETS ────────────────────────────────────────── */
     .s-tickets { padding: 96px 48px; background: #fff; }
-    .ticket-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+    .ticket-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 48px; }
     .t-card {
       border-radius: 16px; padding: 42px; position: relative; overflow: hidden;
       transition: box-shadow 0.22s;
@@ -542,6 +542,8 @@ body.has-site-alert .hero {
     .t-card.day { background: var(--warm); border: 2px solid var(--yellow); }
     .t-card.day:hover { box-shadow: 0 10px 36px rgba(232,98,26,0.15); }
     .t-card.season { background: linear-gradient(145deg, var(--dkgreen) 0%, #1A3D10 100%); }
+    .t-card.sunflower { background: linear-gradient(145deg, #FFE49A 0%, var(--yellow) 100%); border: 2px solid #E8B408; }
+    .t-card.sunflower:hover { box-shadow: 0 10px 36px rgba(245,197,24,0.35); }
     .t-corner-badge {
       position: absolute; top: 18px; right: 18px;
       font-size: 0.6rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
@@ -549,22 +551,29 @@ body.has-site-alert .hero {
     }
     .t-card.day .t-corner-badge { background: var(--orange); color: #fff; }
     .t-card.season .t-corner-badge { background: var(--yellow); color: var(--dark); }
+    .t-card.sunflower .t-corner-badge { background: var(--dkgreen); color: #fff; }
     .t-type { font-size: 0.68rem; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase; margin-bottom: 10px; display: block; }
     .t-card.day .t-type { color: var(--orange); }
     .t-card.season .t-type { color: var(--yellow); }
+    .t-card.sunflower .t-type { color: var(--dkorange); }
     .t-price { font-size: 4.2rem; font-weight: 900; line-height: 1; margin-bottom: 10px; }
     .t-card.day .t-price { color: var(--dkgreen); }
     .t-card.season .t-price { color: var(--yellow); }
+    .t-card.sunflower .t-price { color: var(--dkgreen); }
     .t-desc { font-size: 0.86rem; line-height: 1.7; margin-bottom: 24px; }
     .t-card.day .t-desc { color: var(--mid); }
     .t-card.season .t-desc { color: rgba(255,255,255,0.68); }
+    .t-card.sunflower .t-desc { color: #5A4B10; }
     .t-perks { list-style: none; margin-bottom: 30px; }
     .t-perks li { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; font-size: 0.86rem; }
     .t-card.day .t-perks li { color: #444; border-bottom: 1px solid rgba(0,0,0,0.06); }
     .t-card.season .t-perks li { color: rgba(255,255,255,0.82); border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .t-card.sunflower .t-perks li { color: #4A3E0C; border-bottom: 1px solid rgba(0,0,0,0.08); }
     .perk-dot { width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
     .t-card.day .perk-dot { background: var(--green); color: #fff; font-size: 0.65rem; }
     .t-card.season .perk-dot { background: var(--yellow); color: var(--dark); font-size: 0.65rem; }
+    .t-card.sunflower .perk-dot { background: var(--dkgreen); color: #fff; font-size: 0.65rem; }
+    .perk-dot.perk-x { background: rgba(0,0,0,0.15); color: #5A4B10; }
     .btn-ticket {
       display: block; text-align: center; padding: 15px;
       border-radius: 50px; text-decoration: none;
@@ -575,6 +584,8 @@ body.has-site-alert .hero {
     .t-card.day .btn-ticket:hover { background: var(--dkorange); }
     .t-card.season .btn-ticket { background: var(--yellow); color: var(--dark); }
     .t-card.season .btn-ticket:hover { background: #fff; }
+    .t-card.sunflower .btn-ticket { background: var(--dkgreen); color: #fff; }
+    .t-card.sunflower .btn-ticket:hover { background: #1A3D10; }
     .ticket-note { margin-top: 22px; text-align: center; font-size: 0.82rem; color: #999; display: flex; align-items: center; justify-content: center; gap: 8px; }
 
     /* ─── MILITARY DISCOUNT BANNER ──────────────────────── */
