@@ -127,8 +127,28 @@ app.post('/api/groups', (req, res) => {
     INSERT INTO members (group_id, first_name, last_name, date_of_birth)
     VALUES (?, ?, ?, ?)
   `);
-  for (const m of b.members || []) {
-    if (!m.first_name || !m.first_name.trim()) continue;
+  const sameName = (a, b) =>
+    (a || '').trim().toLowerCase() === (b || '').trim().toLowerCase();
+
+  const members = (b.members || []).filter((m) => m.first_name && m.first_name.trim());
+
+  // The contact is always on the pass — add them as a member automatically
+  // unless they were already typed into the member list.
+  const contactFirst = b.contact_first_name && b.contact_first_name.trim();
+  if (contactFirst) {
+    const alreadyListed = members.some(
+      (m) => sameName(m.first_name, contactFirst) && sameName(m.last_name, b.contact_last_name)
+    );
+    if (!alreadyListed) {
+      members.unshift({
+        first_name: contactFirst,
+        last_name: b.contact_last_name || null,
+        date_of_birth: b.contact_date_of_birth || null,
+      });
+    }
+  }
+
+  for (const m of members) {
     insertMember.run(groupId, m.first_name.trim(), m.last_name || null, m.date_of_birth || null);
   }
 
