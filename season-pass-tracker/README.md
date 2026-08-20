@@ -33,6 +33,23 @@ Season pass tracker running:
 Open `http://localhost:3000` in a browser on that computer. All the data
 lives in one file: `data/season-passes.db`.
 
+### Setting it up on the Windows laptop
+
+1. Install Node.js: go to [nodejs.org](https://nodejs.org), download the
+   "LTS" installer, run it, click through with the defaults.
+2. Get this folder onto the laptop — either `git clone` the repo, or on
+   GitHub click **Code → Download ZIP** and unzip it wherever you keep
+   things (e.g. `Documents\season-pass-tracker`).
+3. Open that folder, double-click `start.bat`. The first time, it'll take a
+   minute to install; after that it opens the app and prints a `localhost`
+   address. A black window has to stay open while you're using the app —
+   minimize it, don't close it.
+4. Go to `http://localhost:3000` in a browser (Edge/Chrome, whatever you
+   normally use).
+
+From then on, starting the app each day is just double-clicking `start.bat`
+again.
+
 ### Using it from other computers/tablets on the same WiFi
 
 Since this runs as a little web server on the front-desk computer, any
@@ -57,16 +74,20 @@ stay off the public internet unless you add one).
 
 ### Starting it automatically
 
-So the front desk doesn't need to open a terminal every morning, set the
-computer to run `npm start` in this folder on startup:
-- **Windows**: create a shortcut to a `.bat` file containing
-  `cd /d "C:\path\to\season-pass-tracker" && npm start`, and put that
-  shortcut in the Startup folder (`shell:startup`).
-- **Mac**: use a login item (System Settings → General → Login Items) that
-  runs a small script doing the same `cd` + `npm start`.
+So the front desk doesn't need to find and double-click `start.bat` every
+morning, you can have Windows do it automatically at login:
+- Press `Win+R`, type `shell:startup`, hit Enter — this opens your Startup
+  folder.
+- Right-click `start.bat` → **Show more options** → **Send to** → **Desktop
+  (create shortcut)**, then drag that shortcut into the Startup folder.
 
-Leave that window open/minimized during the season; closing it stops the
-server.
+Now the app opens on its own whenever the laptop starts up. It still needs
+that window left open (minimized is fine) while you're using the app;
+closing it stops the server.
+
+*(Mac equivalent, if it's ever needed: System Settings → General → Login
+Items → add a small script that does `cd` into this folder and runs
+`npm start`.)*
 
 ## Backing up the data
 
