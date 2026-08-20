@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Season Pass Tracker | Valley Corn Maize</title>
+<link rel="icon" type="image/png" href="images/Corn-Cob.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <img src="images/ValleyCornMaize_Logo.png" alt="Valley Corn Maize" class="topbar-logo">
+  <h1>Season Pass Tracker</h1>
+  <div class="topbar-season">
+    <label for="seasonSelect">Season</label>
+    <select id="seasonSelect"></select>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab-btn active" data-tab="checkin">Search &amp; Check In</button>
+  <button class="tab-btn" data-tab="register">Register a Pass</button>
+  <button class="tab-btn" data-tab="stats">Stats</button>
+</nav>
+
+<main>
+
+  <!-- SEARCH & CHECK-IN -->
+  <section id="tab-checkin" class="tab-panel active">
+    <div class="card">
+      <input id="searchInput" type="search" placeholder="Search by family/group name, kid's name, email, or phone…" autocomplete="off">
+      <div id="searchResults" class="result-list"></div>
+    </div>
+
+    <div id="groupDetail" class="card hidden"></div>
+
+    <div class="card">
+      <h2>Checked In Today</h2>
+      <div id="todayList" class="result-list"></div>
+    </div>
+  </section>
+
+  <!-- REGISTER -->
+  <section id="tab-register" class="tab-panel">
+    <div class="card">
+      <h2>Register a New Season Pass</h2>
+      <form id="registerForm">
+        <div class="field-row">
+          <label>Family / Group Name *<input name="group_name" required placeholder="e.g. The Johnson Family"></label>
+          <label>Season<input name="season" id="registerSeason"></label>
+        </div>
+        <div class="field-row">
+          <label>Contact First Name<input name="contact_first_name" placeholder="Sometimes different from the family name"></label>
+          <label>Contact Last Name<input name="contact_last_name"></label>
+        </div>
+        <div class="field-row">
+          <label>Email<input name="email" type="email"></label>
+          <label>Phone<input name="phone" type="tel"></label>
+        </div>
+        <label class="full">Notes<textarea name="notes" rows="2" placeholder="Optional"></textarea></label>
+
+        <h3>People on This Pass</h3>
+        <div id="memberRows"></div>
+        <button type="button" id="addMemberRow" class="btn-secondary">+ Add Person</button>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Save Season Pass</button>
+          <span id="registerMsg" class="msg"></span>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="tab-stats" class="tab-panel">
+    <div class="card">
+      <h2>Season Overview</h2>
+      <div id="statsCards" class="stat-cards"></div>
+    </div>
+    <div class="card">
+      <h2>Most Frequent Visitors This Season</h2>
+      <div id="topGroups" class="result-list"></div>
+    </div>
+    <div class="card">
+      <h2>All Seasons</h2>
+      <table id="seasonTable" class="data-table">
+        <thead><tr><th>Season</th><th>Groups</th><th>Check-Ins</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h2>Backups</h2>
+      <p class="hint">Download these anytime and save them wherever you keep your records (Excel, Google Drive, etc.).</p>
+      <div class="export-row">
+        <a class="btn-secondary" href="/api/export/groups.csv">Export Families/Groups (CSV)</a>
+        <a class="btn-secondary" href="/api/export/members.csv">Export People (CSV)</a>
+        <a class="btn-secondary" href="/api/export/checkins.csv">Export Check-Ins (CSV)</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
