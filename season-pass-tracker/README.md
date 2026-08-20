@@ -33,6 +33,26 @@ Season pass tracker running:
 Open `http://localhost:3000` in a browser on that computer. All the data
 lives in one file: `data/season-passes.db`.
 
+### Setting it up on a Mac (to try it out)
+
+1. Install Node.js: go to [nodejs.org](https://nodejs.org), download the
+   "LTS" installer (the `.pkg` file), open it, click through with the
+   defaults.
+2. Get the code onto your Mac: on the GitHub repo page, click the green
+   **Code** button → **Download ZIP**, then double-click the ZIP in your
+   Downloads folder to unzip it.
+3. Open the unzipped folder, then open `season-pass-tracker` inside it.
+   Double-click `start.command`. If macOS shows a warning about an
+   unidentified developer, right-click (or Control-click) `start.command`
+   instead and choose **Open** — it only asks once.
+4. A Terminal window opens. The first time, it'll say it's installing
+   (takes a minute); after that it prints a `localhost` address.
+5. Go to `http://localhost:3000` in Safari or Chrome.
+
+From then on, starting the app is just double-clicking `start.command`
+again. Leave that Terminal window open while you're using the app; closing
+it stops the app.
+
 ### Setting it up on the Windows laptop
 
 1. Install Node.js: go to [nodejs.org](https://nodejs.org), download the
