@@ -370,6 +370,7 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
     season: form.season.value.trim(),
     contact_first_name: form.contact_first_name.value.trim(),
     contact_last_name: form.contact_last_name.value.trim(),
+    contact_date_of_birth: form.contact_date_of_birth.value,
     email: form.email.value.trim(),
     phone: form.phone.value.trim(),
     notes: form.notes.value.trim(),
