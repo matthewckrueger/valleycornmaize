@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Waiver | Valley Corn Maize</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .waiver-hero {
+      background: linear-gradient(135deg, var(--dkgreen) 0%, #1a3d10 100%);
+      padding: 100px 48px 60px;
+      text-align: center;
+      color: #fff;
+    }
+    .waiver-hero .s-tag { color: var(--yellow); }
+    .waiver-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900; margin: 8px 0 14px; color: #fff;
+    }
+    .waiver-hero p {
+      font-size: 1rem; color: rgba(255,255,255,0.78);
+      max-width: 540px; margin: 0 auto; line-height: 1.7;
+    }
+    .waiver-tips {
+      background: var(--warm); padding: 28px 48px;
+      display: flex; gap: 36px; justify-content: center;
+      flex-wrap: wrap; border-bottom: 3px solid var(--yellow);
+    }
+    .tip-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.84rem; font-weight: 600; color: var(--dkgreen);
+    }
+    .tip-item i { color: var(--orange); font-size: 1rem; }
+    .waiver-cta-section {
+      background: var(--straw); padding: 72px 24px;
+      text-align: center;
+    }
+    .waiver-cta-card {
+      max-width: 560px; margin: 0 auto;
+      background: #fff; border-radius: 20px;
+      padding: 48px 40px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.09);
+      border-top: 4px solid var(--yellow);
+    }
+    .waiver-cta-icon {
+      width: 72px; height: 72px; border-radius: 18px;
+      background: var(--dkgreen); display: flex;
+      align-items: center; justify-content: center;
+      margin: 0 auto 20px; color: var(--yellow); font-size: 2rem;
+    }
+    .waiver-cta-card h2 {
+      font-size: 1.5rem; font-weight: 800;
+      color: var(--dkgreen); margin-bottom: 10px;
+    }
+    .waiver-cta-card p {
+      font-size: 0.9rem; color: var(--mid);
+      line-height: 1.65; margin-bottom: 28px;
+    }
+    .btn-sign-waiver {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--dkgreen); color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700; font-size: 1rem;
+      padding: 16px 36px; border-radius: 50px;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 18px rgba(45,94,30,0.3);
+    }
+    .btn-sign-waiver:hover {
+      background: #1a3d10; transform: translateY(-2px);
+    }
+    .waiver-direct-link {
+      margin-top: 18px; font-size: 0.78rem; color: #aaa;
+    }
+    .waiver-direct-link a { color: var(--orange); text-decoration: none; font-weight: 600; }
+    .waiver-direct-link a:hover { text-decoration: underline; }
+    @media (max-width: 640px) {
+      .waiver-hero { padding: 90px 20px 44px; }
+      .waiver-tips { padding: 20px; gap: 16px; }
+      .waiver-cta-section { padding: 48px 16px; }
+      .waiver-cta-card { padding: 36px 24px; }
+    }
+  </style>
+  <!-- Smartwaiver popup widget -->
+  <script src="https://app.smartwaiver.com/webpl/f.js?webpl_waiver=splashpage-136506&webpl_title=Sign%20Waiver&webpl_align=Right&webpl_fontsize=18&webpl_background=%232D5E1E&webpl_fontcolor=%23F5C518&webpl_font=Verdana" type="text/javascript"></script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="index.html" target="_top">
+    <img src="images/ValleyCornMaize_Logo.png" alt="Valley Corn Maize" style="height:75px;width:auto;object-fit:contain;">
+  </a>
+  <button class="nav-hamburger" id="navToggle" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html#maze" target="_top">The Maze</a>
+    <a href="index.html#attractions" target="_top">Attractions</a>
+    <a href="index.html#events" target="_top">Events</a>
+    <a href="index.html#visit" target="_top">Plan Your Visit</a>
+    <a href="index.html#groups" target="_top">Groups</a>
+    <a href="past-designs.html" target="_top">Past Designs</a>
+    <a href="index.html#find" target="_top">Find Us</a>
+    <a href="waiver.html" style="color:var(--orange);">Sign Waiver</a>
+    <a href="index.html#tickets" class="nav-cta" target="_top">Buy Tickets</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="waiver-hero">
+  <span class="s-tag">Required for Participation</span>
+  <h1>Sign Your Waiver Online</h1>
+  <p>One waiver covers your entire group. Sign ahead of time and walk straight through the gate — no waiting in line.</p>
+</div>
+
+<!-- TIPS STRIP -->
+<div class="waiver-tips">
+  <div class="tip-item"><i class="fa-solid fa-users"></i> Covers your whole group</div>
+  <div class="tip-item"><i class="fa-solid fa-clock"></i> Takes 2–3 minutes</div>
+  <div class="tip-item"><i class="fa-solid fa-shield-halved"></i> Secured by Smartwaiver</div>
+  <div class="tip-item"><i class="fa-solid fa-circle-check"></i> Required before entry</div>
+</div>
+
+<!-- CTA -->
+<div class="waiver-cta-section">
+  <div class="waiver-cta-card">
+    <div class="waiver-cta-icon">
+      <i class="fa-solid fa-file-signature"></i>
+    </div>
+    <h2>Ready to Sign?</h2>
+    <p>Click the button below to open our secure waiver form. Fill it out once for everyone in your group — kids, adults, everyone. Bring the confirmation to the gate or we can look it up by name.</p>
+    <a href="https://waiver.smartwaiver.com/v/valleycornmaize/" target="_blank" rel="noopener noreferrer" class="btn-sign-waiver">
+      <i class="fa-solid fa-pen-to-square"></i> Open Waiver Form
+    </a>
+    <div class="waiver-direct-link">
+      Or use the <a href="https://waiver.smartwaiver.com/v/valleycornmaize/" target="_blank" rel="noopener">direct link</a> if the button doesn't open.
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="background:var(--dark);color:rgba(255,255,255,0.5);text-align:center;padding:24px 20px;font-size:0.78rem;">
+  <p>© 2026 Valley Corn Maize · East Grand Forks, MN · <a href="tel:7012156886" style="color:var(--yellow);text-decoration:none;">(701) 215-6886</a></p>
+  <p style="margin-top:8px;"><a href="index.html" target="_top" style="color:rgba(255,255,255,0.4);text-decoration:none;">← Back to Home</a></p>
+</footer>
+
+<script>
+  var toggle = document.getElementById('navToggle');
+  var links  = document.getElementById('navLinks');
+  toggle.addEventListener('click', function() { links.classList.toggle('open'); });
+  links.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() { links.classList.remove('open'); });
+  });
+  function notifyHeight() {
+    var h = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    window.parent.postMessage(JSON.stringify({ type: 'resize', height: h }), '*');
+  }
+  window.addEventListener('load', notifyHeight);
+  window.addEventListener('resize', notifyHeight);
+</script>
+</body>
+</html>
