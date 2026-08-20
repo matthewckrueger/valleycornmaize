@@ -1,0 +1,16 @@
+{
+  "name": "season-pass-tracker",
+  "version": "1.0.0",
+  "description": "Season pass sign-up, search, and check-in tracker for Valley Corn Maize",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
