@@ -48,15 +48,15 @@ async function api(path, opts) {
 
 // ---------- tabs ----------
 
+function activateTab(tabName) {
+  document.querySelectorAll('.tab-btn').forEach((b) => b.classList.toggle('active', b.dataset.tab === tabName));
+  document.querySelectorAll('.tab-panel').forEach((p) => p.classList.toggle('active', p.id === 'tab-' + tabName));
+  if (tabName === 'stats') loadStats();
+  if (tabName === 'checkin') loadToday();
+}
+
 document.querySelectorAll('.tab-btn').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach((b) => b.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach((p) => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
-    if (btn.dataset.tab === 'stats') loadStats();
-    if (btn.dataset.tab === 'checkin') loadToday();
-  });
+  btn.addEventListener('click', () => activateTab(btn.dataset.tab));
 });
 
 // ---------- seasons ----------
@@ -295,6 +295,7 @@ function renderGroupDetail(g, editing) {
 
     <div class="checkin-cta" style="flex-direction:column;align-items:flex-start;">
       <div style="font-weight:600;">Who's here today?</div>
+      <div class="hint" style="margin:2px 0 4px;">Everyone starts checked — uncheck anyone who isn't actually going in right now, then check in whoever's left. Or just close this without checking in if no one's here yet.</div>
       <div id="presentList" style="display:flex;flex-wrap:wrap;gap:10px 18px;">
         ${g.members.map((m) => `
           <label style="display:flex;align-items:center;gap:6px;font-weight:400;">
@@ -431,7 +432,7 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
   };
 
   try {
-    await api('/api/groups', { method: 'POST', body: JSON.stringify(payload) });
+    const created = await api('/api/groups', { method: 'POST', body: JSON.stringify(payload) });
     msg.textContent = 'Saved!';
     msg.classList.add('ok');
     form.reset();
@@ -440,6 +441,13 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
     memberRowCount = 0;
     addMemberRow();
     toast(`${payload.group_name} registered`);
+
+    // Jump straight to check-in for the pass that was just created — most of the
+    // time whoever's being registered is standing right there. Everyone starts
+    // checked; uncheck anyone not actually going in today (e.g. a pass bought
+    // for a kid who isn't along on this trip) or close without checking in at all.
+    activateTab('checkin');
+    renderGroupDetail(created);
   } catch (err) {
     msg.textContent = err.message;
     msg.classList.add('err');
