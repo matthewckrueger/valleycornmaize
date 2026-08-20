@@ -71,7 +71,9 @@ async function loadSeasons() {
   document.getElementById('registerSeason').value = state.season;
   sel.addEventListener('change', () => {
     state.season = sel.value;
+    document.getElementById('registerSeason').value = state.season;
     loadStats();
+    runSearch();
   });
 }
 
@@ -84,39 +86,90 @@ searchInput.addEventListener('input', () => {
   searchTimer = setTimeout(runSearch, 200);
 });
 
+function renderResultRow(g, { badgeToday, onClick, actionLabel, onAction } = {}) {
+  const contactName = [g.contact_first_name, g.contact_last_name].filter(Boolean).join(' ');
+  const subParts = [
+    contactName,
+    peopleLabel(g.member_count) + ' on pass',
+    plural(g.visit_count, 'visit'),
+    g.last_visit ? 'last visit ' + fmtDateOnly(g.last_visit) : null,
+  ];
+  const item = el(`
+    <div class="result-item">
+      <div>
+        <div class="result-main">${escapeHtml(g.group_name)}</div>
+        <div class="result-sub">${escapeHtml(joinParts(subParts))}</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span class="result-badge ${badgeToday ? 'today' : ''}">${g.season}</span>
+        ${actionLabel ? `<button type="button" class="btn-secondary renew-btn">${actionLabel}</button>` : ''}
+      </div>
+    </div>
+  `);
+  if (onClick) item.addEventListener('click', onClick);
+  if (actionLabel && onAction) {
+    const btn = item.querySelector('.renew-btn');
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      onAction();
+    });
+  }
+  return item;
+}
+
 async function runSearch() {
   const q = searchInput.value.trim();
   const results = document.getElementById('searchResults');
+  const otherCard = document.getElementById('otherSeasonsCard');
+  const otherResults = document.getElementById('otherSeasonResults');
   if (!q) {
     results.innerHTML = '';
+    otherCard.classList.add('hidden');
     return;
   }
-  const rows = await api('/api/groups?search=' + encodeURIComponent(q));
-  if (!rows.length) {
-    results.innerHTML = '<div class="empty-note">No matching families or groups found.</div>';
-    return;
-  }
+
+  const [thisSeasonRows, allRows] = await Promise.all([
+    api('/api/groups?search=' + encodeURIComponent(q) + '&season=' + encodeURIComponent(state.season)),
+    api('/api/groups?search=' + encodeURIComponent(q)),
+  ]);
+  const otherRows = allRows.filter((g) => g.season !== state.season);
+
   results.innerHTML = '';
-  for (const g of rows) {
-    const today = g.last_visit && new Date(g.last_visit.replace(' ', 'T') + 'Z').toDateString() === new Date().toDateString();
-    const contactName = [g.contact_first_name, g.contact_last_name].filter(Boolean).join(' ');
-    const subParts = [
-      contactName,
-      peopleLabel(g.member_count) + ' on pass',
-      plural(g.visit_count, 'visit'),
-      g.last_visit ? 'last visit ' + fmtDateOnly(g.last_visit) : null,
-    ];
-    const item = el(`
-      <div class="result-item">
-        <div>
-          <div class="result-main">${escapeHtml(g.group_name)}</div>
-          <div class="result-sub">${escapeHtml(joinParts(subParts))}</div>
-        </div>
-        <span class="result-badge ${today ? 'today' : ''}">${g.season}</span>
-      </div>
-    `);
-    item.addEventListener('click', () => openGroup(g.id));
-    results.appendChild(item);
+  if (!thisSeasonRows.length) {
+    results.innerHTML = `<div class="empty-note">No ${escapeHtml(state.season)} passes found for "${escapeHtml(q)}".</div>`;
+  } else {
+    for (const g of thisSeasonRows) {
+      const today = g.last_visit && new Date(g.last_visit.replace(' ', 'T') + 'Z').toDateString() === new Date().toDateString();
+      results.appendChild(renderResultRow(g, { badgeToday: today, onClick: () => openGroup(g.id) }));
+    }
+  }
+
+  otherResults.innerHTML = '';
+  if (otherRows.length) {
+    otherCard.classList.remove('hidden');
+    for (const g of otherRows) {
+      otherResults.appendChild(renderResultRow(g, {
+        onClick: () => openGroup(g.id),
+        actionLabel: `Renew for ${state.season}`,
+        onAction: () => renewGroup(g.id, g.group_name),
+      }));
+    }
+  } else {
+    otherCard.classList.add('hidden');
+  }
+}
+
+async function renewGroup(id, groupName) {
+  try {
+    const renewed = await api(`/api/groups/${id}/renew`, {
+      method: 'POST',
+      body: JSON.stringify({ season: state.season }),
+    });
+    toast(`${groupName} renewed for ${state.season}`);
+    runSearch();
+    openGroup(renewed.id);
+  } catch (e) {
+    toast(e.message, true);
   }
 }
 

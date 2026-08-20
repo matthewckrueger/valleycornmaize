@@ -155,6 +155,36 @@ app.post('/api/groups', (req, res) => {
   res.status(201).json(getGroupWithDetail(groupId));
 });
 
+// Copy a family/group from a past season into a new season — same people,
+// same contact info, no check-in history (that starts fresh).
+app.post('/api/groups/:id/renew', (req, res) => {
+  const b = req.body || {};
+  const targetSeason = (b.season && String(b.season).trim()) || currentSeason();
+  const source = getGroupWithDetail(req.params.id);
+  if (!source) return res.status(404).json({ error: 'Not found' });
+
+  const existing = db.prepare('SELECT id FROM pass_groups WHERE season = ? AND lower(trim(group_name)) = ?')
+    .get(targetSeason, source.group_name.trim().toLowerCase());
+  if (existing) {
+    // Already renewed for that season — just hand back the existing record
+    // instead of creating a duplicate.
+    return res.status(200).json(getGroupWithDetail(existing.id));
+  }
+
+  const info = db.prepare(`
+    INSERT INTO pass_groups (season, group_name, contact_first_name, contact_last_name, email, phone, notes)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+  `).run(targetSeason, source.group_name, source.contact_first_name, source.contact_last_name, source.email, source.phone, source.notes);
+  const newGroupId = Number(info.lastInsertRowid);
+
+  const insertMember = db.prepare('INSERT INTO members (group_id, first_name, last_name, date_of_birth) VALUES (?, ?, ?, ?)');
+  for (const m of source.members) {
+    insertMember.run(newGroupId, m.first_name, m.last_name, m.date_of_birth);
+  }
+
+  res.status(201).json(getGroupWithDetail(newGroupId));
+});
+
 app.put('/api/groups/:id', (req, res) => {
   const b = req.body || {};
   const existing = db.prepare('SELECT * FROM pass_groups WHERE id = ?').get(req.params.id);
