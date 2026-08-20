@@ -35,40 +35,68 @@ lives in one file: `data/season-passes.db`.
 
 ### Setting it up on a Mac (to try it out)
 
+Get this as a proper git clone rather than a "Download ZIP" — it means
+`start.command` can pull in whatever's newest on its own every time you
+open it, so you're not manually re-downloading and re-setting-up every time
+something changes.
+
 1. Install Node.js: go to [nodejs.org](https://nodejs.org), download the
    "LTS" installer (the `.pkg` file), open it, click through with the
    defaults.
-2. Get the code onto your Mac: on the GitHub repo page, click the green
-   **Code** button → **Download ZIP**, then double-click the ZIP in your
-   Downloads folder to unzip it.
-3. Open the unzipped folder, then open `season-pass-tracker` inside it.
+2. Open Terminal (`Cmd+Space`, type `Terminal`, Enter). Decide where you
+   want this to live permanently — not the Downloads folder — e.g. your
+   Documents folder, then run:
+   ```
+   cd ~/Documents
+   git clone https://github.com/matthewckrueger/valleycornmaize.git
+   ```
+   (The first time you ever run `git` on a Mac, it may prompt you to
+   install "Command Line Tools" — say yes, let it finish, then run the
+   `git clone` line again.) This creates a `valleycornmaize` folder there
+   with everything in it, including `season-pass-tracker`.
+3. Open that folder in Finder, then open `season-pass-tracker` inside it.
    Double-click `start.command`. If macOS shows a warning about an
    unidentified developer, right-click (or Control-click) `start.command`
    instead and choose **Open** — it only asks once.
-4. A Terminal window opens. The first time, it'll say it's installing
-   (takes a minute); after that it prints a `localhost` address.
+4. A Terminal window opens, checks for updates, installs if needed (first
+   time only, takes a minute), then prints a `localhost` address.
 5. Go to `http://localhost:3000` in Safari or Chrome.
 
 From then on, starting the app is just double-clicking `start.command`
-again. Leave that Terminal window open while you're using the app; closing
+again — it checks for and pulls in whatever's newest automatically before
+starting, so you're always on the latest version without doing anything
+extra. Leave that Terminal window open while you're using the app; closing
 it stops the app.
+
+*(If you'd already been using a folder from a "Download ZIP" before this —
+copy its `data` folder into the new git-cloned `season-pass-tracker` folder
+first, so you don't lose anything you'd saved there.)*
 
 ### Setting it up on the Windows laptop
 
+Same idea as above — a git clone instead of a ZIP, so `start.bat` can
+update itself.
+
 1. Install Node.js: go to [nodejs.org](https://nodejs.org), download the
    "LTS" installer, run it, click through with the defaults.
-2. Get this folder onto the laptop — either `git clone` the repo, or on
-   GitHub click **Code → Download ZIP** and unzip it wherever you keep
-   things (e.g. `Documents\season-pass-tracker`).
-3. Open that folder, double-click `start.bat`. The first time, it'll take a
-   minute to install; after that it opens the app and prints a `localhost`
-   address. A black window has to stay open while you're using the app —
-   minimize it, don't close it.
-4. Go to `http://localhost:3000` in a browser (Edge/Chrome, whatever you
+2. Install Git: go to [git-scm.com](https://git-scm.com/download/win),
+   download and run the installer, click through with the defaults.
+3. Open Command Prompt (search for "cmd" in the Start menu), then run:
+   ```
+   cd Documents
+   git clone https://github.com/matthewckrueger/valleycornmaize.git
+   ```
+   This creates a `valleycornmaize` folder in Documents with everything in
+   it, including `season-pass-tracker`.
+4. Open that folder, then `season-pass-tracker` inside it, and double-click
+   `start.bat`. The first time, it'll take a minute to install; after that
+   it opens the app and prints a `localhost` address. A black window has to
+   stay open while you're using the app — minimize it, don't close it.
+5. Go to `http://localhost:3000` in a browser (Edge/Chrome, whatever you
    normally use).
 
 From then on, starting the app each day is just double-clicking `start.bat`
-again.
+again — it grabs whatever's newest automatically first.
 
 ### Using it from other computers/tablets on the same WiFi
 
