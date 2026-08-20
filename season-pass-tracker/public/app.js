@@ -265,7 +265,12 @@ function renderGroupDetail(g, editing) {
 
   const historyRows = g.checkins.slice(0, 8).map((c) => {
     const names = (c.members || []).map((m) => m.first_name).join(', ');
-    return `<div>${fmtDate(c.checked_in_at)}${names ? ' — ' + escapeHtml(names) : ''}</div>`;
+    return `
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span>${fmtDate(c.checked_in_at)}${names ? ' — ' + escapeHtml(names) : ''}</span>
+        <button type="button" class="btn-danger" data-undo-checkin="${c.id}" style="padding:2px 8px;font-size:.78rem;">Undo</button>
+      </div>
+    `;
   }).join('');
 
   box.innerHTML = `
@@ -278,6 +283,7 @@ function renderGroupDetail(g, editing) {
       <div style="display:flex;gap:8px;">
         <button class="btn-secondary" id="editDetail">Edit</button>
         <button class="btn-secondary" id="closeDetail">Close</button>
+        <button class="btn-danger" id="deleteGroup">Delete Pass</button>
       </div>
     </div>
 
@@ -318,6 +324,35 @@ function renderGroupDetail(g, editing) {
   });
 
   document.getElementById('editDetail').addEventListener('click', () => renderGroupDetail(g, true));
+
+  document.getElementById('deleteGroup').addEventListener('click', async () => {
+    if (!confirm(`Delete "${g.group_name}" completely? This removes the pass, everyone listed on it, and all its check-in history. This can't be undone.`)) return;
+    try {
+      await api(`/api/groups/${g.id}`, { method: 'DELETE' });
+      box.classList.add('hidden');
+      box.innerHTML = '';
+      toast(`Deleted ${g.group_name}`);
+      runSearch();
+      loadToday();
+    } catch (e) {
+      toast(e.message, true);
+    }
+  });
+
+  box.querySelectorAll('[data-undo-checkin]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      if (!confirm('Undo this check-in?')) return;
+      try {
+        const updated = await api('/api/checkins/' + btn.dataset.undoCheckin, { method: 'DELETE' });
+        renderGroupDetail(updated);
+        toast('Check-in removed');
+        loadToday();
+        runSearch();
+      } catch (e) {
+        toast(e.message, true);
+      }
+    });
+  });
 
   document.getElementById('addMemberBtn').addEventListener('click', async () => {
     const first_name = document.getElementById('newMemberFirst').value.trim();
@@ -379,10 +414,26 @@ async function loadToday() {
           <div class="result-main">${escapeHtml(c.group_name)}</div>
           <div class="result-sub">${escapeHtml(sub)}</div>
         </div>
-        <span class="result-badge today">${fmtDate(c.checked_in_at)}</span>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span class="result-badge today">${fmtDate(c.checked_in_at)}</span>
+          <button type="button" class="btn-danger" data-undo-today-checkin="${c.id}">Undo</button>
+        </div>
       </div>
     `;
   }).join('');
+
+  box.querySelectorAll('[data-undo-today-checkin]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      if (!confirm('Undo this check-in?')) return;
+      const row = rows.find((r) => r.id === Number(btn.dataset.undoTodayCheckin));
+      await api('/api/checkins/' + btn.dataset.undoTodayCheckin, { method: 'DELETE' });
+      toast('Check-in removed');
+      loadToday();
+      runSearch();
+      const detailOpen = !document.getElementById('groupDetail').classList.contains('hidden');
+      if (detailOpen && row && state.selectedGroupId === row.group_id) openGroup(state.selectedGroupId);
+    });
+  });
 }
 
 // ---------- register form ----------
