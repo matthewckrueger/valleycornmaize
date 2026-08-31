@@ -113,7 +113,7 @@
   </div>
 </nav>
 
-<!-- ── HERO ────────────────────────────────────── -->
+<!-- ── HERO ─────────────────────────────────────────────── -->
 <section class="hero">
   <!-- LEFT: Text content -->
   <div class="hero-left">
@@ -151,6 +151,12 @@
 
   <!-- RIGHT: Photo -->
   <div class="hero-right">
+    <!--
+      PHOTO SLOT — Hero Right Panel
+      Ideal photo: Wide aerial or panoramic shot of the corn maze / open Red River Valley farmland.
+      Alternatively: A warm, busy family scene at the maze entrance on a sunny fall day.
+      Replace the .photo-slot div below with: <img src="photos/YOUR-PHOTO.jpg" alt="Valley Corn Maize" style="width:100%;height:100%;object-fit:cover;">
+    -->
     <img src="images/homepage-main2.jpg" alt="Aerial view of Valley Corn Maize corn maze in East Grand Forks, Minnesota near Grand Forks ND" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
 
     <!-- Floating info card -->
@@ -175,7 +181,7 @@
   </div>
 </section>
 
-<!-- ── QUICK INFO STRIP ──────────────────────────────── -->
+<!-- ── QUICK INFO STRIP ──────────────────────────────────── -->
 <div class="quick-strip" id="visit">
   <div class="qs-inner">
     <div class="qs-cell">
@@ -213,7 +219,7 @@
   </div>
 </div>
 
-<!-- ── AMERICA 250 ─────────────────────────────────── -->
+<!-- ── AMERICA 250 ───────────────────────────────────────── -->
 <section class="s-america" id="maze">
   <div class="container">
     <span class="s-tag">2026 Maze Theme</span>
@@ -229,10 +235,11 @@
           src="images/maze-2026-banner.jpg"
           alt="2026 America 250 corn maze design aerial view — Valley Corn Maize East Grand Forks MN"
         >
-        <div class="maze-click-note">
-          <i class="fa-solid fa-magnifying-glass-plus"></i>
-          Click image to enlarge
-        </div>
+ 
+  <div class="maze-click-note">
+    <i class="fa-solid fa-magnifying-glass-plus"></i>
+    Click image to enlarge
+  </div>
       </div>
       <div class="maze-branch-info">
         <span class="mil-label">Six Military Branches Honored in the 2026 Maze</span>
@@ -242,22 +249,27 @@
             <div class="mc-icon"><i class="fa-solid fa-star"></i></div>
             <div class="mc-name">Army</div>
           </div>
+
           <div class="mil-card mil-navy">
             <div class="mc-icon"><i class="fa-solid fa-anchor"></i></div>
             <div class="mc-name">Navy</div>
           </div>
+
           <div class="mil-card mil-af">
             <div class="mc-icon"><i class="fa-solid fa-plane"></i></div>
             <div class="mc-name">Air Force</div>
           </div>
+
           <div class="mil-card mil-marines">
             <div class="mc-icon"><i class="fa-solid fa-shield-halved"></i></div>
             <div class="mc-name">Marines</div>
           </div>
+
           <div class="mil-card mil-cg">
             <div class="mc-icon"><i class="fa-solid fa-water"></i></div>
             <div class="mc-name">Coast Guard</div>
           </div>
+
           <div class="mil-card mil-sf">
             <div class="mc-icon"><i class="fa-solid fa-satellite"></i></div>
             <div class="mc-name">Space Force</div>
@@ -270,33 +282,48 @@
         </div>
 
         <div class="maze-partner-box">
-          <div style="flex-shrink:0; font-size:0.7rem; font-weight:700; color:#aaa; letter-spacing:2px; text-transform:uppercase;">Proud Partner</div>
-          <img src="images/pioneer-100.png" alt="Pioneer" style="height:48px;width:auto;">
-          <div style="font-size:0.76rem; color:var(--mid); line-height:1.5;">Pioneer Seed — powering the field that tells America's story for 100 years.</div>
+          <div style="flex-shrink:0; font-size:0.7rem; font-weight:700; color:#aaa; letter-spacing:2px; text-transform:uppercase;">
+            Proud Partner
+          </div>
+
+          <img
+            src="images/pioneer-100.png"
+            alt="Pioneer"
+            style="height:48px;width:auto;"
+          >
+
+          <div style="font-size:0.76rem; color:var(--mid); line-height:1.5;">
+            Pioneer Seed — powering the field that tells America's story for 100 years.
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── PAST DESIGNS TEASER ────────────────────────────── -->
+<!-- ── PAST DESIGNS TEASER ───────────────────────────────── -->
 <div class="past-designs-teaser">
   <div class="pdt-inner">
     <div class="pdt-thumbs">
-      <a href="past-designs.html"><img src="images/maze-2020.jpg" alt="2020 maze design" class="pdt-thumb"></a>
-      <a href="past-designs.html"><img src="images/maze-2025.jpg" alt="2025 maze aerial" class="pdt-thumb"></a>
-      <a href="past-designs.html"><img src="images/maze-2015.jpg" alt="2015 maze map" class="pdt-thumb pdt-thumb-hide"></a>
+      <a href="past-designs.html">
+      <img src="images/maze-2020.jpg" alt="2020 maze design" class="pdt-thumb"></a>
+      <a href="past-designs.html">
+      <img src="images/maze-2025.jpg" alt="2025 maze aerial" class="pdt-thumb"></a>
+      <a href="past-designs.html">
+      <img src="images/maze-2015.jpg" alt="2015 maze map" class="pdt-thumb pdt-thumb-hide"></a>
     </div>
     <div class="pdt-text">
       <div class="pdt-label"><i class="fa-solid fa-clock-rotate-left"></i>&nbsp; Maze Design Archive</div>
       <div class="pdt-headline">Curious how past seasons looked from above?</div>
       <div class="pdt-sub">Every year we carve a completely new design — 30 acres of fresh art. Browse aerial photos of every maze we've built since we opened.</div>
     </div>
-    <a href="past-designs.html" class="pdt-btn">See All Past Designs &nbsp;<i class="fa-solid fa-arrow-right"></i></a>
+    <a href="past-designs.html" class="pdt-btn">
+      See All Past Designs &nbsp;<i class="fa-solid fa-arrow-right"></i>
+    </a>
   </div>
 </div>
 
-<!-- ── SEASON PASS BANNER ─────────────────────────────── -->
+<!-- ── SEASON PASS BANNER ────────────────────────────────── -->
 <div class="pass-banner">
   <div class="pass-inner">
     <div>
@@ -306,17 +333,25 @@
         Nine themed weekends, something new every time. Grandparent Dayz, Canines in the Corn, Flashlight Dash Night — all included. For local families, the season pass is the smartest way to enjoy Valley Corn Maize in 2026.
       </p>
     </div>
+
     <div class="pass-cta-box">
       <div class="pass-price">$30</div>
       <span class="pass-price-note">Unlimited season visits</span>
-      <a href="https://square.link/u/CDlE4jci" class="btn btn-primary" data-season-pass-banner="true" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;">
+
+      <a
+        href="https://square.link/u/CDlE4jci"
+        class="btn btn-primary"
+        data-season-pass-banner="true"
+        target="_blank"
+        rel="noopener noreferrer"
+        style="display:inline-flex;align-items:center;gap:8px;">
         <i class="fa-solid fa-ticket"></i> Get Season Pass
       </a>
     </div>
   </div>
 </div>
 
-<!-- ── TICKETS ──────────────────────────────────────────── -->
+<!-- ── TICKETS ────────────────────────────────────────────── -->
 <section class="s-tickets" id="tickets">
   <div class="container">
     <span class="s-tag">Plan Your Visit</span>
@@ -357,9 +392,14 @@
           <li><span class="perk-dot"><i class="fa-solid fa-check" style="font-size:0.55rem;"></i></span>Wagon Train Ride</li>
           <li><span class="perk-dot"><i class="fa-solid fa-check" style="font-size:0.55rem;"></i></span>Flower field access when in season</li>
         </ul>
-        <a href="https://square.link/u/l4YFqOb4" class="btn-ticket" data-day-pass-ticket="true" target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-ticket"></i>&nbsp; Buy Day Tickets
-        </a>
+            <a
+            href="https://square.link/u/l4YFqOb4"
+            class="btn-ticket"
+            data-day-pass-ticket="true"
+            target="_blank"
+            rel="noopener noreferrer">
+            <i class="fa-solid fa-ticket"></i>&nbsp; Buy Day Tickets
+          </a>
       </div>
       <!-- Season pass -->
       <div class="t-card season">
@@ -398,10 +438,12 @@
   </div>
 </section>
 
-<!-- ── MILITARY DISCOUNT BANNER ────────────────────────────── -->
+<!-- ── MILITARY DISCOUNT BANNER ───────────────────────────── -->
 <div class="mil-discount-banner">
   <div class="mdb-inner">
-    <div class="mdb-flag"><i class="fa-solid fa-shield-halved"></i></div>
+    <div class="mdb-flag">
+      <i class="fa-solid fa-shield-halved"></i>
+    </div>
     <div class="mdb-content">
       <div class="mdb-headline">10% Military Discount — Every Day, All Season</div>
       <div class="mdb-sub">Active duty military &amp; veterans receive 10% off admission at the gate. Valid military ID required. No other corn maze in the region offers this — it's our way of saying thank you.</div>
@@ -423,8 +465,15 @@
     <span class="s-tag">What's Here</span>
     <h2>A Full Day of Family Fun</h2>
     <p class="lead">The corn maze is just the beginning — Valley Corn Maize is packed with thrills, games, fresh food, and fall memories for every age.</p>
+
+    <!-- Featured maze card -->
     <div class="maze-feature">
       <div class="mf-photo">
+        <!--
+          PHOTO SLOT — Corn Maze Feature
+          Ideal: Family walking into or through the maze, or a wide shot showing the maze scale.
+          Replace with: <img src="photos/YOUR-PHOTO.jpg" alt="Corn Maze" style="width:100%;height:100%;object-fit:cover;">
+        -->
         <img src="images/maze-2026.jpeg" alt="2026 Valley Corn Maize — aerial maze design" style="width:100%;height:100%;object-fit:cover;">
       </div>
       <div class="mf-content">
@@ -437,7 +486,12 @@
         </div>
       </div>
     </div>
-    <div class="attract-grid" id="attractionsGrid"></div>
+
+    <!-- Attraction grid -->
+    <div class="attract-grid" id="attractionsGrid">
+      <!-- Attractions are loaded from Sanity by js/sanity-attractions-loader.js -->
+    
+    </div>
   </div>
 </section>
 
@@ -447,11 +501,18 @@
     <span class="s-tag">2026 Special Weekends</span>
     <h2>Something New Every Weekend</h2>
     <p class="lead">Come once or come every weekend—there's always something happening. Mark your calendar so you don't miss your favorite weekend. Weather may cause event dates to change without notice.</p>
-    <div class="ev-grid" id="eventsGrid"></div>
-  </div>
+   <div class="ev-grid" id="eventsGrid">
+      <!-- Events are loaded from Sanity by js/sanity-events-loader.js -->
+    
+    <!-- </div> -->
+    <!-- <div class="ev-dates-note"> -->
+      <!-- <i class="fa-solid fa-calendar-check"></i> -->
+      <!-- <span><strong>2026 dates announces.</strong> Follow <strong>@valleycornmaize</strong> on Facebook &amp; Instagram for announcements — be the first to know.</span> -->
+    <!-- </div> -->
+  <!-- </div> -->
 </section>
 
-<!-- ── SEASONAL ────────────────────────────────────────────────────── -->
+<!-- ── SEASONAL ────────────────────────────────────────────── -->
 <section class="s-seasonal" id="seasonal">
   <div class="container">
     <span class="s-tag">Seasonal Extras</span>
@@ -468,6 +529,10 @@
       </div>
       <div class="seas-card">
         <div class="seas-photo pumpkins">
+          <!--
+            PHOTO: Pumpkins available for sale, rustic display.
+            <img src="images/pumpkins-sale.jpg" alt="Pumpkins for Sale" style="width:100%;height:100%;object-fit:cover;">
+          -->
           <img src="images/pumpkins-sale.jpg" alt="Pumpkins for sale" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="seas-body">
@@ -479,17 +544,18 @@
   </div>
 </section>
 
-<!-- ── CONCESSIONS ────────────────────────────────────────── -->
+<!-- ── CONCESSIONS ────────────────────────────────────── -->
 <section class="s-food" id="food">
   <div class="container">
     <span class="s-tag">On-Site Concessions</span>
     <h2>Fuel the Adventure</h2>
     <p class="lead">From savory favorites to sweet treats, our concessions stand is ready to fuel your adventure.</p>
-    <div class="food-menu-grid" id="foodMenuGrid"></div>
+    <div class="food-menu-grid" id="foodMenuGrid">
+    </div>
   </div>
 </section>
 
-<!-- ── COMMUNITY IMPACT ─────────────────────────────────────── -->
+     <!-- ── COMMUNITY IMPACT ───────────────────────────────────── -->
 <section class="s-impact" id="impact">
   <div class="container">
     <span class="s-tag">Community Impact</span>
@@ -497,34 +563,38 @@
     <p class="lead">
       Every visit to Valley Corn Maize helps strengthen our community. Through charitable giving, nonprofit partnerships, fundraising opportunities, and local support initiatives, we're committed to making a positive impact beyond the maze.
     </p>
+
     <div class="impact-grid">
       <div class="impact-card">
         <div class="impact-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
         <h3>Local Giving</h3>
-        <p>Supporting local causes, organizations, and community needs throughout the region.</p>
+        <p>10% of net profits are donated to various organizations in the Greater Grand Forks area.</p>
       </div>
+
       <div class="impact-card">
         <div class="impact-icon"><i class="fa-solid fa-jar"></i></div>
         <h3>Giving Back Cups</h3>
         <p>Our Giving Back Cups help raise money for local organizations and causes in our community.</p>
       </div>
+
       <div class="impact-card">
         <div class="impact-icon"><i class="fa-solid fa-people-group"></i></div>
         <h3>Fundraising Opportunities</h3>
         <p>We love working with schools, churches, nonprofits, and groups looking to create meaningful support.</p>
       </div>
     </div>
+
     <div class="impact-note impact-mission">
       <div style="font-size:0.62rem;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--orange);margin-bottom:10px;">Our Mission</div>
       <blockquote style="margin:0;font-size:1.05rem;font-weight:700;color:var(--dkgreen);line-height:1.65;font-style:italic;">
-        “Our mission is to create generational memories while cultivating an appreciation for agriculture in a way that honors God.”
+        "Our mission is to create generational memories while cultivating an appreciation for agriculture in a way that honors God."
       </blockquote>
       <p style="margin-top:12px;font-size:0.82rem;color:var(--mid);">Valley Corn Maize is proud to be a family-owned local attraction that gives back to the communities we call home.</p>
     </div>
   </div>
 </section>
 
-<!-- ── PREMIER PARTNER ──────────────────────────────────── -->
+<!-- ── PREMIER PARTNER ───────────────────────────────────── -->
 <section class="s-sponsor">
   <div class="container">
     <div class="premier-badge">Premier Partner</div>
@@ -536,21 +606,25 @@
   </div>
 </section>
 
-<!-- ── PARTNERS ────────────────────────────────────────────── -->
+<!-- ── PARTNERS ──────────────────────────────────────── -->
 <section class="s-partners">
   <div class="container">
     <h3>Thank You To Our Partners</h3>
-    <div class="partner-grid" id="partnerGrid"></div>
-    <p style="font-size:0.74rem;color:#bbb;margin-top:30px;letter-spacing:1px;"><a href="mailto:info@valleycornmaize.com" style="color:var(--green);text-decoration:none;">Contact us to become a partner</a></p>
+    <div class="partner-grid" id="partnerGrid">
+    </div>
+    <p style="font-size:0.74rem;color:#bbb;margin-top:30.00px;letter-spacing:1px;"><a href="mailto:info@valleycornmaize.com" style="color:var(--green);text-decoration:none;">Contact us to become a partner</a></p>
   </div>
 </section>
 
-<!-- ── GROUPS ─────────────────────────────────────────────────── -->
+     
+<!-- ── GROUPS ─────────────────────────────────────────────── -->
 <section class="s-groups" id="groups">
   <div class="container">
     <span class="s-tag">Groups &amp; Special Visits</span>
     <h2>The Perfect Destination for Schools, Churches & Businesses</h2>
     <p class="lead">We love hosting schools, businesses, churches, birthday parties, and large family gatherings. Tell us about your group — we'll take care of the rest.</p>
+
+    <!-- Group Pricing Table -->
     <div class="grp-pricing-wrap">
       <h3 class="grp-pricing-title"><i class="fa-solid fa-tags"></i> Group Discount Pricing</h3>
       <p class="grp-pricing-note">All prices are per person. <strong>Tax is included</strong> in all pricing. Group discounts only apply with a single form of payment.</p>
@@ -579,6 +653,7 @@
         <strong>Non-Profit Tax Savings Available</strong> — proof of non-profit status required at time of visit.
       </div>
     </div>
+
     <div class="groups-layout">
       <div>
         <div class="group-types">
@@ -605,85 +680,102 @@
         </div>
       </div>
       <div class="g-form-card">
-        <h3>Get in Touch About Your Group</h3>
-        <form id="groupInquiryForm" action="https://formspree.io/f/mwvjrpjv" method="POST">
-          <div class="f-row">
-            <label>Your Name</label>
-            <input class="f-input" type="text" name="name" placeholder="Full name" required>
-            <input type="hidden" name="_next" value="https://valleycornmaize.com/#groups-success">
-          </div>
-          <div class="f-row">
-            <label>Email</label>
-            <input class="f-input" type="email" name="email" placeholder="you@example.com" required>
-          </div>
-          <div class="f-row">
-            <label>Phone</label>
-            <input class="f-input" type="tel" name="phone" placeholder="Best phone number">
-          </div>
-          <div class="f-row">
-            <label>Organization / Group Name</label>
-            <input class="f-input" type="text" name="organization" placeholder="School, business, church, family, etc.">
-          </div>
-          <div class="f-row">
-            <label>Estimated Group Size</label>
-            <select class="f-input" name="group_size" required>
-              <option value="">Select group size</option>
-              <option>15–25 people ($2 off/person)</option>
-              <option>26–50 people ($3 off/person)</option>
-              <option>51–100 people ($4 off/person)</option>
-              <option>101+ people ($4 off/person)</option>
-            </select>
-          </div>
-          <div class="f-row">
-            <label>Preferred Visit Date</label>
-            <input class="f-input" type="date" name="preferred_date">
-          </div>
-          <div class="f-row">
-            <label>Tell us about your visit</label>
-            <textarea class="f-input" name="message" placeholder="Preferred dates, any special requests, or questions"></textarea>
-          </div>
-          <input type="hidden" name="_subject" value="New Valley Corn Maize Group Inquiry">
-          <button class="btn-grp-submit" type="submit">
-            <i class="fa-solid fa-paper-plane"></i> Send Inquiry
-          </button>
-        </form>
-        <div id="groupSuccessMessage" style="display:none;">
-          <div class="group-success-box">
-            <i class="fa-solid fa-circle-check"></i>
-            <h4>Thank You!</h4>
-            <p>Your inquiry has been sent successfully. We'll be in touch soon.</p>
-          </div>
-        </div>
+  <h3>Get in Touch About Your Group</h3>
+  <form id="groupInquiryForm" action="https://formspree.io/f/mwvjrpjv" method="POST">
+      <div class="f-row">
+      <label>Your Name</label>
+      <input class="f-input" type="text" name="name" placeholder="Full name" required>
+      <input type="hidden" name="_next" value="https://valleycornmaize.com/#groups-success">
+    </div>
+
+    <div class="f-row">
+      <label>Email</label>
+      <input class="f-input" type="email" name="email" placeholder="you@example.com" required>
+    </div>
+
+    <div class="f-row">
+      <label>Phone</label>
+      <input class="f-input" type="tel" name="phone" placeholder="Best phone number">
+    </div>
+
+    <div class="f-row">
+      <label>Organization / Group Name</label>
+      <input class="f-input" type="text" name="organization" placeholder="School, business, church, family, etc.">
+    </div>
+
+    <div class="f-row">
+      <label>Estimated Group Size</label>
+      <select class="f-input" name="group_size" required>
+        <option value="">Select group size</option>
+        <option>15–25 people ($2 off/person)</option>
+        <option>26–50 people ($3 off/person)</option>
+        <option>51–100 people ($4 off/person)</option>
+        <option>101+ people ($4 off/person)</option>
+      </select>
+    </div>
+
+    <div class="f-row">
+      <label>Preferred Visit Date</label>
+      <input class="f-input" type="date" name="preferred_date">
+    </div>
+
+    <div class="f-row">
+      <label>Tell us about your visit</label>
+      <textarea class="f-input" name="message" placeholder="Preferred dates, any special requests, or questions"></textarea>
+    </div>
+
+   <input type="hidden" name="_subject" value="New Valley Corn Maize Group Inquiry">
+      
+    <button class="btn-grp-submit" type="submit">
+      <i class="fa-solid fa-paper-plane"></i>
+      Send Inquiry
+    </button>
+  </form>
+    <div id="groupSuccessMessage" style="display:none;">
+  <div class="group-success-box">
+    <i class="fa-solid fa-circle-check"></i>
+    <h4>Thank You!</h4>
+    <p>Your inquiry has been sent successfully. We'll be in touch soon.</p>
+  </div>
+</div>
       </div>
     </div>
-  </div>
+</div>
 </section>
 
-<!-- ── SOCIAL ─────────────────────────────────────────────────────── -->
+<!-- ── SOCIAL ─────────────────────────────────────────────── -->
 <section class="s-social">
   <div class="container">
     <span class="s-tag">Stay Connected</span>
     <h2>Follow the Fun</h2>
     <p>See the maze come to life, catch 2026 season announcements, and share your Valley Corn Maize memories. Tag us in your photos — we love seeing your adventures!</p>
     <div class="soc-btns">
-      <a href="https://www.facebook.com/valleycornmaize" class="soc-btn" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f"></i> Facebook</a>
-      <a href="https://www.instagram.com/valleycornmaize" class="soc-btn" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> Instagram</a>
+      <a href="https://www.facebook.com/valleycornmaize" class="soc-btn" target="_blank" rel="noopener">
+        <i class="fa-brands fa-facebook-f"></i> Facebook
+      </a>
+      <a href="https://www.instagram.com/valleycornmaize" class="soc-btn" target="_blank" rel="noopener">
+        <i class="fa-brands fa-instagram"></i> Instagram
+      </a>
+      
     </div>
     <div class="soc-handle">@valleycornmaize &nbsp;·&nbsp; Tag us in your photos and videos!</div>
   </div>
 </section>
 
-<!-- ── FAQ ───────────────────────────────────────────────────── -->
+<!-- ── FAQ ─────────────────────────────────────────────── -->
 <section class="s-faq" id="faq">
   <div class="container">
     <span class="s-tag">Questions &amp; Answers</span>
     <h2>Frequently Asked Questions</h2>
     <p class="lead">Answers to the most common questions before you visit Valley Corn Maize.</p>
-    <div class="faq-list" id="faqList"></div>
+
+    <div class="faq-list" id="faqList">
+      <!-- FAQs loaded from Sanity -->
+    </div>
   </div>
 </section>
-
-<!-- ── FIND US ──────────────────────────────────────────────────── -->
+     
+<!-- ── FIND US ────────────────────────────────────────────── -->
 <section class="s-find" id="find">
   <div class="container">
     <span class="s-tag">Getting Here</span>
@@ -729,15 +821,19 @@
         <div class="map-box">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2902.7962213775554!2d-96.97924182334447!3d47.93486457122179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52c68613a481192f%3A0x461f2d624c4614ad!2sValley%20Corn%20Maize!5e1!3m2!1sen!2sus!4v1781374096487!5m2!1sen!2sus"
-            width="100%" height="340"
+            width="100%"
+            height="340"
             style="border:0;position:absolute;inset:0;width:100%;height:100%;"
-            allowfullscreen loading="lazy"
+            allowfullscreen
+            loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             title="Valley Corn Maize location — 42969 160th Street SW, East Grand Forks, MN">
           </iframe>
         </div>
       </div>
     </div>
+
+    <!-- ── GENERAL CONTACT FORM ──────────────────────────── -->
     <div class="g-form-card" style="margin-top:48px;">
       <h3>Send Us a Message</h3>
       <form id="contactForm" action="https://formspree.io/f/mwvjrpjv" method="POST">
@@ -770,7 +866,8 @@
         </div>
         <input type="hidden" name="_subject" value="New Valley Corn Maize General Inquiry">
         <button class="btn-grp-submit" type="submit">
-          <i class="fa-solid fa-paper-plane"></i> Send Message
+          <i class="fa-solid fa-paper-plane"></i>
+          Send Message
         </button>
       </form>
       <div id="contactSuccessMessage" style="display:none;">
@@ -781,27 +878,35 @@
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- ── FOOTER ───────────────────────────────────────────────────────── -->
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
+
       <div>
         <div class="fb-brand">
-          <div class="fb-brand-icon"><img src="images/Corn-Cob.png" alt="Valley Corn Maize"></div>
+          <div class="fb-brand-icon">
+            <img src="images/Corn-Cob.png" alt="Valley Corn Maize">
+          </div>
+
           <div>
             <div class="fb-brand-name">Valley Corn Maize</div>
             <div class="fb-brand-sub">East Grand Forks, Minnesota</div>
           </div>
         </div>
+
         <p class="fb-desc">Valley Corn Maize is a family attraction near Grand Forks, North Dakota and East Grand Forks, Minnesota featuring one of the largest corn mazes in the United States, family activities, seasonal events, concessions, and unforgettable fall memories.</p>
+
         <div class="footer-socials">
           <a href="https://www.facebook.com/valleycornmaize" class="fsoc" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
           <a href="https://www.instagram.com/valleycornmaize" class="fsoc" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
         </div>
       </div>
+
       <div class="f-col">
         <h4>Plan Your Visit</h4>
         <a href="#tickets">Tickets &amp; Pricing</a>
@@ -810,6 +915,7 @@
         <a href="#faq">FAQ</a>
         <a href="#find">Directions</a>
       </div>
+
       <div class="f-col">
         <h4>Experience</h4>
         <a href="#maze">The 2026 Maze</a>
@@ -818,6 +924,7 @@
         <a href="#food">Concessions</a>
         <a href="#seasonal">Flower Field</a>
       </div>
+
       <div class="f-col">
         <h4>Connect</h4>
         <a href="#groups">Group Bookings</a>
@@ -825,52 +932,92 @@
         <a href="https://www.facebook.com/valleycornmaize" target="_blank" rel="noopener noreferrer">Facebook</a>
         <a href="https://www.instagram.com/valleycornmaize" target="_blank" rel="noopener noreferrer">Instagram</a>
       </div>
+
     </div>
+
     <div class="footer-bot">
       <span class="footer-bot-left">© 2026 Valley Corn Maize · East Grand Forks, MN · (701) 215-6886</span>
-      <span class="footer-bot-right"><i class="fa-solid fa-flag-usa"></i> Celebrating America's 250th Anniversary</span>
+      <span class="footer-bot-right">
+        <i class="fa-solid fa-flag-usa"></i>
+        Celebrating America's 250th Anniversary
+      </span>
     </div>
   </div>
 </footer>
 
 <script>
+  // Hamburger nav toggle
   var toggle = document.getElementById('navToggle');
   var links  = document.getElementById('navLinks');
-  toggle.addEventListener('click', function() { links.classList.toggle('open'); });
+  toggle.addEventListener('click', function() {
+    links.classList.toggle('open');
+  });
   links.querySelectorAll('a').forEach(function(a) {
     a.addEventListener('click', function() { links.classList.remove('open'); });
   });
 </script>
-<script src="js/sanity-site-settings-loader.js"></script>
-<script src="js/sanity-events-loader.js"></script>
-<script src="js/sanity-attractions-loader.js"></script>
-<script src="js/sanity-partners-loader.js"></script>
-<script src="js/sanity-food-loader.js"></script>
-<script src="js/smooth-scroll.js"></script>
-<script src="js/smooth-wheel-scroll.js"></script>
-<script src="js/sunflower-dayz-expiry.js"></script>
-<script src="js/sanity-faq-loader.js"></script>
+    <script src="js/sanity-site-settings-loader.js"></script>
+    <script src="js/sanity-events-loader.js"></script>
+    <script src="js/sanity-attractions-loader.js"></script>
+    <script src="js/sanity-partners-loader.js"></script>
+    <script src="js/sanity-food-loader.js"></script>
+    <script src="js/smooth-scroll.js"></script>
+    <script src="js/smooth-wheel-scroll.js"></script>
+    <script src="js/sunflower-dayz-expiry.js"></script>
+    <script src="js/sanity-faq-loader.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const mazeImage = document.querySelector(".clickable-maze");
   const lightbox = document.getElementById("mazeLightbox");
   const closeBtn = document.querySelector(".lightbox-close");
+
   if (!mazeImage || !lightbox) return;
-  mazeImage.addEventListener("click", function () { lightbox.classList.add("open"); });
-  closeBtn.addEventListener("click", function () { lightbox.classList.remove("open"); });
-  lightbox.addEventListener("click", function (e) { if (e.target === lightbox) lightbox.classList.remove("open"); });
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") lightbox.classList.remove("open"); });
+
+  mazeImage.addEventListener("click", function () {
+    lightbox.classList.add("open");
+  });
+
+  closeBtn.addEventListener("click", function () {
+    lightbox.classList.remove("open");
+  });
+
+  lightbox.addEventListener("click", function (e) {
+    if (e.target === lightbox) {
+      lightbox.classList.remove("open");
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      lightbox.classList.remove("open");
+    }
+  });
 });
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("groupInquiryForm");
   const success = document.getElementById("groupSuccessMessage");
+
   if (!form) return;
+
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
-    const response = await fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } });
-    if (response.ok) { form.style.display = "none"; success.style.display = "block"; }
+
+    const formData = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json"
+      }
+    });
+
+    if (response.ok) {
+      form.style.display = "none";
+      success.style.display = "block";
+    }
   });
 });
 </script>
@@ -878,18 +1025,37 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   const contactForm = document.getElementById("contactForm");
   const contactSuccess = document.getElementById("contactSuccessMessage");
+
   if (!contactForm) return;
+
   contactForm.addEventListener("submit", async function (e) {
     e.preventDefault();
-    const response = await fetch(contactForm.action, { method: "POST", body: new FormData(contactForm), headers: { Accept: "application/json" } });
-    if (response.ok) { contactForm.style.display = "none"; contactSuccess.style.display = "block"; }
+
+    const formData = new FormData(contactForm);
+
+    const response = await fetch(contactForm.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json"
+      }
+    });
+
+    if (response.ok) {
+      contactForm.style.display = "none";
+      contactSuccess.style.display = "block";
+    }
   });
 });
 </script>
-
-<div class="image-lightbox" id="mazeLightbox">
+     <div class="image-lightbox" id="mazeLightbox">
   <span class="lightbox-close">&times;</span>
-  <img id="mazeLightboxImg" src="images/maze-2026-banner.jpg" alt="2026 America 250 Corn Maze Design">
+
+  <img
+    id="mazeLightboxImg"
+    src="images/maze-2026-banner.jpg"
+    alt="2026 America 250 Corn Maze Design"
+  >
 </div>
 
 <!-- Smartwaiver floating widget -->
