@@ -214,7 +214,7 @@ body.has-site-alert .hero {
 
 @keyframes alertMarquee {
   0% {
-    transform: translateX(100%);
+    transform: translateX(0%);
   }
 
   100% {
