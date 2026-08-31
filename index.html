@@ -113,7 +113,7 @@
   </div>
 </nav>
 
-<!-- ── HERO ─────────────────────────────────────────────── -->
+<!-- ── HERO ────────────────────────────────────── -->
 <section class="hero">
   <!-- LEFT: Text content -->
   <div class="hero-left">
@@ -151,6 +151,12 @@
 
   <!-- RIGHT: Photo -->
   <div class="hero-right">
+    <!--
+      PHOTO SLOT — Hero Right Panel
+      Ideal photo: Wide aerial or panoramic shot of the corn maze / open Red River Valley farmland.
+      Alternatively: A warm, busy family scene at the maze entrance on a sunny fall day.
+      Replace the .photo-slot div below with: <img src="photos/YOUR-PHOTO.jpg" alt="Valley Corn Maize" style="width:100%;height:100%;object-fit:cover;">
+    -->
     <img src="images/homepage-main2.jpg" alt="Aerial view of Valley Corn Maize corn maze in East Grand Forks, Minnesota near Grand Forks ND" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
 
     <!-- Floating info card -->
@@ -175,7 +181,7 @@
   </div>
 </section>
 
-<!-- ── QUICK INFO STRIP ──────────────────────────────────── -->
+<!-- ── QUICK INFO STRIP ──────────────────────────────── -->
 <div class="quick-strip" id="visit">
   <div class="qs-inner">
     <div class="qs-cell">
@@ -213,7 +219,7 @@
   </div>
 </div>
 
-<!-- ── AMERICA 250 ───────────────────────────────────────── -->
+<!-- ── AMERICA 250 ─────────────────────────────────── -->
 <section class="s-america" id="maze">
   <div class="container">
     <span class="s-tag">2026 Maze Theme</span>
@@ -295,7 +301,7 @@
   </div>
 </section>
 
-<!-- ── PAST DESIGNS TEASER ───────────────────────────────── -->
+<!-- ── PAST DESIGNS TEASER ────────────────────────────── -->
 <div class="past-designs-teaser">
   <div class="pdt-inner">
     <div class="pdt-thumbs">
@@ -317,7 +323,7 @@
   </div>
 </div>
 
-<!-- ── SEASON PASS BANNER ────────────────────────────────── -->
+<!-- ── SEASON PASS BANNER ─────────────────────────────── -->
 <div class="pass-banner">
   <div class="pass-inner">
     <div>
@@ -345,7 +351,7 @@
   </div>
 </div>
 
-<!-- ── TICKETS ────────────────────────────────────────────── -->
+<!-- ── TICKETS ──────────────────────────────────────────── -->
 <section class="s-tickets" id="tickets">
   <div class="container">
     <span class="s-tag">Plan Your Visit</span>
@@ -432,7 +438,7 @@
   </div>
 </section>
 
-<!-- ── MILITARY DISCOUNT BANNER ───────────────────────────── -->
+<!-- ── MILITARY DISCOUNT BANNER ────────────────────────────── -->
 <div class="mil-discount-banner">
   <div class="mdb-inner">
     <div class="mdb-flag">
@@ -463,6 +469,11 @@
     <!-- Featured maze card -->
     <div class="maze-feature">
       <div class="mf-photo">
+        <!--
+          PHOTO SLOT — Corn Maze Feature
+          Ideal: Family walking into or through the maze, or a wide shot showing the maze scale.
+          Replace with: <img src="photos/YOUR-PHOTO.jpg" alt="Corn Maze" style="width:100%;height:100%;object-fit:cover;">
+        -->
         <img src="images/maze-2026.jpeg" alt="2026 Valley Corn Maize — aerial maze design" style="width:100%;height:100%;object-fit:cover;">
       </div>
       <div class="mf-content">
@@ -501,7 +512,7 @@
   <!-- </div> -->
 </section>
 
-<!-- ── SEASONAL ────────────────────────────────────────────── -->
+<!-- ── SEASONAL ────────────────────────────────────────────────────── -->
 <section class="s-seasonal" id="seasonal">
   <div class="container">
     <span class="s-tag">Seasonal Extras</span>
@@ -518,6 +529,10 @@
       </div>
       <div class="seas-card">
         <div class="seas-photo pumpkins">
+          <!--
+            PHOTO: Pumpkins available for sale, rustic display.
+            <img src="images/pumpkins-sale.jpg" alt="Pumpkins for Sale" style="width:100%;height:100%;object-fit:cover;">
+          -->
           <img src="images/pumpkins-sale.jpg" alt="Pumpkins for sale" style="width:100%;height:100%;object-fit:cover;">
         </div>
         <div class="seas-body">
@@ -529,7 +544,7 @@
   </div>
 </section>
 
-<!-- ── CONCESSIONS ────────────────────────────────────── -->
+<!-- ── CONCESSIONS ────────────────────────────────────────── -->
 <section class="s-food" id="food">
   <div class="container">
     <span class="s-tag">On-Site Concessions</span>
@@ -540,7 +555,7 @@
   </div>
 </section>
 
-     <!-- ── COMMUNITY IMPACT ───────────────────────────────────── -->
+     <!-- ── COMMUNITY IMPACT ─────────────────────────────────────── -->
 <section class="s-impact" id="impact">
   <div class="container">
     <span class="s-tag">Community Impact</span>
@@ -558,8 +573,8 @@
 
       <div class="impact-card">
         <div class="impact-icon"><i class="fa-solid fa-jar"></i></div>
-        <h3>Giving Back Cup Donations</h3>
-        <p>Our giving back cups help raise money for local organizations and causes in our community.</p>
+        <h3>Tip Jar Donations</h3>
+        <p>Our tip jars help raise money for local organizations and causes in our community.</p>
       </div>
 
       <div class="impact-card">
@@ -569,14 +584,17 @@
       </div>
     </div>
 
-    <div class="impact-note">
-      <strong>Creating memories while making a difference.</strong>
-      Valley Corn Maize is proud to be a family-owned local attraction that gives back to the communities we call home.
+    <div class="impact-note impact-mission">
+      <div style="font-size:0.62rem;font-weight:700;letter-spacing:3.5px;text-transform:uppercase;color:var(--orange);margin-bottom:10px;">Our Mission</div>
+      <blockquote style="margin:0;font-size:1.05rem;font-weight:700;color:var(--dkgreen);line-height:1.65;font-style:italic;">
+        “Our mission is to create generational memories while cultivating an appreciation for agriculture in a way that honors God.”
+      </blockquote>
+      <p style="margin-top:12px;font-size:0.82rem;color:var(--mid);">Valley Corn Maize is proud to be a family-owned local attraction that gives back to the communities we call home.</p>
     </div>
   </div>
 </section>
 
-<!-- ── PREMIER PARTNER ───────────────────────────────────── -->
+<!-- ── PREMIER PARTNER ──────────────────────────────────── -->
 <section class="s-sponsor">
   <div class="container">
     <div class="premier-badge">Premier Partner</div>
@@ -588,7 +606,7 @@
   </div>
 </section>
 
-<!-- ── PARTNERS ──────────────────────────────────────── -->
+<!-- ── PARTNERS ────────────────────────────────────────────── -->
 <section class="s-partners">
   <div class="container">
     <h3>Thank You To Our Partners</h3>
@@ -599,7 +617,7 @@
 </section>
 
      
-<!-- ── GROUPS ─────────────────────────────────────────────── -->
+<!-- ── GROUPS ─────────────────────────────────────────────────── -->
 <section class="s-groups" id="groups">
   <div class="container">
     <span class="s-tag">Groups &amp; Special Visits</span>
@@ -725,7 +743,7 @@
 </div>
 </section>
 
-<!-- ── SOCIAL ─────────────────────────────────────────────── -->
+<!-- ── SOCIAL ─────────────────────────────────────────────────────── -->
 <section class="s-social">
   <div class="container">
     <span class="s-tag">Stay Connected</span>
@@ -744,7 +762,7 @@
   </div>
 </section>
 
-<!-- ── FAQ ─────────────────────────────────────────────── -->
+<!-- ── FAQ ───────────────────────────────────────────────────── -->
 <section class="s-faq" id="faq">
   <div class="container">
     <span class="s-tag">Questions &amp; Answers</span>
@@ -757,7 +775,7 @@
   </div>
 </section>
      
-<!-- ── FIND US ────────────────────────────────────────────── -->
+<!-- ── FIND US ──────────────────────────────────────────────────── -->
 <section class="s-find" id="find">
   <div class="container">
     <span class="s-tag">Getting Here</span>
@@ -815,7 +833,7 @@
       </div>
     </div>
 
-    <!-- ── GENERAL CONTACT FORM ──────────────────────────── -->
+    <!-- ── GENERAL CONTACT FORM ──────────────────────── -->
     <div class="g-form-card" style="margin-top:48px;">
       <h3>Send Us a Message</h3>
       <form id="contactForm" action="https://formspree.io/f/mwvjrpjv" method="POST">
@@ -864,7 +882,7 @@
   </div>
 </section>
 
-<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<!-- ── FOOTER ───────────────────────────────────────────────────────── -->
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
