@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var grid = card.closest(".ticket-grid");
     card.remove();
     if (grid) {
-      grid.style.gridTemplateColumns = "1fr 1fr";
+      grid.classList.add("two-cards");
     }
   }
 });
